@@ -9,7 +9,7 @@ import { View,
     Image,
     SafeAreaView,
      } from 'react-native';
-
+import styles from '../style/Style'
 
 
 export default class Teacherlogin extends React.Component {
@@ -32,18 +32,19 @@ export default class Teacherlogin extends React.Component {
   render() {
     return (
         
-        <View style={styles.Container}>
+      <View style={styles.Container}>
            
-           <Appbar.Header>
-        <Appbar.BackAction
+          <Appbar.Header>
+          <Appbar.BackAction
           onPress={this.backToHome}
-        />
-        <Appbar.Content
-          title="Teacher Login"
-        />
-         <Appbar.Action icon="home" onPress={this.backToHome} />
-      </Appbar.Header>
+          />
+          <Appbar.Content
+            title="Teacher Login"
+          />
+          <Appbar.Action icon="home" onPress={this.backToHome} />
+          </Appbar.Header>
             <ScrollView style={styles.scrollView}>
+
           <View style={styles.body}>
            
             <View style={styles.imageview}>
@@ -54,26 +55,26 @@ export default class Teacherlogin extends React.Component {
             </View>
 
             <View style={styles.textinputview}>
-                <TextInput
-               label='Username '
-               mode='outlined'
-                value={this.state.text}
-                style={styles.mytextinput}
-                onChangeText={username => this.setState({ username })}
-                />
-
-                <TextInput
-                label='Password'
+                  <TextInput
+                label='Username '
                 mode='outlined'
-                value={this.state.text}
-                secureTextEntry={true} 
-                style={styles.mytextinput}
-                onChangeText={password => this.setState({ password })}
-                />
-              
-              <Button  mode="contained" onPress={this.teacherProfile}>     Login    </Button>
+                  value={this.state.text}
+                  style={styles.mytextinput}
+                  onChangeText={username => this.setState({ username })}
+                  />
 
-                    </View> 
+                  <TextInput
+                  label='Password'
+                  mode='outlined'
+                  value={this.state.text}
+                  secureTextEntry={true} 
+                  style={styles.mytextinput}
+                  onChangeText={password => this.setState({ password })}
+                  />
+              <View style={styles.button} >
+              <Button  mode="contained" onPress={this.teacherProfile}>     Login    </Button>
+              </View>
+            </View> 
                    
     </View> 
             </ScrollView>
@@ -82,47 +83,17 @@ export default class Teacherlogin extends React.Component {
     );
   }
 }
-
+/* 
 const styles=StyleSheet.create({
     Container:{
       height:'100%',
       backgroundColor:'#fdfefe',
     
     },
-    Scroll:{
-        backgroundColor:'#fdfefe',
-        height:'100%',
+   
+   
+   
     
-    },
-    header:{
-        height:'15%',
-        backgroundColor:'#D6E7ED',
-        width:'100%',
-        borderColor:'#000000',
-       flexDirection:'row',
-        borderWidth:2,
-       // marginBottom:'5%',
-        //flex:1
-    },
-    backlogo:{
-        
-        marginTop:"85%",
-        marginLeft:'1%',
-       
-    },
-    headerText:{
-        fontStyle:'normal',
-        fontSize:30,
-        fontFamily:'Comic Sans MS',
-        marginTop:'5%',
-        marginLeft:'10%',
-    },
-    homeLogo:{
-        
-        marginTop:"10%",
-        marginLeft:'25%',
-    },
-  
     body:{
         backgroundColor:'white',
         
@@ -167,4 +138,4 @@ const styles=StyleSheet.create({
 
 
   
-  });
+  }); */

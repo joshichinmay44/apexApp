@@ -3,9 +3,6 @@ import {StyleSheet,  View,ScrollView,Image, TouchableOpacity,} from 'react-nativ
 import { Appbar,Button,Text,TextInput,Card } from 'react-native-paper';
 import { createDrawerNavigator } from '@react-navigation/drawer';
 import { NavigationContainer } from '@react-navigation/native';
-import {createStackNavigator } from 'react-navigation-stack';
-import {createAppContainer } from 'react-navigation';
-
 import LoadingScreen from './LoadingScreen';
 import StudentLogin from './Studentlogin';
 import TeacherLogin from './Teacherlogin'; 
@@ -15,11 +12,11 @@ import EntriesScreen from './EntriesScreen';
 import EligibilityHomeScreen from './EligibilityHomeScreen';
 import StudentProfile from './StudentProfile';
 import CoursesOffered from './CoursesOffered';
-//import Demosatck from './Demosatck';
 import Navigator from './Stack';
 import DirectorsDesk from './DirectorsDesk';
 import SuccessStories from './SuccessStories';
-import style from './Style'
+import styles from '../style/Style'
+
  class About extends Component {
 
     static navigationOptions = {
@@ -33,7 +30,7 @@ import style from './Style'
   render() {
     return (
      
-      <View style={style.Container}>
+      <View style={styles.Container}>
           <ScrollView style={styles.Scroll}>
        
           <Appbar.Header>
@@ -73,7 +70,7 @@ import style from './Style'
     )
   }
 }
-
+/* 
 const styles = StyleSheet.create({
    
     Container:{
@@ -101,13 +98,10 @@ const styles = StyleSheet.create({
       
     },
    
-    drawercontainer:{
-      width:20,
-      backgroundColor:'#084d7b'
-    },
+   
 
    
-})
+}) */
 
   
 const Drawer = createDrawerNavigator();

@@ -1,14 +1,14 @@
 import React, { Component } from 'react'
 import {StyleSheet,View,ScrollView,Image, TouchableOpacity,} from 'react-native'
 import { Appbar,Button,Text,TextInput,Card } from 'react-native-paper';    
-
+import styles from '../style/Style'
 export default class Services extends Component {
     static navigationOptions = {
         headerShown: false
     }
 
 infoArmy=()=>{
-  this.props.navigation.navigate('AboutArmy')
+  this.props.navigation.navigate('Stack',{screen:'AboutArmy'})
 }
 infoNavy=()=>{
   this.props.navigation.navigate('AboutNavy')
@@ -49,7 +49,7 @@ infoAirForce=()=>{
     )
   }}
 
-const styles = StyleSheet.create({
+/* const styles = StyleSheet.create({
    
     Container:{
       height:'100%',
@@ -80,4 +80,4 @@ const styles = StyleSheet.create({
       margin:"2%",
     },
    
-})
+}) */

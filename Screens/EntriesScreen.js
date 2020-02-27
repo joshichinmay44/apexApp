@@ -1,9 +1,7 @@
 import React, { Component } from 'react'
 import {StyleSheet, Text, View,ScrollView,Image, TouchableOpacity} from 'react-native'
-
-     
-     import { Avatar, Card, Title, Paragraph,Appbar,Button } from 'react-native-paper';
-
+import { Avatar, Card, Title, Paragraph,Appbar,Button } from 'react-native-paper';
+import styles from '../style/Style'
 export default class EntriesScreen extends Component {
     static navigationOptions = {
         headerShown: false
@@ -93,7 +91,7 @@ infoAFCAT=()=>{
     )
   }}
 
-const styles = StyleSheet.create({
+/* const styles = StyleSheet.create({
    
     Container:{
  
@@ -112,4 +110,4 @@ const styles = StyleSheet.create({
     
     
    
-})
+}) */

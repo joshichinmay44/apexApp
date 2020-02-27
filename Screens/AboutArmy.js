@@ -1,6 +1,7 @@
 import React, { Component } from 'react'
 import {StyleSheet, View,ScrollView,Image, TouchableOpacity} from 'react-native'
 import { Appbar,Button,Text,TextInput,Card } from 'react-native-paper';
+import styles from '../style/Style'
 export default class AboutArmy extends Component {
     static navigationOptions = {
         headerShown: false
@@ -23,13 +24,13 @@ export default class AboutArmy extends Component {
                  style={styles.logo}
                  source={require('../images/AboutPhoto.jpg')}
                 />
-                <Text style={styles.Info}>ABout the Army</Text>
+                <Text style={styles.Title}>ABout the Army</Text>
           </View>
         </ScrollView>
       </View>
     )
   }}
-
+/* 
 const styles = StyleSheet.create({
    
     Container:{
@@ -45,3 +46,4 @@ const styles = StyleSheet.create({
      },
     
 })
+ */

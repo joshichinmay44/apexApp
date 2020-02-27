@@ -1,8 +1,7 @@
 import React, { Component } from 'react'
 import {StyleSheet, Text, View,ScrollView,Image, TouchableOpacity} from 'react-native'
-
 import { Avatar, Card,Button, Title, Paragraph,Appbar } from 'react-native-paper';
-
+import '../style/Style'
 export default class DirectorsDesk extends React.Component {
   back = () => {
     this.props.navigation.navigate('Home')
@@ -26,7 +25,7 @@ export default class DirectorsDesk extends React.Component {
   }
 }
 
-const styles = StyleSheet.create({
+/* const styles = StyleSheet.create({
    
   Container:{
    
@@ -42,4 +41,4 @@ const styles = StyleSheet.create({
    },
  
  
-})
+}) */
