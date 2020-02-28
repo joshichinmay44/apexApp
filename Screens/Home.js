@@ -138,9 +138,10 @@ export default function mydrawer() {
         <Drawer.Screen name="Teacher Login" component={TeacherLogin} />
         <Drawer.Screen name="Student Login" component={StudentLogin} />
         <Drawer.Screen name="Contact" component={Contact} /> 
-        <Drawer.Screen name="Stack" component={Navigator} /> 
-        
+        <Drawer.Screen name="Stack" component={Navigator}  />  
+      
       </Drawer.Navigator>
+      
     </NavigationContainer>
   );
 } 

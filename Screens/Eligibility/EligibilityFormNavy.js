@@ -12,7 +12,7 @@ export default class EligibilityFormNavy extends Component {
         month: '-1',
         qualification:'-1',
         ncc: false,
-        service:'navy'     
+        service:''     
     };
     back = () => {this.props.navigation.navigate('EligibilityHomeScreen')}
     checkEligibility=() =>{this.props.navigation.navigate('EligibilityResultArmy',{

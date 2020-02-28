@@ -198,13 +198,103 @@ renderTesNavy=(attemptTES)=>{
 
 
 
+
+renderCdsIna(attemptCdsPC)
+{
+
+    if(attemptCdsPC<=0){
+        return(<View>
+            <Card.Title title='You do not have any CDS (INA) attempts left' />
+        </View>)
+    }
+    else{
+        return(
+           
+            <Card style={styles.Card}>
+                      <Card.Title title={this.renderTitle(attemptCdsPC,'CDS(INA)')} subtitle='Press for more details'></Card.Title>
+            <TouchableOpacity onPress={()=>this.props.navigation.navigate('CDS')}>
+         <Card.Cover  source={{uri:'https://akm-img-a-in.tosshub.com/indiatoday/images/story/201908/1_4-770x433.jpeg?acHyyfI9tCcvkDtlPlPIbKxD5kpAg1dR'}}/>
+        
+    
+    </TouchableOpacity>
+    </Card>
+        )}
+}
+
+
+renderINET=(attemptINET)=>{
+
+    if(attemptINET<=0){
+        return(<View>
+            <Card.Title title='You do not have any INET attempts left' />
+        </View>)
+    }
+    else{
+        return(
+           
+            <Card style={styles.Card}>
+                      <Card.Title title={this.renderTitle(attemptINET,'INET')} subtitle='Press for more details'></Card.Title>
+            <TouchableOpacity onPress={()=>this.props.navigation.navigate('INET')}>
+         <Card.Cover  source={{uri:'https://www.careerindiainfo.in/wp-content/uploads/2019/12/INET-2020.jpg'}}/>
+        
+    
+    </TouchableOpacity>
+    </Card>
+        )}
+
+}
+
+
+renderUES=(attemptUES)=>{
+    if(attemptUES<=0){
+        return(<View>
+            <Card.Title title='You do not have any UES attempts left' />
+        </View>)
+    }
+    else{
+        return(
+           
+            <Card style={styles.Card}>
+                      <Card.Title title={this.renderTitle(attemptUES,'UES')} subtitle='Press for more details'></Card.Title>
+            <TouchableOpacity onPress={()=>this.props.navigation.navigate('INET')}>
+         <Card.Cover  source={{uri:'https://data1.ibtimes.co.in/en/full/726646/boeing-f-18-fighter.jpg'}}/>
+        
+    
+    </TouchableOpacity>
+    </Card>
+        )}
+}
+
+
+renderNavyJAG(attemptJAG)
+{
+    if(attemptJAG<=0){
+        return(<View>
+            <Card.Title title='You do not have any JAG attempts left' />
+        </View>)
+    }
+    else{
+        return(
+           
+            <Card style={styles.Card}>
+                      <Card.Title title={this.renderTitle(attemptJAG,'JAG')} subtitle='Press for more details'></Card.Title>
+            <TouchableOpacity onPress={()=>this.props.navigation.navigate('JAG')}>
+         <Card.Cover  source={{uri:'https://qph.fs.quoracdn.net/main-qimg-9812836fd5df7dd0e43b5258784750da.webp'}}/>
+        
+    
+    </TouchableOpacity>
+    </Card>
+        )}
+}
+
 checkEligibilityNavy=(age,month,qualification,ncc)=>{
 
     let   attemptCdsPC=2*(23-age)
-let attemptCdsSSC=2*(24-age)
-let attemptNCC=2*(24.5-age)
-let attemptTGC=2*(24-age)
-let attemptSSC=2*(27-age)
+
+/* let attemptTGC=2*(24-age)
+let attemptSSC=2*(27-age) */
+let attemptUES=2*(24-age)
+let attemptINET=2*(24-age)
 let attemptJAG=2*(27-age)
 let attemptNDA=2*(18.5-age)
 let attemptTES=(19-age)
@@ -243,97 +333,57 @@ let attemptTES=(19-age)
        else if(age>=19 && age<=27 && (qualification==2 || qualification==3 || qualification==4) && month>=7)
        {
          
-           if(age<=24.5 && qualification==2)
+           if(age<=24 && qualification==2)
            {   
-               if(age<=24.5 && ncc){
                
-               return(
+               
+                 return(
                    <View style={styles.Container}>
-                  {this.renderCdsPC(attemptCdsPC+1)}
-                   {this.renderCdsSSC(attemptCdsSSC+1)}
-                   {this.renderNCC(attemptNCC+1)}
-     </View>
-           
-
-               )}
-               else if(age<=24){
-                  
-               return(
-                   <View style={styles.Container}>
-                        {this.renderCdsPC(attemptCdsPC+1)}
-                        {this.renderCdsSSC(attemptCdsSSC+1)}
+                        {this.renderCdsIna(attemptCdsPC+1)}
+                        {this.renderINET(attemptINET+1)}
          </View>)
                }
 
-               else {
-                   return(
-                       <View>
-                           <Card.Title title='Sorry you have no attempts left!' />
-                       </View>
-                   )
-               }
-               }
+                   
+               
               else if(age<=27 && qualification==3)
               {   
-               if(ncc){   
+               
               
                
                return(
                    <View style={styles.Container}>
-                            {this.renderCdsPC(attemptCdsPC+1)}
-                            {this.renderCdsSSC(attemptCdsSSC+1)}
-                            {this.renderNCC(attemptNCC+1)}
-                           {this.renderTGC(attemptTGC+1)}
-                           {this.renderSSC(attemptSSC+1)}
+                            {this.renderCdsIna(attemptCdsPC+1)}
+                            {this.renderINET(attemptINET+1)}
+                             {this.renderUES(attemptUES+1)}
 
 
-          </View>
+                     </View>
            
 
-               )}
+               )
 
-               else 
-               {
-                  
-                   return(
-                       <View style={styles.Container}>
-                           {this.renderCdsPC(attemptCdsPC+1)}
-   
-                           {this.renderCdsSSC(attemptCdsSSC+1)}
-                           {this.renderTGC(attemptTGC+1)}
-                           {this.renderSSC(attemptSSC+1)}    
-   
-              </View>
                
-   
-                   ) 
-               }
                }
 
                else if(age>=21 && age<=27 && qualification==4){
 
-                   if(ncc)
-                   {
+                 
                       
                      
                        return(
                            <View style={styles.Container}>
-                           {this.renderCdsPC(attemptCdsPC+1)}
+                           {this.renderCdsIna(attemptCdsPC+1)}
 
-                           {this.renderCdsSSC(attemptCdsSSC+1)}
-                           {this.renderNCC(attemptNCC+1)}
-                           {this.renderJAG(attemptJAG+1)}
-</View>                        )
-                   }
-                   else{
+                           {this.renderINET(attemptINET+1)}
+                          
+                           {this.renderNavyJAG(attemptJAG+1)}
+                            </View>                        
+                            )
+                   
+                  
                     
-                       return(
-                           <View style={styles.Container}>
-                      {this.renderCdsPC(attemptCdsPC+1)}
-                      {this.renderCdsSSC(attemptCdsSSC+1)} 
-                         {this.renderJAG(attemptJAG+1)}
-                      </View>
-                        ) }
+                    
                
 
                }
@@ -350,131 +400,69 @@ let attemptTES=(19-age)
            else if(age>=19 && age<=27 && (qualification==2 || qualification==3 || qualification==4) && month<7)
            {
               
-               if(age<=24.5 && qualification==2)
-           {   
-               if(age<=24.5 && ncc){
-              
-               return(
-                   <View style={styles.Container}>
-                       {this.renderCdsPC(attemptCdsPC)}
-
-                       {this.renderCdsSSC(attemptCdsSSC)}
-
-                       {this.renderNCC(attemptNCC)}
-
-        </View>
-           
-
-               )}
-               else if(age<=24){
-                  
-               return(
-                   <View style={styles.Container}>
-                     {this.renderCdsPC(attemptCdsPC)}
-
-                     {this.renderCdsSSC(attemptCdsSSC)}
+            if(age<=24 && qualification==2)
+            {   
+                
+                
+                  return(
+                    <View style={styles.Container}>
+                         {this.renderCdsIna(attemptCdsPC)}
+                         {this.renderINET(attemptINET)}
           </View>)
-               }
-
-               else if(age>=25 && qualification==2) {
-                   return(
-                       <View>
-                           <Card.Title title='Sorry you have no attempts left!' />
-                       </View>
-                   )
-               }
-              
-               }
+                }
+ 
+                    
+                
+               else if(age<=27 && qualification==3)
+               {   
+                
                
-
-
-              else if(age<=27 && qualification==3)
-              {   
-               if(ncc){   
-            
-               
-               return(
-                   <View style={styles.Container}>
-                                {this.renderCdsPC(attemptCdsPC)}
-
-                               {this.renderCdsSSC(attemptCdsSSC)}
-          {this.renderNCC(attemptNCC)}
-         {this.renderTGC(attemptTGC)}           
-         {this.renderSSC(attemptSSC)}
-
-
-          </View>
-           
-
-               )}
-
-               else 
-               {
-                  
-                   return(
-                       <View style={styles.Container}>                                           {this.renderCdsPC(attemptCdsPC)}
-             {this.renderCdsSSC(attemptCdsSSC)}
-   
-            
-             {this.renderTGC(attemptTGC)}
-             {this.renderSSC(attemptSSC)}    
-   
-              </View>
-               
-   
-                   ) 
-               }
-               }
-
-               else if(age>=21 && age<=27 && qualification==4){
-
-                   if(ncc)
-                   {
-                      
-                      
-                       return(
-                           <View style={styles.Container}>
-                          {this.renderCdsPC(attemptCdsPC)}
-
-{this.renderCdsSSC(attemptCdsSSC)}
-{this.renderNCC(attemptNCC)}
-{this.renderJAG(attemptJAG)}
-</View>
-                       )
-                   }
-                   else{
-                      
-                       return(
-                           <View style={styles.Container}>
-                       {this.renderCdsPC(attemptCdsPC)}                        
-                       {this.renderCdsSSC(attemptCdsSSC)}
-                      {this.renderJAG(attemptJAG)}
-                       </View>
-                        ) 
-                   }
-               
-
-               }
-
-               else {
-                   return(
-                       <View>
-                           <Card.Title title='Sorry you have no attempts left!' />
-                       </View>
-                   )
-               }
-           
-           
-           }
-
-            else{
+                
                 return(
-                   <View style={styles.Container}>                        
-                    <Card.Title title='Sorry! You are not eligible for the armed forces' />
-                    </View>
+                    <View style={styles.Container}>
+                             {this.renderCdsIna(attemptCdsPC)}
+                             {this.renderINET(attemptINET)}
+                              {this.renderUES(attemptUES)}
+ 
+ 
+                      </View>
+            
+ 
                 )
-            }
+ 
+                
+                }
+ 
+                else if(age>=21 && age<=27 && qualification==4){
+ 
+                  
+                       
+                      
+                        return(
+                            <View style={styles.Container}>
+                            {this.renderCdsIna(attemptCdsPC)}
+ 
+                            {this.renderINET(attemptINET)}
+                           
+                            {this.renderNavyJAG(attemptJAG)}
+                             </View>                        
+                             )
+                    
+                   
+                     
+                     
+                
+ 
+                }
+ 
+                else{
+ 
+                    return(<View>
+                            <Card.Title title='Sorry you have no attempts left!' />
+                        </View>)
+                }
    }
+}
 
 
     checkEligibilityArmy=(age,month,qualification,ncc)=>{
