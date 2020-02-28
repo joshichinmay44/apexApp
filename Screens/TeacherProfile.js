@@ -7,7 +7,8 @@ import {
   Image,
   TouchableOpacity,
 } from 'react-native';
-import {Appbar, Button} from 'react-native-paper';
+import {Appbar, Button, Card} from 'react-native-paper';
+import styles from '../style/Style';
 export default class TeacherProfile extends Component {
   static navigationOptions = {
     headerShown: false,
@@ -42,38 +43,45 @@ export default class TeacherProfile extends Component {
           </Appbar.Header>
 
           <View style={styles.Body}>
-            <View style={styles.mytextview}>
+            {/*  <View style={styles.mytextview}>
               <Text style={styles.mytext}>Teacher Name</Text>
               <Text style={styles.mytext}>Teacher ID</Text>
               <Text style={styles.mytext}>Contact Info</Text>
-            </View>
+            </View> */}
 
-            <View style={styles.innertextview}>
-              <View style={styles.button}>
-                <Button mode="text" onPress={this.viewNotification}>
-                  View Notices
-                </Button>
-              </View>
-              <View style={styles.button}>
-                <Button mode="text" onPress={this.writeNotices}>
-                  Write Notices
-                </Button>
-              </View>
-              <View style={styles.button}>
-                <Button mode="text" onPress={this.viewCourseInfo}>
-                  My Courses
-                </Button>
-              </View>
-              <View style={styles.button}>
-                <Button mode="text" onPress={this.viewProgress}>
-                  Students Progress
-                </Button>
-              </View>
-              <View style={styles.button}>
-                <Button mode="text" onPress={this.writeBlogs}>
-                  Write Blogs
-                </Button>
-              </View>
+            <Card style={styles.cardContainer}>
+              <Card.Title title="Teacher Name" style={{marginBottom: '-5%'}} />
+              <Card.Title subtitle="Teacher Id" style={{marginBottom: '-5%'}} />
+              <Card.Title
+                subtitle="Contact Number"
+                style={{marginBottom: '-5%'}}
+              />
+            </Card>
+
+            <View style={styles.button}>
+              <Button mode="contained" onPress={this.viewNotification}>
+                View Notices
+              </Button>
+            </View>
+            <View style={styles.button}>
+              <Button mode="contained" onPress={this.writeNotices}>
+                Write Notices
+              </Button>
+            </View>
+            <View style={styles.button}>
+              <Button mode="contained" onPress={this.viewCourseInfo}>
+                My Courses
+              </Button>
+            </View>
+            <View style={styles.button}>
+              <Button mode="contained" onPress={this.viewProgress}>
+                Students Progress
+              </Button>
+            </View>
+            <View style={styles.button}>
+              <Button mode="contained" onPress={this.writeBlogs}>
+                Write Blogs
+              </Button>
             </View>
           </View>
         </ScrollView>
@@ -81,7 +89,7 @@ export default class TeacherProfile extends Component {
     );
   }
 }
-
+/* 
 const styles = StyleSheet.create({
   Container: {
     height: '100%',
@@ -127,3 +135,4 @@ const styles = StyleSheet.create({
     borderColor: 'blue',
   },
 });
+ */

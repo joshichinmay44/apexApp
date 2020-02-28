@@ -7,7 +7,8 @@ import {
   Image,
   TouchableOpacity,
 } from 'react-native';
-import {Appbar, Button} from 'react-native-paper';
+import {Appbar, Button, Card} from 'react-native-paper';
+import styles from '../style/Style';
 export default class StudentProfile extends Component {
   static navigationOptions = {
     headerShown: false,
@@ -39,34 +40,42 @@ export default class StudentProfile extends Component {
           </Appbar.Header>
 
           <View style={styles.Body}>
-            <View style={styles.mytextview}>
+            {/*  <View style={styles.mytextview}>
               <Text style={styles.mytext}>Student Name</Text>
               <Text style={styles.mytext}>Student ID</Text>
               <Text style={styles.mytext}>Contact Number</Text>
               <Text style={styles.mytext}>Course ID</Text>
-            </View>
+            </View> */}
 
-            <View style={styles.innertextview}>
-              <View style={styles.button}>
-                <Button mode="text" onPress={this.viewNotification}>
-                  View Notification
-                </Button>
-              </View>
-              <View style={styles.button}>
-                <Button mode="text" onPress={this.viewCourseInfo}>
-                  View Course Information
-                </Button>
-              </View>
-              <View style={styles.button}>
-                <Button mode="text" onPress={this.viewMarks}>
-                  View Marks
-                </Button>
-              </View>
-              <View style={styles.button}>
-                <Button mode="text" onPress={this.viewBlogs}>
-                  View Blogs
-                </Button>
-              </View>
+            <Card style={styles.cardContainer}>
+              <Card.Title title="Student Name" style={{marginBottom: '-5%'}} />
+              <Card.Title subtitle="Student Id" style={{marginBottom: '-5%'}} />
+              <Card.Title
+                subtitle="Contact Number"
+                style={{marginBottom: '-5%'}}
+              />
+              <Card.Title subtitle="Course ID" style={{marginBottom: '-5%'}} />
+            </Card>
+
+            <View style={styles.button}>
+              <Button mode="contained" onPress={this.viewNotification}>
+                View Notification
+              </Button>
+            </View>
+            <View style={styles.button}>
+              <Button mode="contained" onPress={this.viewCourseInfo}>
+                View Course Information
+              </Button>
+            </View>
+            <View style={styles.button}>
+              <Button mode="contained" onPress={this.viewMarks}>
+                View Marks
+              </Button>
+            </View>
+            <View style={styles.button}>
+              <Button mode="contained" onPress={this.viewBlogs}>
+                View Blogs
+              </Button>
             </View>
           </View>
         </ScrollView>
@@ -74,7 +83,7 @@ export default class StudentProfile extends Component {
     );
   }
 }
-
+/* 
 const styles = StyleSheet.create({
   Container: {
     height: '100%',
@@ -116,3 +125,4 @@ const styles = StyleSheet.create({
     borderColor: 'blue',
   },
 });
+ */

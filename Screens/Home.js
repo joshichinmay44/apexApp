@@ -31,9 +31,6 @@ class About extends Component {
     this.props.navigation.navigate('Stack', {screen: 'CoursesOffered'});
   };
 
-  try = () => {
-    this.props.navigation.navigate('Stack', {screen: 'EligibilityHomeScreen'});
-  };
   render() {
     return (
       <View style={styles.Container}>
@@ -52,18 +49,15 @@ class About extends Component {
             <View style={styles.Content}>
               <Text style={styles.Title}>About The Institute</Text>
               <Text style={styles.Info}>
-                General information about the Institute is given here
+                this is apex app for apex institute. General information about
+                the Institute is given here. information of different courses is
+                given.
               </Text>
             </View>
 
             <View style={styles.button}>
               <Button mode="contained" onPress={this.CoursesOffered}>
                 Courses Offered
-              </Button>
-            </View>
-            <View style={styles.button}>
-              <Button mode="contained" onPress={this.try}>
-                try
               </Button>
             </View>
           </View>

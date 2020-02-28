@@ -29,6 +29,7 @@ export default styles = StyleSheet.create({
   Info: {
     fontFamily: 'georgia',
     fontSize: 15,
+    marginTop: '2%',
   },
   cardContainer: {
     elevation: 1,
@@ -37,6 +38,7 @@ export default styles = StyleSheet.create({
     borderWidth: 1,
     marginBottom: '2%',
   },
+
   Picker: {
     margin: '5%',
     marginHorizontal: '10%',
