@@ -722,7 +722,7 @@ if(service=='army'){
             <ScrollView style={styles.Scroll}>
           
           <Appbar.Header>
-          <Appbar.BackAction onPress={this.back()}/>
+          <Appbar.BackAction onPress={this.back}/>
         <Appbar.Content
           title="Eligibility for Army"
          
@@ -747,7 +747,7 @@ if(service=='army'){
             <ScrollView style={styles.Scroll}>
           
           <Appbar.Header>
-          <Appbar.BackAction onPress={this.back()}/>
+          <Appbar.BackAction onPress={this.back}/>
         <Appbar.Content
           title="Eligibility for Navy"
          

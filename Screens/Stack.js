@@ -74,7 +74,7 @@ export default function Root() {
       <Stack.Screen name="EligibilityFormArmy" component={EligibilityFormArmy} />
       <Stack.Screen name="EligibilityFormAirForce" component={EligibilityFormAirForce} />
       <Stack.Screen name="EligibilityFormNavy" component={EligibilityFormNavy} />
-      <Stack.Screen name="EligibilityResultArmyTest" component={EligibilityResultArmyTest} />
+      <Stack.Screen name="EligibilityResultArmy" component={EligibilityResultArmy} />
       <Stack.Screen name="EligibilityResultNavy" component={EligibilityResultNavy}/>
     </Stack.Navigator>
   );

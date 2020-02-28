@@ -8,14 +8,14 @@ export default class Services extends Component {
     }
 
 infoArmy=()=>{
-  this.props.navigation.navigate('AboutArmy')
+  this.props.navigation.navigate('Stack', {screen:'AboutArmy'})
 }
 infoNavy=()=>{
-  this.props.navigation.navigate('AboutNavy')
+  this.props.navigation.navigate('Stack', {screen:'AboutNavy'})
 }
 
 infoAirForce=()=>{
-  this.props.navigation.navigate('AboutAirForce')
+  this.props.navigation.navigate('Stack', {screen:'AboutAirForce'})
 }
     
   render() {
