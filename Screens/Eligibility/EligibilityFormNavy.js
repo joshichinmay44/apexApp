@@ -108,16 +108,17 @@ export default class EligibilityFormNavy extends Component {
                   <Picker.Item label="Graduation (Bsc)" value="2" />
                 </Picker>
               </View>
-              <View style={styles.Picker}>
-                <Text>Do you have NCC 'C' Certificate?</Text>
+              <View style={styles.Checkbox}>
                 <Checkbox
                   status={ncc ? 'checked' : 'unchecked'}
                   onPress={() => {
                     this.setState({ncc: !ncc});
                   }}
                 />
+                <Text style={{marginTop: '2%'}}>
+                  Do you have NCC 'C' Certificate?
+                </Text>
               </View>
-
               <View style={styles.button}>
                 <Button
                   mode="contained"

@@ -37,19 +37,3 @@ export default class AboutArmy extends Component {
     );
   }
 }
-
-/* const styles = StyleSheet.create({
-   
-    Container:{
-      height:'100%',
-     backgroundColor:'ghostwhite',
-    
-    },
-    Info:{
-        fontFamily:'georgia',
-        fontSize:25,
-        textAlign:'center',
-        color:'#3700B3'
-     },
-    
-}) */

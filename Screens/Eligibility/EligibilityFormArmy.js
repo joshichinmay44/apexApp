@@ -110,14 +110,16 @@ export default class EligibilityFormArmy extends Component {
                   <Picker.Item label="Graduation (Other)" value="2" />
                 </Picker>
               </View>
-              <View style={styles.Picker}>
-                <Text>Do you have NCC 'C' Certificate?</Text>
+              <View style={styles.Checkbox}>
                 <Checkbox
                   status={ncc ? 'checked' : 'unchecked'}
                   onPress={() => {
                     this.setState({ncc: !ncc});
                   }}
                 />
+                <Text style={{marginTop: '2%'}}>
+                  Do you have NCC 'C' Certificate?
+                </Text>
               </View>
 
               <View style={styles.button}>
@@ -149,37 +151,3 @@ export default class EligibilityFormArmy extends Component {
     );
   }
 }
-/* 
-const styles = StyleSheet.create({
-  Container: {
-    height: '100%',
-    backgroundColor: 'ghostwhite',
-  },
-  Scroll: {
-    height: '100%',
-  },
-  Body: {
-    height: '100%',
-  },
-
-  button: {
-    margin: '5%',
-    // width:'60%',
-    marginLeft: '20%',
-    marginRight: '20%',
-  },
-  Picker: {
-    margin: '5%',
-    marginHorizontal: '10%',
-    backgroundColor: '#e1e1e5',
-  },
-  Checkbox: {
-    margin: '5%',
-    marginHorizontal: '10%',
-    backgroundColor: '#e1e1e5',
-    flexDirection: 'row',
-  },
-  Inputx: {
-    backgroundColor: '#e1e1e5',
-  },
-}); */

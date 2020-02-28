@@ -88,20 +88,3 @@ export default class EligibilityHomeScreen extends Component {
     );
   }
 }
-/* 
-const styles = StyleSheet.create({
-  Container: {
-    height: '100%',
-    backgroundColor: '#fdfefe',
-  },
-  cardContainer: {
-    elevation: 1,
-    borderRadius: 60,
-    width: '100%',
-  },
-  Scroll: {
-    backgroundColor: '#fdfefe',
-    height: '100%',
-    marginBottom: 10,
-  },
-}); */

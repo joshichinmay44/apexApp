@@ -32,8 +32,10 @@ export default styles = StyleSheet.create({
   },
   cardContainer: {
     elevation: 1,
-    borderRadius: 60,
+    // borderRadius: 60,
     width: '100%',
+    borderWidth: 1,
+    marginBottom: '2%',
   },
   Picker: {
     margin: '5%',
@@ -41,12 +43,17 @@ export default styles = StyleSheet.create({
     backgroundColor: '#e1e1e5',
   },
   Checkbox: {
-    margin: '5%',
+    backgroundColor: 'white',
+    flexDirection: 'row',
     marginHorizontal: '10%',
     backgroundColor: '#e1e1e5',
-    flexDirection: 'row',
+    marginTop: '4%',
   },
   Inputx: {
     backgroundColor: '#e1e1e5',
+  },
+  arrow: {
+    marginLeft: '90%',
+    marginTop: '1%',
   },
 });

@@ -8,7 +8,7 @@ import {
   TouchableOpacity,
 } from 'react-native';
 import {Avatar, Appbar, Button, Card, Title} from 'react-native-paper';
-
+import styles from '../../style/Style';
 export default class EligibilityResultArmy extends Component {
   static navigationOptions = {
     headerShown: false,
@@ -30,7 +30,7 @@ export default class EligibilityResultArmy extends Component {
       );
     } else {
       return (
-        <Card style={styles.Card}>
+        <Card style={styles.cardContainer}>
           <Card.Title
             title={this.renderTitle(attemptCdsPC, 'CDS(IMA)')}
             subtitle="Press for more details"></Card.Title>
@@ -57,7 +57,7 @@ export default class EligibilityResultArmy extends Component {
       );
     } else {
       return (
-        <Card style={styles.Card}>
+        <Card style={styles.cardContainer}>
           <Card.Title
             title={this.renderTitle(attemptNDA, 'NDA')}
             subtitle="Press for more details"></Card.Title>
@@ -84,7 +84,7 @@ export default class EligibilityResultArmy extends Component {
       );
     } else {
       return (
-        <Card style={styles.Card}>
+        <Card style={styles.cardContainer}>
           <Card.Title
             title={this.renderTitle(attemptTES, 'TES')}
             subtitle="Press for more details"
@@ -112,7 +112,7 @@ export default class EligibilityResultArmy extends Component {
       );
     } else {
       return (
-        <Card style={styles.Card}>
+        <Card style={styles.cardContainer}>
           <Card.Title
             title={this.renderTitle(attemptCdsSSC, 'CDS(OTA)')}
             subtitle="Press for more details"
@@ -140,7 +140,7 @@ export default class EligibilityResultArmy extends Component {
       );
     } else {
       return (
-        <Card style={styles.Card}>
+        <Card style={styles.cardContainer}>
           <Card.Title
             title={this.renderTitle(attemptNCC, 'NCC Entry')}
             subtitle="Press for more details"
@@ -168,7 +168,7 @@ export default class EligibilityResultArmy extends Component {
       );
     } else {
       return (
-        <Card style={styles.Card}>
+        <Card style={styles.cardContainer}>
           <Card.Title
             title={this.renderTitle(attemptTGC, 'TGC')}
             subtitle="Press for more details"
@@ -193,7 +193,7 @@ export default class EligibilityResultArmy extends Component {
       );
     } else {
       return (
-        <Card style={styles.Card}>
+        <Card style={styles.cardContainer}>
           <Card.Title
             title={this.renderTitle(attemptSSC, 'SSC(Tech)')}
             subtitle="Press for more details"
@@ -221,7 +221,7 @@ export default class EligibilityResultArmy extends Component {
       );
     } else {
       return (
-        <Card style={styles.Card}>
+        <Card style={styles.cardContainer}>
           <Card.Title
             title={this.renderTitle(attemptJAG, 'JAG')}
             subtitle="Press for more details"
@@ -696,7 +696,7 @@ export default class EligibilityResultArmy extends Component {
     }
   }
 }
-
+/* 
 const styles = StyleSheet.create({
   Card: {
     // borderWidth:1,
@@ -801,3 +801,4 @@ const styles = StyleSheet.create({
     alignContent: 'center',
   },
 });
+ */
