@@ -669,7 +669,7 @@ export default class EligibilityResultArmy extends Component {
     /* console.log(this.props.route.params.age,this.props.route.params.ncc) */
     if (service == 'army') {
       return (
-        <View style={styles.Container}>
+        <View style={styles.Containzer}>
           <ScrollView style={styles.Scroll}>
             <Appbar.Header>
               <Appbar.BackAction onPress={this.back} />
