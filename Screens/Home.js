@@ -1,7 +1,7 @@
 import React, { Component } from 'react'
 import {StyleSheet,  View,ScrollView,Image, TouchableOpacity,} from 'react-native'
 import { Appbar,Button,Text,TextInput,Card } from 'react-native-paper';
-import { createDrawerNavigator } from '@react-navigation/drawer';
+import { createDrawerNavigator, DrawerItemList, DrawerItem, DrawerContentScrollView } from '@react-navigation/drawer';
 import { NavigationContainer } from '@react-navigation/native';
 import {createStackNavigator } from 'react-navigation-stack';
 import {createAppContainer } from 'react-navigation';
@@ -15,7 +15,7 @@ import EntriesScreen from './EntriesScreen';
 import EligibilityHomeScreen from './EligibilityHomeScreen';
 import StudentProfile from './StudentProfile';
 import CoursesOffered from './CoursesOffered';
-//import Demosatck from './Demosatck';
+
 import Navigator from './Stack';
 import DirectorsDesk from './DirectorsDesk';
 import SuccessStories from './SuccessStories';
@@ -26,7 +26,7 @@ import style from './Style'
         headerShown: false
     }
     CoursesOffered =() =>{
-      this.props.navigation.navigate('CoursesOffered')
+      this.props.navigation.navigate('Stack', {screen:'CoursesOffered'})
     }
    
    try = () => {this.props.navigation.navigate('Stack',{screen:'EligibilityHomeScreen'})} 
@@ -110,31 +110,37 @@ const styles = StyleSheet.create({
 })
 
   
+  
 const Drawer = createDrawerNavigator();
 
 export default function mydrawer() {
   return ( 
-    <NavigationContainer>
+    <NavigationContainer >
       <Drawer.Navigator   initialRouteName={LoadingScreen} 
+     
       drawerStyle={{
         backgroundColor: '#084d7b',
-        width: 240,
+        width: 260,
       
       }}
+    
       drawerContentOptions={{
-        activeTintColor: '#ffff00',
+        activeTintColor: '#39ff14',
         inactiveTintColor:'#ffffff',
-        itemStyle: { marginVertical: 3 },
-      }}
-      >
        
+        itemStyle: { marginVertical: 5 },
+      }}
+
+     drawerContent={props => <CustomDrawerContent {...props} />}
+
+      >
+        
         <Drawer.Screen name="Home" component={About} />
         <Drawer.Screen name="Services" component={Services} />
-       
         <Drawer.Screen name="Entries" component={EntriesScreen} />
         <Drawer.Screen name="Director's Desk" component={DirectorsDesk} />
         <Drawer.Screen name="Success Stories" component={SuccessStories} />
-        <Drawer.Screen name="Check Eligibility" component={EligibilityHomeScreen} />
+        <Drawer.Screen name="EligibilityHomeScreen" component={EligibilityHomeScreen} />
         <Drawer.Screen name="Teacher Login" component={TeacherLogin} />
         <Drawer.Screen name="Student Login" component={StudentLogin} />
         <Drawer.Screen name="Contact" component={Contact} /> 
@@ -145,5 +151,18 @@ export default function mydrawer() {
     </NavigationContainer>
   );
 } 
-
-
+ 
+function CustomDrawerContent(props) {
+  return (
+    <DrawerContentScrollView {...props}>
+      <View style={{height: 170, backgroundColor:'red'}}>
+        {/* <Text style={{fontSize: 32}}>LOGO</Text> */}
+        <Image source={require('../images/logo.jpg')} style={{height: 170, width: 260}}/>
+      </View>
+      <View style={{marginTop: 10}}>
+      <DrawerItemList {...props} />
+      </View>
+    </DrawerContentScrollView>
+    
+  );
+} 
