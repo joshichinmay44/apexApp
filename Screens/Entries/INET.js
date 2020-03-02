@@ -9,7 +9,7 @@ export default class INET extends Component {
         headerShown: false
     }
     back = () => {
-      this.props.navigation.navigate('EntriesScreen')
+      this.props.navigation.goBack()
 
     }
 

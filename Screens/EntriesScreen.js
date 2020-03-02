@@ -10,7 +10,7 @@ export default class EntriesScreen extends Component {
     }
 
 infoNDA=()=>{
-  this.props.navigation.navigate('Stack',{screen:'NDA'})
+  this.props.navigation.navigate('NDA')
 }
 infoSSC=()=>{
   this.props.navigation.navigate('SSC')

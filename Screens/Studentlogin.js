@@ -27,7 +27,7 @@ export default class Studentlogin extends React.Component {
 
       }
       studentProfile = () => {
-        this.props.navigation.navigate('Stack',{screen:'StudentProfile'})
+        this.props.navigation.navigate('StudentProfile')
 
       }
   render() {

@@ -45,13 +45,16 @@ import EligibilityResultNavy from './Eligibility/EligibilityResultNavy';
 const Stack = createStackNavigator();
 export default function Root() {
  return (
-    <Stack.Navigator headerMode='none'>
+  <NavigationContainer> 
+      <Stack.Navigator headerMode='none' initialRouteName='LoadingScreen'>
+      <Stack.Screen name="LoadingScreen" component={LoadingScreen} />
+      <Stack.Screen name="Home" component={Home} />
       <Stack.Screen name="CoursesOffered" component={CoursesOffered} />
       <Stack.Screen name="Cds" component={Cds} />
       <Stack.Screen name="Nda" component={Nda} />
       <Stack.Screen name="Afcat" component={Afcat} />
 
-      <Stack.Screen name="EntriesScreen" component={EntriesScreen} />
+     
       <Stack.Screen name="NDA" component={NDA} />
       <Stack.Screen name="CDS" component={CDS} />
       <Stack.Screen name="AFCAT" component={AFCAT} />
@@ -70,13 +73,15 @@ export default function Root() {
       <Stack.Screen name="TeacherProfile" component={TeacherProfile} />
       <Stack.Screen name="ViewNotification" component={ViewNotification} />
 
-      <Stack.Screen name="EligibilityHomeScreen" component={EligibilityHomeScreen} />
+  
       <Stack.Screen name="EligibilityFormArmy" component={EligibilityFormArmy} />
       <Stack.Screen name="EligibilityFormAirForce" component={EligibilityFormAirForce} />
       <Stack.Screen name="EligibilityFormNavy" component={EligibilityFormNavy} />
       <Stack.Screen name="EligibilityResultArmy" component={EligibilityResultArmy} />
       <Stack.Screen name="EligibilityResultNavy" component={EligibilityResultNavy}/>
     </Stack.Navigator>
+    </NavigationContainer>  
+  
   );
 }   
 

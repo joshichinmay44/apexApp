@@ -19,99 +19,10 @@ import CoursesOffered from './CoursesOffered';
 import Navigator from './Stack';
 import DirectorsDesk from './DirectorsDesk';
 import SuccessStories from './SuccessStories';
-
 import style from './Style'
-class About extends Component {
+import About from './Home'
 
-    static navigationOptions = {
-        headerShown: false
-    }
-    CoursesOffered =() =>{
-      this.props.navigation.navigate('CoursesOffered')
-    }
 
-   try = () => {this.props.navigation.navigate('EligibilityHomeScreen')} 
-  render() {
-    return (
-     
-      <View style={style.Container}>
-          <ScrollView style={styles.Scroll}>
-          
-          <Appbar.Header>
-            <Appbar.Action 
-            icon="menu" 
-            onPress={()=> this.props.navigation.openDrawer()} 
-            />
-            <Appbar.Content title="Home"/>
-          </Appbar.Header>
-         
-         
-      <Card.Cover source={require('../images/AboutPhoto.jpg')} />
-    
-         <View style={styles.Body}>
-           
-               
-                <View style={styles.Content}>
-                    <Text style={styles.Title}>About The Institute</Text>
-                    <Text style={styles.Info}>General information about the Institute is given here</Text>
-                </View>
-                
-                
-
-               
-                <View style={styles.button} >
-                  <Button  mode="contained" onPress={this.CoursesOffered}>Courses Offered</Button>
-                </View >
-                <View style={styles.button} >
-                  <Button  mode="contained" onPress={this.try}>try</Button>
-                </View >
-              
-          </View>
-          </ScrollView>
-      </View>
-      
-   
-    )
-  }
-}
-
-const styles = StyleSheet.create({
-   
-    Container:{
-      height:'100%',
-      backgroundColor:'ghostwhite',
-    
-    },
-   
-    Title:{
-         textAlign:'center',
-         fontFamily:'georgia',
-         fontSize:25,
-         backgroundColor:'#fdfefe',
-     },
-     Info:{
-        fontFamily:'georgia',
-        fontSize:15,
-        marginLeft:'2%',
-     },
-    button:{
-      margin:'5%',
-      width:'60%',
-      marginLeft:'20%',
-     marginRight:'20%',
-      
-    },
-   
-    drawercontainer:{
-      width:20,
-      backgroundColor:'#084d7b'
-    },
-
-   
-})
-
-  
-  
 const Drawer = createDrawerNavigator();
 
 export default function mydrawer() {
@@ -145,7 +56,7 @@ export default function mydrawer() {
         <Drawer.Screen name="Teacher Login" component={TeacherLogin} />
         <Drawer.Screen name="Student Login" component={StudentLogin} />
         <Drawer.Screen name="Contact" component={Contact} /> 
-      
+        <Drawer.Screen name="Stack" component={Navigator} /> 
         
       </Drawer.Navigator>
   
@@ -156,9 +67,10 @@ function CustomDrawerContent(props) {
   return (
     <DrawerContentScrollView {...props}>
       <View style={{height: 50, margin: 30, }}>
-        <Text style={{fontSize: 30, color: '#39ff14',}}>Apex Career Academy</Text>
-      
-   </View>
+        <Text style={{fontSize: 30, color:'yellow'}}>Apex Career Academy</Text>
+       {/* <Avatar.Icon size={50} icon="menu"/> */}
+        {/* <Image source={require('../images/logo.jpg')} style={{height: 170, width: 260}}/> */}
+      </View>
       <View style={{marginTop: 25}}>
       <DrawerItemList {...props} />
       </View>
@@ -166,5 +78,3 @@ function CustomDrawerContent(props) {
     
   );
 } 
-
-

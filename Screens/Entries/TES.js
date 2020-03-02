@@ -9,7 +9,7 @@ export default class TES extends Component {
         headerShown: false
     }
     back = () => {
-      this.props.navigation.navigate('EntriesScreen')
+      this.props.navigation.goBack()
 
     }
 

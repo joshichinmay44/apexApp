@@ -7,15 +7,15 @@ export default class EligibilityHomeScreen extends Component {
         headerShown: false
     }
     EligibilityAirForce = () => {
-      this.props.navigation.navigate('Stack',{screen:'EligibilityFormAirForce'})
+      this.props.navigation.navigate('EligibilityFormAirForce')
 
     }
     EligibilityNavy = () => {
-      this.props.navigation.navigate('Stack',{screen:'EligibilityFormNavy'})
+      this.props.navigation.navigate('EligibilityFormNavy')
 
     }
     EligibilityArmy = () => {
-      this.props.navigation.navigate('Stack',{screen:'EligibilityFormArmy'})
+      this.props.navigation.navigate('EligibilityFormArmy')
 
     }
   render() {

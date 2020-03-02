@@ -13,7 +13,7 @@ export default class EligibilityFormArmy extends Component {
         ncc:false,
         service:''
       };
-    back = () => {this.props.navigation.navigate('Stack',{screen:'EligibilityHomeScreen'})}
+    back = () => {this.props.navigation.navigate('Home', {screen:'EligibilityHomeScreen'})}
     
 
     checkEligibility=()=>{
