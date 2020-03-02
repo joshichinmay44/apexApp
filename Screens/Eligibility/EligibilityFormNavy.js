@@ -14,7 +14,7 @@ export default class EligibilityFormNavy extends Component {
         ncc: false,
         service:'navy'     
     };
-    back = () => {this.props.navigation.navigate('EligibilityHomeScreen')}
+    back = () => {this.props.navigation.goBack()}
     checkEligibility=() =>{this.props.navigation.navigate('EligibilityResultArmy',{
         age: this.state.age,
         month: this.state.month,

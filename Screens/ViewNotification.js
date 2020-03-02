@@ -11,7 +11,7 @@ export default class ViewNotification extends Component {
     };
    
     back = () => {
-        this.props.navigation.navigate('StudentProfile')
+        this.props.navigation.goBack()
     }
    
     

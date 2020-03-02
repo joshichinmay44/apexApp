@@ -82,6 +82,9 @@ const styles = StyleSheet.create({
       backgroundColor:'ghostwhite',
     
     },
+    Body:{
+       
+    },
    
     Title:{
          textAlign:'center',
@@ -102,10 +105,7 @@ const styles = StyleSheet.create({
       
     },
    
-    drawercontainer:{
-      width:20,
-      backgroundColor:'#084d7b'
-    },
+   
 
    
 })
@@ -121,19 +121,22 @@ export default function mydrawer() {
      
       drawerStyle={{
         backgroundColor: '#084d7b',
-        width: 260,
+        width: '60%',
+        height: '100%',
+      
       
       }}
     
       drawerContentOptions={{
-        activeTintColor: '#39ff14',
+        activeTintColor: '#ffff00',
         inactiveTintColor:'#ffffff',
-       
-        itemStyle: { marginVertical: 5 },
+      
+        height:'100%',
+        itemStyle: { marginVertical: '2%',   },
       }}
 
      drawerContent={props => <CustomDrawerContent {...props} />}
-
+        
       >
        
         <Drawer.Screen name="Home" component={About} />
@@ -152,19 +155,20 @@ export default function mydrawer() {
   );
 } 
  
+ 
 function CustomDrawerContent(props) {
   return (
     <DrawerContentScrollView {...props}>
-      <View style={{height: 50, margin: 30, }}>
-        <Text style={{fontSize: 30, color: '#39ff14',}}>Apex Career Academy</Text>
-      
-   </View>
-      <View style={{marginTop: 25}}>
+      <View style={{height: '10%',marginBottom:'5%',  marginLeft:'2%'}}>
+        <Text style={{fontSize: 20, color:'#ffff00',margin: '5%', fontFamily:'billabong'}}>Apex Career Academy</Text>
+       
+      </View>
+      <View >
       <DrawerItemList {...props} />
       </View>
     </DrawerContentScrollView>
     
   );
-} 
+}  
 
 

@@ -12,7 +12,7 @@ export default class EligibilityFormAirForse extends Component {
         month: '-1',
         qualification:'-1',
       };
-    back = () => {this.props.navigation.navigate('EligibilityHomeScreen')}
+    back = () => {this.props.navigation.goBack()}
     checkEligibility=() =>{this.props.navigation.navigate('EligibilityHomeScreen')}
     render() {
     return (
