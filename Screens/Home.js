@@ -145,10 +145,16 @@ export default function mydrawer() {
         <Drawer.Screen name="Teacher Login" component={TeacherLogin} />
         <Drawer.Screen name="Student Login" component={StudentLogin} />
         <Drawer.Screen name="Contact" component={Contact} /> 
+
       
         
       </Drawer.Navigator>
   
+
+        
+    
+   
+
   );
 } 
  

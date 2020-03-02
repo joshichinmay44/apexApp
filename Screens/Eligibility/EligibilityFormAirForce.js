@@ -1,6 +1,6 @@
 import React, { Component } from 'react'
 import {StyleSheet, Text, View,ScrollView,Image, TouchableOpacity,Picker, ImageBackground} from 'react-native'
-import { Appbar,Button,Card,Avatar, Title, Paragraph, TextInput,Drawer,Menu,Divider, Provider} from 'react-native-paper';
+import {Checkbox, Appbar,Button, Card,Avatar, Title, Paragraph, TextInput,Drawer,Menu,Divider, Provider} from 'react-native-paper';
 import styles from './StyleEligibility'
 export default class EligibilityFormAirForse extends Component {
 
@@ -11,10 +11,19 @@ export default class EligibilityFormAirForse extends Component {
         age: '0',
         month: '-1',
         qualification:'-1',
+        ncc:false,
+        service:''
       };
     back = () => {this.props.navigation.navigate('EligibilityHomeScreen')}
-    checkEligibility=() =>{this.props.navigation.navigate('EligibilityHomeScreen')}
+    checkEligibility=() =>{this.props.navigation.navigate('EligibilityResultArmy',{
+         age: this.state.age,
+        month: this.state.month,
+        qualification:this.state.qualification,
+        ncc:this.state.ncc,
+        service:'air force'
+    })}
     render() {
+        const {ncc}=this.state
     return (
      
     <View style={styles.Container}>
@@ -65,16 +74,22 @@ export default class EligibilityFormAirForse extends Component {
                 <Picker
                     selectedValue={this.state.qualification}
                     onValueChange={(itemValue, itemIndex) =>this.setState({qualification: itemValue}) }>
-                    <Picker.Item label="Enter your qualification" value='-1' />
-                    <Picker.Item label="12 th Pass" value='1' />
-                    <Picker.Item label="Graduation (BE)" value="2" />
-                    <Picker.Item label="Graduation (LLB)" value='3' />
-                    <Picker.Item label="Graduation (Other)" value="4" />
-                    
-                
+                    <Picker.Item label="Enter your qualification" value="-1" />
+                    <Picker.Item label="12 th Pass" value="1" />
+                    <Picker.Item label="Graduation (BE)" value="4" />
+                    <Picker.Item label="Graduation (Other)" value="2" />
+                    <Picker.Item label="Graduation (Plain Sciences)" value="3" />
                 </Picker>
-                
                 </View>
+                <View style={styles.Picker}>
+                <Text>Do you have NCC 'C' Certificate (Air Wing)?</Text> 
+                <Checkbox 
+        status={ncc ? 'checked' : 'unchecked'}
+        onPress={() => { this.setState({ ncc: !ncc }); }}
+      />
+                 </View>   
+
+               
                 
                  <View style={styles.button} >
                  
