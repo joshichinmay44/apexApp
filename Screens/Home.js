@@ -11,7 +11,7 @@ import {
 
 
 
-import { Appbar,Button,Text,TextInput,Card, Avatar } from 'react-native-paper';
+import { Appbar,Button,Text,TextInput,Card, Avatar, Paragraph } from 'react-native-paper';
 import { createDrawerNavigator, DrawerItemList, DrawerItem, DrawerContentScrollView } from '@react-navigation/drawer';
 import { NavigationContainer } from '@react-navigation/native';
 import {createStackNavigator } from '@react-navigation/stack';
@@ -35,13 +35,13 @@ class About extends Component {
     headerShown: false,
   };
   CoursesOffered = () => {
-    this.props.navigation.navigatescreen('CoursesOffered');
+    this.props.navigation.navigate('CoursesOffered');
   };
 
   render() {
     return (
-      <View style={styles.ContainerHome}>
-        <ScrollView style={styles.ScrollHome}>
+      <View style={styles.Container}>
+        <ScrollView style={styles.Scroll}>
 
           <Appbar.Header>
             <Appbar.Action
@@ -51,24 +51,37 @@ class About extends Component {
             <Appbar.Content title="Home" />
           </Appbar.Header>
 
-          <Card.Cover source={require('../images/MainScreenLogo.jpg')} />
+          <Card.Cover  source={require('../images/AboutApex.jpg')} />
+         
+           <Text style={styles.Title}>About the Institute</Text>
 
-          <View style={styles.Body}>
-            <View style={styles.Content}>
-              <Text style={styles.Title}>About The Institute</Text>
+           <Card.Content>
+           <Paragraph>
+             <Text style={styles.Info}>
+              
+           Established in 2003, the Academy trains youth for competitive exams like NDA and NA Exam, CDS Exam conducted by the UPSC
+           
+             </Text></Paragraph>
+
+             <Paragraph>
+             <Text style={styles.Info}>
+             The approach of the organization has been totally professional. The Academy has five to six officers on the panel who impart Services Selection Board i.e. SSB Interviews training and around 25 academic staff as visiting faculty to train for various competitive exams. The Institute has six full time staff to cater to various activities of the organization.
+             </Text>
+             </Paragraph>
+            <Paragraph>
               <Text style={styles.Info}>
-                this is apex app for apex institute. General information about
-                the Institute is given here. information of different courses is
-                given.
-              </Text>
-            </View>
+             In a span of 14 years, the institute has to its credit over 800 students cracking the SSB Interviews. Today, throughout the country, if one has to crack SSB Interview, the first name that comes to the mind of a youth is ‘APEX CAREERS’.
+             </Text>
+             </Paragraph>
+           </Card.Content>
 
-            <View style={styles.button}>
+
+           <View style={styles.button}>
               <Button mode="contained" onPress={this.CoursesOffered}>
                 Courses Offered
               </Button>
             </View>
-          </View>
+       
         </ScrollView>
       </View>
     );
