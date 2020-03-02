@@ -1,3 +1,4 @@
+
 import React, {Component} from 'react';
 import {
   StyleSheet,
@@ -39,6 +40,31 @@ export default class EligibilityFormAirForse extends Component {
     this.props.navigation.navigate('EligibilityHomeScreen');
   };
   render() {
+
+
+export default class EligibilityFormAirForse extends Component {
+
+    static navigationOptions = {
+        headerShown: false
+    } 
+    state = {
+        age: '0',
+        month: '-1',
+        qualification:'-1',
+        ncc:false,
+        service:''
+      };
+    back = () => {this.props.navigation.navigate('EligibilityHomeScreen')}
+    checkEligibility=() =>{this.props.navigation.navigate('EligibilityResultArmy',{
+         age: this.state.age,
+        month: this.state.month,
+        qualification:this.state.qualification,
+        ncc:this.state.ncc,
+        service:'air force'
+    })}
+    render() {
+        const {ncc}=this.state
+
     return (
       <View style={styles.Container}>
         <ImageBackground
@@ -86,42 +112,51 @@ export default class EligibilityFormAirForse extends Component {
                 </Picker>
               </View>
               <View style={styles.Picker}>
-                <Picker
-                  selectedValue={this.state.qualification}
-                  onValueChange={(itemValue, itemIndex) =>
-                    this.setState({qualification: itemValue})
-                  }>
-                  <Picker.Item label="Enter your qualification" value="-1" />
-                  <Picker.Item label="12 th Pass" value="1" />
-                  <Picker.Item label="Graduation (BE)" value="2" />
-                  <Picker.Item label="Graduation (LLB)" value="3" />
-                  <Picker.Item label="Graduation (Other)" value="4" />
+                <Picker selectedValue={this.state.qualification}
+                    onValueChange={(itemValue, itemIndex) =>this.setState({qualification: itemValue}) }>
+                    <Picker.Item label="Enter your qualification" value="-1" />
+                    <Picker.Item label="12 th Pass" value="1" />
+                    <Picker.Item label="Graduation (BE)" value="4" />
+                    <Picker.Item label="Graduation (Other)" value="2" />
+                    <Picker.Item label="Graduation (Plain Sciences)" value="3" />
                 </Picker>
-              </View>
+                </View>
+                <View style={styles.Picker}>
+                <Text>Do you have NCC 'C' Certificate (Air Wing)?</Text> 
+                <Checkbox 
+        status={ncc ? 'checked' : 'unchecked'}
+        onPress={() => { this.setState({ ncc: !ncc }); }}
+      />
+                 </View>   
 
-              <View style={styles.button}>
-                <Button
-                  mode="contained"
-                  onPress={() => {
-                    if (
-                      isNaN(this.state.age) ||
-                      this.state.age < 1 ||
-                      this.state.age > 100
-                    ) {
-                      alert('Please enter a valid age');
-                    } else if (this.state.month == -1) {
-                      alert('Please enter your month of birth');
-                    } else if (this.state.qualification == -1) {
-                      alert('Please enter your qualification');
-                    } else {
-                      this.checkEligibility();
-                    }
-                  }}>
-                  Submit
-                </Button>
-              </View>
-            </View>
-          </ScrollView>
+               
+                
+                 <View style={styles.button} >
+                 
+                        <Button  mode="contained" onPress={()=>{
+                            if((isNaN(this.state.age))||(this.state.age<1)||(this.state.age>100))
+                            {
+                                alert("Please enter a valid age")
+                            }
+                            else if(this.state.month==-1)
+                            {
+                                alert("Please enter your month of birth")
+                            }
+                            else if(this.state.qualification==-1)
+                            {
+                                alert("Please enter your qualification")
+                            }
+                            else
+                            {
+                                    this.checkEligibility()
+                            }
+                        }}>Submit</Button>
+                    
+                </View >
+             
+                    </View>
+        </ScrollView>
+
         </ImageBackground>
       </View>
     );

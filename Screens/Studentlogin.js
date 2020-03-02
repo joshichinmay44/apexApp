@@ -20,12 +20,26 @@ export default class Studentlogin extends React.Component {
     password: '',
   };
 
-  backToHome = () => {
-    this.props.navigation.navigate('Home');
-  };
-  studentProfile = () => {
-    this.props.navigation.navigate('Stack', {screen: 'StudentProfile'});
-  };
+
+ 
+ 
+    static navigationOptions = {
+        headerShown: false
+    }
+    state = {
+        username: '',
+        password: ''
+      };
+
+      backToHome = () => {
+        this.props.navigation.navigate('Home')
+
+      }
+      studentProfile = () => {
+        this.props.navigation.navigate('StudentProfile')
+
+      }
+
   render() {
     return (
       <View style={styles.Container}>

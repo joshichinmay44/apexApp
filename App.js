@@ -13,11 +13,13 @@ export default class App extends Component {
   render() {
     return (
       <PaperProvider theme={theme}>
+
         <StatusBar backgroundColor="#084d7b" barStyle="light-content" />
         <About />
         {/*  <Navigator />
          */}
       </PaperProvider>
+
     );
   }
 }

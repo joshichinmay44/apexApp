@@ -39,6 +39,7 @@ export default class EligibilityFormArmy extends Component {
     this.props.navigation.navigate('Stack', {screen: 'EligibilityHomeScreen'});
   };
 
+
   checkEligibility = () => {
     this.props.navigation.navigate('EligibilityResultArmy', {
       age: this.state.age,
@@ -48,6 +49,8 @@ export default class EligibilityFormArmy extends Component {
       service: 'army',
     });
   };
+    
+   
 
   render() {
     const {ncc} = this.state;

@@ -17,35 +17,38 @@ import {
 } from 'react-native-paper';
 import styles from '../style/Style';
 export default class EntriesScreen extends Component {
+
   static navigationOptions = {
     headerShown: false,
   };
 
-  infoNDA = () => {
-    this.props.navigation.navigate('Stack', {screen: 'NDA'});
-  };
-  infoSSC = () => {
-    this.props.navigation.navigate('SSC');
-  };
-  infoTES = () => {
-    this.props.navigation.navigate('TES');
-  };
-  infoNCC = () => {
-    this.props.navigation.navigate('NCC');
-  };
-  infoJAG = () => {
-    this.props.navigation.navigate('JAG');
-  };
-  infoINET = () => {
-    this.props.navigation.navigate('INET');
-  };
-  infoCDS = () => {
-    this.props.navigation.navigate('CDS');
-  };
-  infoAFCAT = () => {
-    this.props.navigation.navigate('AFCAT');
-  };
+infoNDA=()=>{
+  this.props.navigation.navigate('NDA')
+}
+infoSSC=()=>{
+  this.props.navigation.navigate('SSC')
+}
+infoTES=()=>{
+  this.props.navigation.navigate('TES')
+}
+infoNCC=()=>{
+  this.props.navigation.navigate('NCC')
+}
+infoJAG=()=>{
+  this.props.navigation.navigate('JAG')
+}
+infoINET=()=>{
+  this.props.navigation.navigate('INET')
+}
+infoCDS=()=>{
+  this.props.navigation.navigate('CDS')
+}
+infoAFCAT=()=>{
+  this.props.navigation.navigate('AFCAT')
+}
 
+
+  
   render() {
     return (
       <View style={styles.Container}>

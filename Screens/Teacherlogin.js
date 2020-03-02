@@ -20,12 +20,17 @@ export default class Teacherlogin extends React.Component {
     password: '',
   };
 
+
   backToHome = () => {
     this.props.navigation.navigate('Home');
   };
-  teacherProfile = () => {
-    this.props.navigation.navigate('Stack', {screen: 'TeacherProfile'});
-  };
+ 
+
+      teacherProfile = () => {
+        this.props.navigation.navigate('TeacherProfile')
+
+      }
+
   render() {
     return (
       <View style={styles.Container}>

@@ -10,20 +10,24 @@ import {
 import {Avatar, Appbar, Button, Card, Title} from 'react-native-paper';
 import styles from '../style/Style';
 export default class EligibilityHomeScreen extends Component {
-  static navigationOptions = {
-    headerShown: false,
-  };
-  EligibilityAirForce = () => {
-    this.props.navigation.navigate('Stack', {
-      screen: 'EligibilityFormAirForce',
-    });
-  };
-  EligibilityNavy = () => {
-    this.props.navigation.navigate('Stack', {screen: 'EligibilityFormNavy'});
-  };
-  EligibilityArmy = () => {
-    this.props.navigation.navigate('Stack', {screen: 'EligibilityFormArmy'});
-  };
+
+
+    static navigationOptions = {
+        headerShown: false
+    }
+    EligibilityAirForce = () => {
+      this.props.navigation.navigate('EligibilityFormAirForce')
+
+    }
+    EligibilityNavy = () => {
+      this.props.navigation.navigate('EligibilityFormNavy')
+
+    }
+    EligibilityArmy = () => {
+      this.props.navigation.navigate('EligibilityFormArmy')
+
+    }
+
   render() {
     return (
       <View style={styles.Container}>
