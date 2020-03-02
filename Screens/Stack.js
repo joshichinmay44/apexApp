@@ -38,7 +38,7 @@ import EligibilityFormArmy from './Eligibility/EligibilityFormArmy'
 import EligibilityFormAirForce from './Eligibility/EligibilityFormAirForce'
 import EligibilityFormNavy from './Eligibility/EligibilityFormNavy'
 import EligibilityResultArmy from './Eligibility/EligibilityResultArmy';
-import EligibilityResultNavy from './Eligibility/EligibilityResultNavy';
+
 
 /* import EligibilityResultNavy from './Eligibility/EligibilityResultNavy'; */
 
@@ -75,7 +75,7 @@ export default function Root() {
       <Stack.Screen name="EligibilityFormAirForce" component={EligibilityFormAirForce} />
       <Stack.Screen name="EligibilityFormNavy" component={EligibilityFormNavy} />
       <Stack.Screen name="EligibilityResultArmy" component={EligibilityResultArmy} />
-      <Stack.Screen name="EligibilityResultNavy" component={EligibilityResultNavy}/>
+     
     </Stack.Navigator>
   );
 }   
