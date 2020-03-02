@@ -19,9 +19,9 @@ export default class App extends Component {
                 backgroundColor="#084d7b"
                 barStyle="light-content"
         />
-         <About/> 
-    {/*  <Navigator />   
- */}
+     
+   <Navigator /> 
+
        </PaperProvider>
   
     );

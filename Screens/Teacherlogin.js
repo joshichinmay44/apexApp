@@ -26,7 +26,7 @@ export default class Teacherlogin extends React.Component {
 
       }
       teacherProfile = () => {
-        this.props.navigation.navigate('Stack',{screen:'TeacherProfile'})
+        this.props.navigation.navigate('TeacherProfile')
 
       }
   render() {
