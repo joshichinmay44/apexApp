@@ -84,13 +84,13 @@ export default class EligibilityFormNavy extends Component {
                 </Picker>
                 
                 </View>    
-                <View style={styles.Picker}>
+             {/*    <View style={styles.Picker}>
                 <Text>Do you have NCC 'C' Certificate?</Text> 
                 <Checkbox 
         status={ncc ? 'checked' : 'unchecked'}
         onPress={() => { this.setState({ ncc: !ncc }); }}
       />
-      </View>
+      </View> */}
 
                  <View style={styles.button} >
                  
