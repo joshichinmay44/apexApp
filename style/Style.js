@@ -63,6 +63,7 @@ ContainerHome: {
     width: '100%',
     borderWidth: 1,
     marginBottom: '5%',
+    marginTop:3
   },
 
   Picker: {
