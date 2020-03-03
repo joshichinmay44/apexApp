@@ -1,6 +1,6 @@
 import React, { Component } from 'react'
 import {StyleSheet, Text, View,ScrollView,Image, Button, TouchableOpacity, ActivityIndicator,} from 'react-native'
-
+import styles from '../style/Style';
 
 
 
@@ -13,40 +13,22 @@ export default class LoadingScreen extends Component {
     componentDidMount(){
         setTimeout(()=>{
             this.props.navigation.navigate('Home')
-        },2000)
+        },1000)
     }
      
     render() {
        
         return (
-            <View style={styles.Container}>
+            <View style={styles.ContainerLoading}>
                  <Image
-                style={styles.LoadingLogo}
-                source={require('../images/logoc.png')}
+                source={require('../images/ApexLogo.jpg')}
                  />
-             
-                <ActivityIndicator size="large" color="darpink" style={styles.indiacator}/>
-                <Text style={styles.Text}> LOADING</Text>
+             <Text style={styles.Info}>Training and Education</Text>
+            
+                <ActivityIndicator size="large" color="darpink" style={styles.indicator}/>
+                <Text style={styles.TextLoading}> LOADING</Text>
             </View>
         )}
 
 }
 
-const styles = StyleSheet.create({
-   Container:{
-       backgroundColor:'white',
-       height:'100%',
-       flex:1,
-      alignItems:'center',
-       justifyContent:'center',
-   },
-   Text:{
-       fontSize:15,
-       color:'black',
-       marginTop:'30%',
-
-   },
-   indiacator:{
-      marginTop:'30%',
-   }
-})
