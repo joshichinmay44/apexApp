@@ -135,11 +135,6 @@ export default function mydrawer() {
         
 
       </Drawer.Navigator>
-  
-
-        
-    
-   
 
   );
 } 
@@ -148,8 +143,8 @@ export default function mydrawer() {
 function CustomDrawerContent(props) {
   return (
     <DrawerContentScrollView {...props}>
-      <View style={{height: '10%',marginBottom:'5%',  marginLeft:'2%'}}>
-        <Text style={{fontSize: 20, color:'#ffff00',margin: '5%', fontFamily:'Iowan Old Style'}}>Apex Career Academy</Text>
+      <View style={{height: '10%',marginBottom:'5%',  marginLeft:'5%'}}>
+        <Text style={{fontSize: 22, color:'#ffff00',margin: '5%', fontFamily:'Oswald-BoldItalic'}}>Apex Career Academy</Text>
        
       </View>
       <View >
