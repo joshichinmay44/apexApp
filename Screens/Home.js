@@ -1,4 +1,3 @@
-
 import React, {Component} from 'react';
 import {
   StyleSheet,
@@ -8,14 +7,23 @@ import {
   TouchableOpacity,
 } from 'react-native';
 
-
-
-
-import { Appbar,Button,Text,TextInput,Card, Avatar } from 'react-native-paper';
-import { createDrawerNavigator, DrawerItemList, DrawerItem, DrawerContentScrollView } from '@react-navigation/drawer';
-import { NavigationContainer } from '@react-navigation/native';
-import {createStackNavigator } from '@react-navigation/stack';
-import {createAppContainer, createSwitchNavigator } from 'react-navigation';
+import {
+  Appbar,
+  Button,
+  Text,
+  TextInput,
+  Card,
+  Avatar,
+} from 'react-native-paper';
+import {
+  createDrawerNavigator,
+  DrawerItemList,
+  DrawerItem,
+  DrawerContentScrollView,
+} from '@react-navigation/drawer';
+import {NavigationContainer} from '@react-navigation/native';
+import {createStackNavigator} from '@react-navigation/stack';
+import {createAppContainer, createSwitchNavigator} from 'react-navigation';
 import LoadingScreen from './LoadingScreen';
 import StudentLogin from './Studentlogin';
 import TeacherLogin from './Teacherlogin';
@@ -35,14 +43,13 @@ class About extends Component {
     headerShown: false,
   };
   CoursesOffered = () => {
-    this.props.navigation.navigatescreen('CoursesOffered');
+    this.props.navigation.navigate('CoursesOffered');
   };
 
   render() {
     return (
       <View style={styles.ContainerHome}>
         <ScrollView style={styles.ScrollHome}>
-
           <Appbar.Header>
             <Appbar.Action
               icon="menu"
@@ -75,70 +82,50 @@ class About extends Component {
   }
 }
 
-
-
-
-
-  
-  
 const Drawer = createDrawerNavigator();
 
 export default function mydrawer() {
-  return ( 
-    
-      <Drawer.Navigator   initialRouteName={LoadingScreen} 
-     
+  return (
+    <Drawer.Navigator
+      initialRouteName={LoadingScreen}
       drawerStyle={{
         backgroundColor: '#084d7b',
         width: 260,
-      
       }}
-    
       drawerContentOptions={{
         activeTintColor: '#39ff14',
-        inactiveTintColor:'#ffffff',
-       
-        itemStyle: { marginVertical: 5 },
+        inactiveTintColor: '#ffffff',
+
+        itemStyle: {marginVertical: 5},
       }}
-
-     drawerContent={props => <CustomDrawerContent {...props} />}
-
-      >
-       
-        <Drawer.Screen name="Home" component={About} />
-        <Drawer.Screen name="Services" component={Services} />
-        <Drawer.Screen name="Entries" component={EntriesScreen} />
-        <Drawer.Screen name="Director's Desk" component={DirectorsDesk} />
-        <Drawer.Screen name="Success Stories" component={SuccessStories} />
-        <Drawer.Screen name="EligibilityHomeScreen" component={EligibilityHomeScreen} />
-        <Drawer.Screen name="Teacher Login" component={TeacherLogin} />
-        <Drawer.Screen name="Student Login" component={StudentLogin} />
-        <Drawer.Screen name="Contact" component={Contact} /> 
-
-      
-        
-
-      </Drawer.Navigator>
-  
-
-        
-    
-   
-
+      drawerContent={props => <CustomDrawerContent {...props} />}>
+      <Drawer.Screen name="Home" component={About} />
+      <Drawer.Screen name="Services" component={Services} />
+      <Drawer.Screen name="Entries" component={EntriesScreen} />
+      <Drawer.Screen name="Director's Desk" component={DirectorsDesk} />
+      <Drawer.Screen name="Success Stories" component={SuccessStories} />
+      <Drawer.Screen
+        name="EligibilityHomeScreen"
+        component={EligibilityHomeScreen}
+      />
+      <Drawer.Screen name="Teacher Login" component={TeacherLogin} />
+      <Drawer.Screen name="Student Login" component={StudentLogin} />
+      <Drawer.Screen name="Contact" component={Contact} />
+    </Drawer.Navigator>
   );
-} 
- 
+}
+
 function CustomDrawerContent(props) {
   return (
     <DrawerContentScrollView {...props}>
-      <View style={{height: 50, margin: 30, }}>
-        <Text style={{fontSize: 30, color: '#39ff14',}}>Apex Career Academy</Text>
-      
-   </View>
+      <View style={{height: 50, margin: 30}}>
+        <Text style={{fontSize: 30, color: '#39ff14'}}>
+          Apex Career Academy
+        </Text>
+      </View>
       <View style={{marginTop: 25}}>
-      <DrawerItemList {...props} />
+        <DrawerItemList {...props} />
       </View>
     </DrawerContentScrollView>
-    
   );
 }
