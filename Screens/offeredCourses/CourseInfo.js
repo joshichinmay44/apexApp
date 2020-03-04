@@ -26,7 +26,27 @@ export default class Afcat extends Component {
   backToHome = () => {
     this.props.navigation.navigate('Home');
   };
+
+
+renderInfo=(course)=>{
+  if(course=='CDS')
+  {
+    return(
+      <View style={styles.Body}>
+          
+
+      </View>
+
+
+    )
+
+
+  }
+}
+
   render() {
+let course= this.props.route.params.course
+
     return (
       <View style={styles.Container}>
         <ScrollView style={styles.Scroll}>
@@ -36,9 +56,16 @@ export default class Afcat extends Component {
             <Appbar.Action icon="home" onPress={this.backToHome} />
           </Appbar.Header>
 
-          <View style={styles.Body}></View>
+        
+
+          {this.renderInfo(course)}
+
+         
         </ScrollView>
       </View>
     );
   }
 }
+
+
+

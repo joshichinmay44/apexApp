@@ -17,9 +17,7 @@ import Teachermycourses1 from './Teachermycourses1';
 import Teacherstudentprogress from './Teacherstudentprogress';
 import ViewCourseInfo from './ViewCourseInfo';
 import CoursesOffered from './CoursesOffered';
-import Cds from './offeredCourses/Cds';
-import Nda from './offeredCourses/Nda';
-import Afcat from './offeredCourses/Afcat';
+import CourseInfo from './offeredCourses/CourseInfo'
 import Services from './Services';
 import AboutArmy from './AboutArmy';
 import AboutNavy from './AboutNavy';
@@ -52,9 +50,7 @@ export default function Root() {
       <Stack.Screen name="Home" component={Home} />
 
       <Stack.Screen name="CoursesOffered" component={CoursesOffered} />
-      <Stack.Screen name="Cds" component={Cds} />
-      <Stack.Screen name="Nda" component={Nda} />
-      <Stack.Screen name="Afcat" component={Afcat} />
+      <Stack.Screen name="CourseInfo" component={CourseInfo}/>
 
      
       <Stack.Screen name="NDA" component={NDA} />

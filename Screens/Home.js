@@ -8,9 +8,6 @@ import {
   TouchableOpacity,
 } from 'react-native';
 
-
-
-
 import { Appbar,Button,Text,TextInput,Card, Avatar, Paragraph } from 'react-native-paper';
 import { createDrawerNavigator, DrawerItemList, DrawerItem, DrawerContentScrollView } from '@react-navigation/drawer';
 import { NavigationContainer } from '@react-navigation/native';

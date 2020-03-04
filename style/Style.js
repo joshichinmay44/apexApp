@@ -42,14 +42,15 @@ ContainerHome: {
     marginBottom: 10,
   },
   button: {
-    margin: '5%',
+    margin: '2%',
     // width:'60%',
     marginLeft: '20%',
     marginRight: '20%',
   },
   Title: {
     textAlign: 'center',
-    fontFamily: 'georgia',
+    fontFamily: 'sans-serif',
+    fontWeight:'bold',
     fontSize: 25,
   },
   Info: {
