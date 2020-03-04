@@ -83,7 +83,7 @@ export default function Root() {
       <Stack.Screen name="EligibilityFormAirForce" component={EligibilityFormAirForce} />
       <Stack.Screen name="EligibilityFormNavy" component={EligibilityFormNavy} />
       <Stack.Screen name="EligibilityResultArmy" component={EligibilityResultArmy} />
-     
+        
     </Stack.Navigator>
     </NavigationContainer>
   );

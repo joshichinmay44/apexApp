@@ -14,7 +14,7 @@ export default class TeacherProfile extends Component {
     headerShown: false,
   };
   back = () => {
-    this.props.navigation.navigate('Stack', {screen: 'Teacher Login'});
+    this.props.navigation.navigate('Teacher Login');
   };
   viewNotification = () => {
     this.props.navigation.navigate('ViewNotification');
@@ -30,7 +30,7 @@ export default class TeacherProfile extends Component {
     this.props.navigation.navigate('ViewCourseInfo');
   };
   writeNotices = () => {
-    this.props.navigation.navigate('Contact', {screen: 'ViewCourseInfo'});
+    this.props.navigation.navigate('ViewCourseInfo');
   };
 
   render() {
