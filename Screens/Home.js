@@ -67,7 +67,7 @@ class About extends Component {
              </Paragraph>
             <Paragraph>
               <Text style={styles.Info}>
-             In a span of 14 years, the institute has to its credit over 800 students cracking the SSB Interviews. Today, throughout the country, if one has to crack SSB Interview, the first name that comes to the mind of a youth is ‘APEX CAREERS’.
+                In a span of 14 years, the institute has to its credit over 800 students cracking the SSB Interviews. Today, throughout the country, if one has to crack SSB Interview, the first name that comes to the mind of a youth is ‘APEX CAREERS’.
              </Text>
              </Paragraph>
            </Card.Content>
