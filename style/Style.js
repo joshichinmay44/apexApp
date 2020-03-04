@@ -48,7 +48,7 @@ export default styles = StyleSheet.create({
   },
   Title: {
     textAlign: 'center',
-    fontFamily: 'georgia',
+    fontFamily: 'Oswald-BoldItalic',
     fontSize: 25,
   },
   Info: {
