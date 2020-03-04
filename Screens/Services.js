@@ -14,7 +14,7 @@ export default class Services extends Component {
   };
 
   infoArmy = () => {
-    this.props.navigation.navigate('Stack', {screen: 'AboutArmy'});
+    this.props.navigation.navigate('AboutArmy');
   };
   infoNavy = () => {
     this.props.navigation.navigate('AboutNavy');
