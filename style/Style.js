@@ -49,7 +49,7 @@ ContainerHome: {
   },
   Title: {
     textAlign: 'center',
-    fontFamily: 'sans-serif',
+    fontFamily: 'Oswald-BoldItalic',
     fontWeight:'bold',
     fontSize: 25,
   },

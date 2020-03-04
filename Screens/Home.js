@@ -141,7 +141,7 @@ function CustomDrawerContent(props) {
   return (
     <DrawerContentScrollView {...props}>
       <View style={{height: '10%',marginBottom:'5%',  marginLeft:'5%'}}>
-        <Text style={{fontSize: 22, color:'#ffff00',margin: '5%', fontFamily:'Oswald-BoldItalic'}}>Apex Career Academy</Text>
+        <Text style={{fontSize: 22, color:'#ffff00',margin: '5%', fontFamily:'Oswald-BoldItalic'}}>Apex Careers</Text>
        
       </View>
       <View >
