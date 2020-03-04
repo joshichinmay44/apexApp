@@ -13,7 +13,7 @@ export default class LoadingScreen extends Component {
     componentDidMount(){
         setTimeout(()=>{
             this.props.navigation.navigate('Home')
-        },2000)
+        },1000)
     }
      
     render() {

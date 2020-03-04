@@ -9,7 +9,7 @@ export default class NDA extends Component {
     }
     back = () => {
 
-      this.props.navigation.navigate('EntriesScreen')
+      this.props.navigation.goBack()
 
     }
 
