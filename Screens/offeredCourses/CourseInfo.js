@@ -33,11 +33,7 @@ renderInfo=(course)=>{
   {
     return(
       <React.Fragment>
-      <Appbar.Header style={styles.Header}>
-      <Appbar.BackAction onPress={this.back} />
-      <Appbar.Content title="CDS" />
-      <Appbar.Action icon="home" onPress={this.backToHome} />
-    </Appbar.Header>
+     
       <View style={styles.Body}>
         <Card style={styles.cardContainer}>
         <Card.Content>
@@ -56,7 +52,7 @@ renderInfo=(course)=>{
            What will be the course duration?
           </Text>
           <Text style={styles.Info}>
-            it will be crash course and will be conducted for a duration of one month with lectures starting at 1100 hrs and lasting till 1600 hrs.
+            It will be crash course and will be conducted for a duration of one month with lectures starting at 1100 hrs and lasting till 1600 hrs.
           </Text>
         </Card.Content>
 </Card>
@@ -119,11 +115,8 @@ if(course=='NDA')
 {
   return(
     <React.Fragment>
-    <Appbar.Header style={styles.Header}>
-    <Appbar.BackAction onPress={this.back} />
-    <Appbar.Content title="NDA" />
-    <Appbar.Action icon="home" onPress={this.backToHome} />
-  </Appbar.Header>
+  
+ 
     <View style={styles.Body}>
       <Card style={styles.cardContainer}>
       <Card.Content>
@@ -188,11 +181,345 @@ if(course=='NDA')
 
       
 
+     
+    </View>
+    
+    
+    </React.Fragment>)} 
+
+if(course=='AFCAT')
+{
+  return(
+    <React.Fragment>
+    
+    <View style={styles.Body}>
+      <Card style={styles.cardContainer}>
+      <Card.Content>
+        <Text style={styles.Title}>
+          What will the course cover?
+        </Text>
+        <Text style={styles.Info}>
+          The course will cover the entire syllabus of AFCAT as mentioned in the syllabus notified by the Indian Air Force.{"\n"}
+        
+        </Text>
+      </Card.Content>
+      </Card>
+      <Card style={styles.cardContainer}>
+      <Card.Content>
+        <Text style={styles.Title}>
+         What will be the course duration?
+        </Text>
+        <Text style={styles.Info}>
+          It will be a crash course and will be conducted for a duration of one month with lectures starting at 1100 hrs and ending at 1600 hrs.
+        </Text>
+      </Card.Content>
+</Card>
+
+
+<Card style={styles.cardContainer}>
+      <Card.Content>
+        <Text style={styles.Title}>
+       When is the course conducted? 
+        </Text>
+        <Text style={styles.Info}>
+         The Course is conducted in 3 batches starting three months before the commencement of the actual examination. Students can enroll in any one of the batches which would last for one month each.
+        </Text>
+      </Card.Content>
+</Card>
+
+    
+    
+<Card style={styles.cardContainer}>
+      <Card.Content>
+        <Text style={styles.Title}>
+          Can girls apply for the course too?
+        </Text>
+        <Text style={styles.Info}>
+          Yes. As female candidates can apply for AFCAT, we admit girls women candiates to our course as well.
+        </Text>
+      </Card.Content></Card>
+      <Card style={styles.cardContainer}>
+      <Card.Content>
+        <Text style={styles.Title}>
+         WIll there be a test series module along with the course?
+        </Text>
+        <Text style={styles.Info}>
+       Yes. There will be <Text style={{color:'red'}}>1</Text> half test and <Text style={{color:'red'}}>1 </Text> full test which will be conducted as a part of the course.
+        </Text>
+      </Card.Content></Card>
+
+      <Card style={styles.cardContainer}>
+      <Card.Content>
+        <Text style={styles.Title}>
+          What is the fee structure for the course?
+        </Text>
+        <Text style={styles.Info}>
+       The fee structure for the course is as follows: {"\n"}
+       AFCAT: <Text style={{color:'red'}}>25000/-</Text>{"\n"}
+      
+       (Please note that the aforementioned fees are inclusive of all taxes)
+        </Text>
+      </Card.Content></Card>
+
+      
+
+
+    </View>
+    
+    </React.Fragment>)} 
+    
+    if(course=='INET')
+{
+  return(
+    <React.Fragment>
+   
+    <View style={styles.Body}>
+      <Card style={styles.cardContainer}>
+      <Card.Content>
+        <Text style={styles.Title}>
+          What will the course cover?
+        </Text>
+        <Text style={styles.Info}>
+          The course will cover the entire syllabus of Indian Navy Entrance Test (INET) as mentioned in the syllabus notified by the Indian Navy.{"\n"}
+        
+        </Text>
+      </Card.Content>
+      </Card>
+      <Card style={styles.cardContainer}>
+      <Card.Content>
+        <Text style={styles.Title}>
+         What will be the course duration?
+        </Text>
+        <Text style={styles.Info}>
+          It will be a crash course and will be conducted for a duration of one month with lectures starting at 1100 hrs and ending at 1600 hrs.
+        </Text>
+      </Card.Content>
+</Card>
+
+
+<Card style={styles.cardContainer}>
+      <Card.Content>
+        <Text style={styles.Title}>
+         When is the course conducted? 
+        </Text>
+        <Text style={styles.Info}>
+         The Course is conducted in 2 batches starting two months before the commencement of the actual examination. Students can enroll in any one of the batches as per their convenience which would last for one month each.
+        </Text>
+      </Card.Content>
+</Card>
+
+    
+    
+<Card style={styles.cardContainer}>
+      <Card.Content>
+        <Text style={styles.Title}>
+          Can girls apply for the course too?
+        </Text>
+        <Text style={styles.Info}>
+          Yes. As female candidates can apply for INET, we admit girls to our course as well.
+        </Text>
+      </Card.Content></Card>
+      <Card style={styles.cardContainer}>
+      <Card.Content>
+        <Text style={styles.Title}>
+         WIll there be a test series module along with the course?
+        </Text>
+        <Text style={styles.Info}>
+       Yes. There will be <Text style={{color:'red'}}>1</Text> half test and <Text style={{color:'red'}}>1 </Text> full test which will be conducted as a part of the course.
+        </Text>
+      </Card.Content></Card>
+
+      <Card style={styles.cardContainer}>
+      <Card.Content>
+        <Text style={styles.Title}>
+          What is the fee structure for the course?
+        </Text>
+        <Text style={styles.Info}>
+       The fee structure for the course is as follows: {"\n"}
+       INET: <Text style={{color:'red'}}>25000/-</Text>{"\n"}
+      
+       (Please note that the aforementioned fees are inclusive of all taxes)
+        </Text>
+      </Card.Content></Card>
+
+      
+
 
     </View>
     
     </React.Fragment>)} 
 
+
+if(course=='SPI')
+{
+  return(
+    <React.Fragment>
+  
+    <View style={styles.Body}>
+    <Card style={styles.cardContainer}>
+      <Card.Content>
+        <Text style={styles.Title}>
+          What is SPI?
+        </Text>
+        <Text style={styles.Info}>
+        Services Preparatory Institute (SPI) is a public military school in Aurangabad, Maharashtra, India. It was established in 1977 by the Government of Maharashtra to prepare students for the written examination for the National Defence Academy conducted by the UPSC.{"\n"} 
+        Having produced more than 3000+ officers in its brief span, it has become one of the most decorated traiining organizations in the state.
+        </Text>
+      </Card.Content>
+      </Card>
+
+      <Card style={styles.cardContainer}>
+      <Card.Content>
+        <Text style={styles.Title}>
+          How to join SPI?
+        </Text>
+        <Text style={styles.Info}>
+       SPI conducts a written entrance exam followed by a panel interview for students who have appeared for/passed class X. Those who qualify join the SPI in the month of June and undergo training for two years.
+        </Text>
+      </Card.Content>
+      </Card>
+
+
+      <Card style={styles.cardContainer}>
+      <Card.Content>
+        <Text style={styles.Title}>
+          What will the course cover?
+        </Text>
+        <Text style={styles.Info}>
+          The course will cover the entire syllabus of class IX and class X Mathematics, General Science as mentioned in the syllabus notified by the SPI.{"\n"}
+        
+        </Text>
+      </Card.Content> 
+      </Card>
+      <Card style={styles.cardContainer}>
+      <Card.Content>
+        <Text style={styles.Title}>
+         What will be the course duration?
+        </Text>
+        <Text style={styles.Info}>
+          It will be a crash course and will be conducted for a duration of one month with lectures starting immediately after the completion of class X (SSC) examinations.{"\n"}
+          The classes will conducted from 0900 hrs to 1700 hrs every day with no holidays (except national holidays) during the course.
+        </Text>
+      </Card.Content>
+</Card>
+
+
+<Card style={styles.cardContainer}>
+      <Card.Content>
+        <Text style={styles.Title}>
+         When is the course conducted? 
+        </Text>
+        <Text style={styles.Info}>
+         The Course is conducted in 2 batches starting two months before the commencement of the actual examination. Students can enroll in any one of the batches as per their convenience which would last for one month each.
+        </Text>
+      </Card.Content>
+</Card>
+
+    
+    
+<Card style={styles.cardContainer}>
+      <Card.Content>
+        <Text style={styles.Title}>
+          Can girls apply for the course too?
+        </Text>
+        <Text style={styles.Info}>
+          No. As female candidates cannot apply for NDA/NA, we do not admit girls to our SPI course.
+        </Text>
+      </Card.Content></Card>
+      <Card style={styles.cardContainer}>
+      <Card.Content>
+        <Text style={styles.Title}>
+         Will there be a test series module along with the course?
+        </Text>
+        <Text style={styles.Info}>
+       Yes. There will be <Text style={{color:'red'}}>1</Text> half test and <Text style={{color:'red'}}>1 </Text> full test which will be conducted as a part of the course.
+        </Text>
+      </Card.Content></Card>
+
+      <Card style={styles.cardContainer}>
+      <Card.Content>
+        <Text style={styles.Title}>
+          What is the fee structure for the course?
+        </Text>
+        <Text style={styles.Info}>
+       The fee structure for the course is as follows: {"\n"}
+       SPI: <Text style={{color:'red'}}>15,000/-</Text>{"\n"}
+      
+       (Please note that the aforementioned fees are inclusive of all taxes)
+        </Text>
+      </Card.Content></Card>
+
+      
+
+
+    </View>
+    
+    </React.Fragment>)} 
+
+if(course=='SSB')
+{
+  return(
+    <React.Fragment>
+   
+    <View style={styles.Body}>
+      <Card style={styles.cardContainer}>
+      <Card.Content>
+        <Text style={styles.Title}>
+          What will the course cover?
+        </Text>
+        <Text style={styles.Info}>
+          The course will cover all the aspects of the Services Selection Board (SSB) interview conducted by the armed forces.{"\n"}
+           From Screening Tests, Psychometric Tests to Group Tasks, the course will immaculately help you assess your qualities and our expert trainers will show you the way forward thus helping you clear the toughest interview in India.
+
+        </Text>
+      </Card.Content>
+      </Card>
+      <Card style={styles.cardContainer}>
+      <Card.Content>
+        <Text style={styles.Title}>
+         What will be the course duration?
+        </Text>
+        <Text style={styles.Info}>
+          The course will be conducted for a period of 14 days. New batch will start every Monday
+        </Text>
+      </Card.Content>
+</Card>
+
+
+    
+    
+<Card style={styles.cardContainer}>
+      <Card.Content>
+        <Text style={styles.Title}>
+          Can girls apply for the course too?
+        </Text>
+        <Text style={styles.Info}>
+          Yes. As female candidates can apply for INET,AFCAT,NCC(C) Special Entries, CDSE, we admit girls to our course as well.
+        </Text>
+      </Card.Content></Card>
+     
+    
+
+      <Card style={styles.cardContainer}>
+      <Card.Content>
+        <Text style={styles.Title}>
+          What is the fee structure for the course?
+        </Text>
+        <Text style={styles.Info}>
+       The fee structure for the course is as follows: {"\n"}
+       SSB: <Text style={{color:'red'}}>15000/-</Text>{"\n"}
+      
+       (Please note that the aforementioned fees are inclusive of all taxes)
+        </Text>
+      </Card.Content>
+      </Card>
+
+      
+
+
+    </View>
+    
+    </React.Fragment>)} 
 
     
 
@@ -200,20 +527,26 @@ if(course=='NDA')
   
 }
 
+
+
   render() {
 let course= this.props.route.params.course
 
     return (
       <View style={styles.Container}>
-        <ScrollView style={styles.Scroll}>
+     
          
-
-        
+     <Appbar.Header style={styles.Header}>
+      <Appbar.BackAction onPress={this.back} />
+      <Appbar.Content title={course} />
+      <Appbar.Action icon="home" onPress={this.backToHome} />
+    </Appbar.Header>
+        <ScrollView style={styles.Scroll}>
 
           {this.renderInfo(course)}
 
-         
-        </ScrollView>
+          </ScrollView>
+       
       </View>
     );
   }

@@ -50,7 +50,7 @@ ContainerHome: {
   Title: {
     textAlign: 'center',
     fontFamily: 'Oswald-BoldItalic',
-    fontWeight:'bold',
+   // fontWeight:'bold',
     fontSize: 25,
   },
   Info: {

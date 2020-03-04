@@ -48,17 +48,23 @@ export default class CoursesOffered extends Component {
       course:'SPI'
     });
   }
-
+Ssb=()=>{
+  this.props.navigation.navigate('CourseInfo',{
+    course:'SSB'
+})
+}
 
   
   render() {
     return (
       <View style={styles.Container}>
-        <ScrollView style={styles.Scroll}>
+        
           <Appbar.Header style={styles.Header}>
             <Appbar.BackAction onPress={this.back} />
             <Appbar.Content title="Courses Offered" />
           </Appbar.Header>
+
+          <ScrollView style={styles.Scroll}>
 
           <View style={styles.Body}>
             <Card style={styles.cardContainer}>
@@ -146,6 +152,22 @@ export default class CoursesOffered extends Component {
                 />
               </TouchableOpacity>
             </Card>
+            <Card style={styles.cardContainer}>
+              <TouchableOpacity onPress={this.Ssb}>
+                <Card.Cover
+                  source={require('../images/SSB.jpg')}
+                 
+                />
+                <Card.Title
+                  subtitle="Press for more details!"
+                  right={() => (
+                    <Avatar.Icon size={30} icon="arrow-right-bold" />
+                  )}
+                />
+              </TouchableOpacity>
+            </Card>
+
+
           </View>
         </ScrollView>
       </View>
