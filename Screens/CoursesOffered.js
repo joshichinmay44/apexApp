@@ -18,6 +18,9 @@ import {
 import {TouchableHighlight} from 'react-native-gesture-handler';
 import styles from '../style/Style';
 export default class CoursesOffered extends Component {
+  state={
+    course:''
+  }
   static navigationOptions = {
     headerShown: false,
   };
@@ -25,15 +28,29 @@ export default class CoursesOffered extends Component {
     this.props.navigation.navigate('Home');
   };
   Cds = () => {
-    this.props.navigation.navigate('Cds');
-  };
+    this.props.navigation.navigate('CourseInfo',{
+      course:'CDS'
+    });
+  }
 
   Nda = () => {
-    this.props.navigation.navigate('Nda');
-  };
+    this.props.navigation.navigate('CourseInfo',{
+      course:'NDA'
+    });
+  }
   Afcat = () => {
-    this.props.navigation.navigate('Afcat');
-  };
+    this.props.navigation.navigate('CourseInfo',{
+      course:'AFCAT'
+    });
+  }
+  Spi=()=>{
+    this.props.navigation.navigate('CourseInfo',{
+      course:'SPI'
+    });
+  }
+
+
+  
   render() {
     return (
       <View style={styles.Container}>
@@ -48,10 +65,7 @@ export default class CoursesOffered extends Component {
               <TouchableOpacity onPress={this.Cds}>
                 <Card.Cover
                   source={require('../images/cds.jpg')}
-                  /*  style={
-                    ({width: '100%'},
-                    {borderTopRightRadius: 30, borderTopLeftRadius: 30})
-                  } */
+                 
                 />
                 <Card.Title
                   subtitle="Press for more details!"

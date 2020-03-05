@@ -66,23 +66,6 @@ class About extends Component {
           <Card.Content>
             <Paragraph>
               <Text style={styles.Info}>
-                Established in 2003, the Academy trains youth for competitive
-                exams like NDA and NA Exam, CDS Exam conducted by the UPSC
-              </Text>
-            </Paragraph>
-
-            <Paragraph>
-              <Text style={styles.Info}>
-                The approach of the organization has been totally professional.
-                The Academy has five to six officers on the panel who impart
-                Services Selection Board i.e. SSB Interviews training and around
-                25 academic staff as visiting faculty to train for various
-                competitive exams. The Institute has six full time staff to
-                cater to various activities of the organization.
-              </Text>
-            </Paragraph>
-            <Paragraph>
-              <Text style={styles.Info}>
                 In a span of 14 years, the institute has to its credit over 800
                 students cracking the SSB Interviews. Today, throughout the
                 country, if one has to crack SSB Interview, the first name that
@@ -90,6 +73,25 @@ class About extends Component {
               </Text>
             </Paragraph>
           </Card.Content>
+
+          <Paragraph>
+            <Text style={styles.Info}>
+              The approach of the organization has been totally professional.
+              The Academy has five to six officers on the panel who impart
+              Services Selection Board i.e. SSB Interviews training and around
+              25 academic staff as visiting faculty to train for various
+              competitive exams. The Institute has six full time staff to cater
+              to various activities of the organization.
+            </Text>
+          </Paragraph>
+          <Paragraph>
+            <Text style={styles.Info}>
+              In a span of 14 years, the institute has to its credit over 800
+              students cracking the SSB Interviews. Today, throughout the
+              country, if one has to crack SSB Interview, the first name that
+              comes to the mind of a youth is ‘APEX CAREERS’.
+            </Text>
+          </Paragraph>
 
           <View style={styles.button}>
             <Button mode="contained" onPress={this.CoursesOffered}>
@@ -146,9 +148,9 @@ function CustomDrawerContent(props) {
             fontSize: 22,
             color: '#ffff00',
             margin: '5%',
-            fontFamily: 'Billabong',
+            fontFamily: 'Oswald-Italic',
           }}>
-          Apex Career Academy
+          Apex Careers
         </Text>
       </View>
       <View>
