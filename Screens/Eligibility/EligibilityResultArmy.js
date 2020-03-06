@@ -343,7 +343,7 @@ renderAirNCC=(attemptNCC)=>{
         return(
            
             <Card style={styles.Card}>
-                      <Card.Title title={this.renderTitle(attemptNCC,'CDS(AFA) Flying')} subtitle='Press for more details'></Card.Title>
+                      <Card.Title title={this.renderTitle(attemptNCC,'NCC Flying')} subtitle='Press for more details'></Card.Title>
             <TouchableOpacity onPress={()=>this.props.navigation.navigate('CDS')}>
          <Card.Cover  source={require('../../images/NCCAirEligibility.jpg')}/>
         
@@ -451,7 +451,7 @@ checkEligibilityAirForce=(age,month,qualification,ncc)=>{
                       {this.renderCdsAFA(attemptCdsPC+1)}
                       {this.renderAFCAT(attemptAFCAT+1)}
                      {this.renderMET(attemptMET+1)}
-                     {this.renderNCC(attemptNCC+1)}
+                     {this.renderAirNCC(attemptNCC+1)}
                </View>
     
          )

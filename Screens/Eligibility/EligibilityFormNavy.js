@@ -37,7 +37,7 @@ export default class EligibilityFormNavy extends Component {
     service: 'navy',
   };
   back = () => {
-    this.props.navigation.navigate('EligibilityHomeScreen');
+    this.props.navigation.navigate('Home');
   };
   checkEligibility = () => {
     this.props.navigation.navigate('EligibilityResultArmy', {

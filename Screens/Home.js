@@ -47,8 +47,8 @@ class About extends Component {
             />
             <Appbar.Content title="Home" />
           </Appbar.Header>
-
-          <Card.Cover  source={require('../images/AboutApex.jpg')} />
+      <Card style={styles.cardContainer}>         
+       <Card.Cover  source={require('../images/AboutApex.jpg')} />
          
            <Text style={styles.Title}>About the Institute</Text>
 
@@ -72,6 +72,7 @@ class About extends Component {
              </Paragraph>
            </Card.Content>
 
+           </Card>
 
            <View style={styles.button}>
               <Button mode="contained" onPress={this.CoursesOffered}>
@@ -123,7 +124,7 @@ export default function mydrawer() {
         <Drawer.Screen name="Entries" component={EntriesScreen} />
         <Drawer.Screen name="Director's Desk" component={DirectorsDesk} />
         <Drawer.Screen name="Success Stories" component={SuccessStories} />
-        <Drawer.Screen name="EligibilityHomeScreen" component={EligibilityHomeScreen} />
+        <Drawer.Screen name=" CHeck Eligibility" component={EligibilityHomeScreen} />
         <Drawer.Screen name="Teacher Login" component={TeacherLogin} />
         <Drawer.Screen name="Student Login" component={StudentLogin} />
         <Drawer.Screen name="Contact" component={Contact} /> 

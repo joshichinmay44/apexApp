@@ -39,7 +39,7 @@ export default class EligibilityFormAirForce extends Component {
         ncc:false,
         service:''
       };
-    back = () => {this.props.navigation.navigate('EligibilityHomeScreen')}
+    back = () => {this.props.navigation.navigate('Home')}
     checkEligibility=() =>{this.props.navigation.navigate('EligibilityResultArmy',{
          age: this.state.age,
         month: this.state.month,

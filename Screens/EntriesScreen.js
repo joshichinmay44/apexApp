@@ -52,7 +52,7 @@ infoAFCAT=()=>{
   render() {
     return (
       <View style={styles.Container}>
-        <ScrollView>
+       
           <Appbar.Header>
             <Appbar.Action
               icon="menu"
@@ -60,53 +60,62 @@ infoAFCAT=()=>{
             />
             <Appbar.Content title="Entries" />
           </Appbar.Header>
+          <ScrollView style={styles.Scroll}>
+            <TouchableOpacity>
+          <Card style={styles.cardContainer}>
+            <Card.Cover source={require('../images/NDA.jpg')} />
+          </Card>
+          </TouchableOpacity>
+          <TouchableOpacity>
+          <Card style={styles.cardContainer}>
+            <Card.Cover source={require('../images/TES.jpg')} />
+          </Card>
+          </TouchableOpacity>
+          <TouchableOpacity>
+          <Card style={styles.cardContainer}>
+            <Card.Cover source={require('../images/TESNAVY.jpg')} />
+          </Card>
+          </TouchableOpacity>
+          
+          <TouchableOpacity>
+          <Card style={styles.cardContainer}>
+            <Card.Cover source={require('../images/cds.jpg')} />
+          </Card>
+          </TouchableOpacity>
+          <TouchableOpacity>
+          <Card style={styles.cardContainer}>
+            <Card.Cover source={require('../images/AFCAT.jpg')} />
+          </Card>
+          </TouchableOpacity>
+          <TouchableOpacity>
+          <Card style={styles.cardContainer}>
+            <Card.Cover source={require('../images/INET.jpg')} />
+          </Card>
+          </TouchableOpacity>
+          <TouchableOpacity>
+          <Card style={styles.cardContainer}>
+            <Card.Cover source={{uri:'https://www.indiandefenceeducation.com/wp-content/uploads/2020/02/JAG-Entry-Indian-Army.png'}} />
+          </Card>
+          </TouchableOpacity>
 
-          <View style={styles.Body}>
-            <Card.Title title="Know about Various entries"></Card.Title>
-            <Card.Cover source={require('../images/AboutPhoto.jpg')} />
-            <View style={styles.BodyButton}>
-              <View style={styles.button}>
-                <Button mode="contained" onPress={this.infoNDA}>
-                  NDA/NA
-                </Button>
-              </View>
-              <View style={styles.button}>
-                <Button mode="contained" onPress={this.infoTES}>
-                  TES
-                </Button>
-              </View>
-              <View style={styles.button}>
-                <Button mode="contained" onPress={this.infoCDS}>
-                  CDS
-                </Button>
-              </View>
-              <View style={styles.button}>
-                <Button mode="contained" onPress={this.infoAFCAT}>
-                  AFCAT
-                </Button>
-              </View>
-              <View style={styles.button}>
-                <Button mode="contained" onPress={this.infoINET}>
-                  INET
-                </Button>
-              </View>
-              <View style={styles.button}>
-                <Button mode="contained" onPress={this.infoSSC}>
-                  TGC/SSC
-                </Button>
-              </View>
-              <View style={styles.button}>
-                <Button mode="contained" onPress={this.infoNCC}>
-                  NCC
-                </Button>
-              </View>
-              <View style={styles.button}>
-                <Button mode="contained" onPress={this.infoJAG}>
-                  JAG
-                </Button>
-              </View>
-            </View>
-          </View>
+          <TouchableOpacity>
+          <Card style={styles.cardContainer}>
+            <Card.Cover source={{uri:'https://www.prepamigo.com/wp-content/uploads/2017/10/About-TGC-Indian-Army-Recruitment-1024x538.jpg'}} />
+          </Card>
+          </TouchableOpacity>
+
+          <TouchableOpacity>
+          <Card style={styles.cardContainer}>
+            <Card.Cover source={{uri:'https://www.ssbcrack.com/wp-content/uploads/2018/07/SSC-Tech-Eligible-Branch-Vacancies-Cut-Off.jpg'}} />
+          </Card>
+          </TouchableOpacity>
+
+          <TouchableOpacity>
+          <Card style={styles.cardContainer}>
+            <Card.Cover source={{uri:'https://lh3.googleusercontent.com/proxy/anVD0JIltJkgiLNlv6vEcFlwcwCeQRGFKEpW_ztAc6E1C1qXJOcfPm1SwlaDRn3qGgavq_HxscMyOFDivVC9mLunoLQf4IXg9KFAlUFQJsnydD7e8-098u3_O7K9n8sBWVDTTQ'}} />
+          </Card>
+          </TouchableOpacity>
+         
         </ScrollView>
       </View>
     );
