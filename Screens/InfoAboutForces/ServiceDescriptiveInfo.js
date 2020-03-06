@@ -385,6 +385,8 @@ return(
         ) }
 
         else if(variable=='Indian Navy Ranks'){
+
+          console.log(variable)
             return(
 
                 <React.Fragment>
