@@ -5,6 +5,7 @@ import styles from '../../style/Style'
 export default class ServiceDescriptiveInfo extends Component {
 
     renderDescriptiveInfo=(variable)=>{
+      console.log(variable)
         if(variable=='History of the Indian Army'){
             return(
                 <Card style={styles.cardContainer}>
@@ -298,12 +299,12 @@ return(
         )
        }
 
-      else if(variable=='Our Brave Air Warriors'){
+      else if(variable=='Air Warriors'){
   return(      <React.Fragment><Card style={styles.cardContainer}>
-            <Text style={styles.Title}>Nirmal Jeet Singh Sekhon (PVC)</Text>      
+            <Text style={styles.Title}>F.O. Nirmal Jeet Singh Sekhon (PVC)</Text>      
         <Card.Cover source={require('../../images/NirmalSekho.png')} />
         </Card>
-        <Text style={styles.Title}>Abhinandan Vardhaman (AC)</Text>
+        <Text style={styles.Title}>Wing Commander Abhinandan Vardhaman (AC)</Text>
 <Card.Cover source={{uri:'https://d2c7ipcroan06u.cloudfront.net/wp-content/uploads/2019/03/Abhinandan-1-696x392.jpg'}}/>
         </React.Fragment>
    ) }
@@ -321,8 +322,95 @@ return(
 
        )
    }
+   else if(variable=='Sea Warriors')
+   {
+     return(
+      <React.Fragment><Card style={styles.cardContainer}>
+      <Text style={styles.Title}>Captain Narendranath MUlla (AC)</Text>      
+  <Card.Cover source={{uri:'https://www.thebetterindia.com/wp-content/uploads/2018/05/A-54.jpg'}} />
+  </Card>
+ 
+  </React.Fragment>
+     )
+   }
+  else if(variable=='Indian Navy Ranks'){
+
+        
+    return(
+
+        <React.Fragment>
+            <View style={{marginLeft:30,marginTop:10,flexDirection:'row'}}>
+                <Card.Cover source={{uri:'https://upload.wikimedia.org/wikipedia/commons/thumb/7/7b/06-Indian_Navy-SLT.svg/320px-06-Indian_Navy-SLT.svg.png'}} />
+              <View style={{marginLeft:20,alignSelf:'center'}}>  
+              <Text style={styles.Title}>Sub Lieutenant</Text>
+              </View>
+            </View>
+            <View style={{marginLeft:30,marginTop:10,flexDirection:'row'}}>
+                <Card.Cover source={{uri:'https://upload.wikimedia.org/wikipedia/commons/thumb/5/5d/07-Indian_Navy-LT.svg/320px-07-Indian_Navy-LT.svg.png'}} />
+              <View style={{marginLeft:20,alignSelf:'center'}}>  
+              <Text style={styles.Title}>Lieutenant</Text>
+              </View>
+            </View>
+
+            <View style={{marginLeft:30,marginTop:10,flexDirection:'row'}}>
+                <Card.Cover source={{uri:'https://upload.wikimedia.org/wikipedia/commons/thumb/a/ab/08-Indian_Navy-LCDR.svg/320px-08-Indian_Navy-LCDR.svg.png'}} />
+              <View style={{marginLeft:20,alignSelf:'center'}}>  
+              <Text style={styles.Title}>Lieutenant Commander</Text>
+              </View>
+            </View>
+
+            <View style={{marginLeft:30,marginTop:10,flexDirection:'row'}}>
+                <Card.Cover source={{uri:'https://upload.wikimedia.org/wikipedia/commons/thumb/7/7c/09-Indian_Navy-CDR.svg/320px-09-Indian_Navy-CDR.svg.png'}} />
+              <View style={{marginLeft:20,alignSelf:'center'}}>  
+              <Text style={styles.Title}>Commander</Text>
+              </View>
+            </View>
+
+            <View style={{marginLeft:30,marginTop:10,flexDirection:'row'}}>
+                <Card.Cover source={{uri:'https://upload.wikimedia.org/wikipedia/commons/thumb/0/0f/10-Indian_Navy-CAPT.svg/320px-10-Indian_Navy-CAPT.svg.png'}} />
+              <View style={{marginLeft:20,alignSelf:'center'}}>  
+              <Text style={styles.Title}>Captain</Text>
+              </View>
+            </View>
+
+            <View style={{marginLeft:30,marginTop:10,flexDirection:'row'}}>
+                <Card.Cover source={{uri:'https://upload.wikimedia.org/wikipedia/commons/thumb/a/a9/11-Indian_Navy-CDRE.svg/320px-11-Indian_Navy-CDRE.svg.png'}} />
+              <View style={{marginLeft:20,alignSelf:'center'}}>  
+              <Text style={styles.Title}>Commodore</Text>
+              </View>
+            </View>
+
+            
+
+            <View style={{marginLeft:30,marginTop:10,flexDirection:'row'}}>
+                <Card.Cover source={{uri:'https://upload.wikimedia.org/wikipedia/commons/thumb/9/98/12-Indian_Navy-RADM.svg/320px-12-Indian_Navy-RADM.svg.png'}} />
+              <View style={{marginLeft:30,alignSelf:'center'}}>  
+              <Text style={styles.Title}>Rear Admiral</Text>
+              </View>
+            </View>
+
+            <View style={{marginLeft:30,marginTop:10,flexDirection:'row'}}>
+                <Card.Cover source={{uri:'https://upload.wikimedia.org/wikipedia/commons/thumb/1/1a/13-Indian_Navy-VADM.svg/320px-13-Indian_Navy-VADM.svg.png'}} />
+              <View style={{marginLeft:30,alignSelf:'center'}}>  
+              <Text style={styles.Title}>Vice Admiral</Text>
+              </View>
+            </View>
+
+            <View style={{marginLeft:30,marginTop:10,flexDirection:'row'}}>
+                <Card.Cover source={{uri:'https://upload.wikimedia.org/wikipedia/commons/thumb/3/34/14-Indian_Navy-ADM.svg/320px-14-Indian_Navy-ADM.svg.png'}} />
+              <View style={{marginLeft:30,alignSelf:'center'}}>  
+              <Text style={styles.Title}>Admiral</Text>
+              </View>
+            </View>
+
+
+        </React.Fragment>
+    )
+
+}
 
    else if(variable='Naval Missions'){
+    
        return(
     <React.Fragment>
     <Card style={styles.cardContainer}>
@@ -384,81 +472,7 @@ return(
 
         ) }
 
-        else if(variable=='Indian Navy Ranks'){
-
-          console.log(variable)
-            return(
-
-                <React.Fragment>
-                    <View style={{marginLeft:30,marginTop:10,flexDirection:'row'}}>
-                        <Card.Cover source={{uri:'https://upload.wikimedia.org/wikipedia/commons/thumb/1/13/British_Royal_Navy_%28sleeves%29_OF-1b.svg/320px-British_Royal_Navy_%28sleeves%29_OF-1b.svg.png'}} />
-                      <View style={{marginLeft:20,alignSelf:'center'}}>  
-                      <Text style={styles.Title}>Sub Lieutenant</Text>
-                      </View>
-                    </View>
-                    <View style={{marginLeft:30,marginTop:10,flexDirection:'row'}}>
-                        <Card.Cover source={{uri:'https://upload.wikimedia.org/wikipedia/commons/thumb/7/7f/British_RAF_OF-2.svg/320px-British_RAF_OF-2.svg.png'}} />
-                      <View style={{marginLeft:20,alignSelf:'center'}}>  
-                      <Text style={styles.Title}>Flight Lieutenant</Text>
-                      </View>
-                    </View>
-    
-                    <View style={{marginLeft:30,marginTop:10,flexDirection:'row'}}>
-                        <Card.Cover source={{uri:'https://upload.wikimedia.org/wikipedia/commons/thumb/d/d7/British_RAF_OF-3.svg/320px-British_RAF_OF-3.svg.png'}} />
-                      <View style={{marginLeft:20,alignSelf:'center'}}>  
-                      <Text style={styles.Title}>Squadron Leader</Text>
-                      </View>
-                    </View>
-    
-                    <View style={{marginLeft:30,marginTop:10,flexDirection:'row'}}>
-                        <Card.Cover source={require('../../images/AirComm.png')} />
-                      <View style={{marginLeft:20,alignSelf:'center'}}>  
-                      <Text style={styles.Title}>Wing Commander</Text>
-                      </View>
-                    </View>
-    
-                    <View style={{marginLeft:30,marginTop:10,flexDirection:'row'}}>
-                        <Card.Cover source={{uri:'https://upload.wikimedia.org/wikipedia/commons/thumb/6/63/British_RAF_OF-5.svg/320px-British_RAF_OF-5.svg.png'}} />
-                      <View style={{marginLeft:20,alignSelf:'center'}}>  
-                      <Text style={styles.Title}>Group Captain</Text>
-                      </View>
-                    </View>
-    
-                    <View style={{marginLeft:30,marginTop:10,flexDirection:'row'}}>
-                        <Card.Cover source={require('../../images/AirComm.png')} />
-                      <View style={{marginLeft:20,alignSelf:'center'}}>  
-                      <Text style={styles.Title}>Air Commodore</Text>
-                      </View>
-                    </View>
-    
-                    
-    
-                    <View style={{marginLeft:30,marginTop:10,flexDirection:'row'}}>
-                        <Card.Cover source={require('../../images/AVM.png')} />
-                      <View style={{marginLeft:30,alignSelf:'center'}}>  
-                      <Text style={styles.Title}>Air Vice Marshal</Text>
-                      </View>
-                    </View>
-    
-                    <View style={{marginLeft:30,marginTop:10,flexDirection:'row'}}>
-                        <Card.Cover source={require('../../images/AM.png')} />
-                      <View style={{marginLeft:30,alignSelf:'center'}}>  
-                      <Text style={styles.Title}>Air Marshal</Text>
-                      </View>
-                    </View>
-    
-                    <View style={{marginLeft:30,marginTop:10,flexDirection:'row'}}>
-                        <Card.Cover source={require('../../images/ACM.png')} />
-                      <View style={{marginLeft:30,alignSelf:'center'}}>  
-                      <Text style={styles.Title}>Air Chief Marshal</Text>
-                      </View>
-                    </View>
-    
-    
-                </React.Fragment>
-            )
-
-        }
+        
   
     }
 
