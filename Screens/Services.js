@@ -8,26 +8,36 @@ import {
 } from 'react-native';
 import {Appbar, Button, Text, TextInput, Card} from 'react-native-paper';
 import styles from '../style/Style';
+
 export default class Services extends Component {
+  state={
+    service:''
+  }
   static navigationOptions = {
     headerShown: false,
   };
 
   infoArmy = () => {
-    this.props.navigation.navigate('AboutArmy');
+    this.props.navigation.navigate('AboutTheForces',{
+      service:'Indian Army'
+    });
   };
   infoNavy = () => {
-    this.props.navigation.navigate('AboutNavy');
+    this.props.navigation.navigate('AboutTheForces',{
+      service:'Indian Navy'
+    });
   };
 
   infoAirForce = () => {
-    this.props.navigation.navigate('AboutAirForce');
+    this.props.navigation.navigate('AboutTheForces',{
+      service:'Indian Air Force'
+    });
   };
 
   render() {
     return (
       <View style={styles.Container}>
-        <ScrollView style={styles.Scroll}>
+       
           <Appbar.Header>
             <Appbar.Action
               icon="menu"
@@ -35,29 +45,39 @@ export default class Services extends Component {
             />
             <Appbar.Content title="Services" />
           </Appbar.Header>
-          <View style={styles.Body}>
-            <Image
-              style={styles.logo}
-              source={require('../images/AboutPhoto.jpg')}
-            />
-            <View style={styles.button}>
-              <Button mode="contained" onPress={this.infoArmy}>
-                {' '}
-                Indian Army{' '}
-              </Button>
-            </View>
-            <View style={styles.button}>
-              <Button mode="contained" onPress={this.infoNavy}>
-                {' '}
-                Indian Navy{' '}
-              </Button>
-            </View>
-            <View style={styles.button}>
-              <Button mode="contained" onPress={this.infoAirForce}>
-                Indian Air Force
-              </Button>
-            </View>
-          </View>
+          <ScrollView style={styles.Scroll}>
+            <TouchableOpacity onPress={this.infoArmy}>
+              <View style={{marginTop:50}}></View>
+         <Card style={styles.cardContainer}>
+
+          <Card.Cover source={require('../images/IndianArmy.jpg')} />
+
+         </Card>
+         
+        
+         </TouchableOpacity>
+
+         <TouchableOpacity onPress={this.infoNavy}>
+              <View style={{marginTop:50}}></View>
+         <Card style={styles.cardContainer}>
+
+          <Card.Cover source={require('../images/IndianNavy.png')} />
+
+         </Card>
+         
+        
+         </TouchableOpacity>
+
+         <TouchableOpacity onPress={this.infoAirForce}>
+              <View style={{marginTop:50}}></View>
+         <Card style={styles.cardContainer}>
+
+          <Card.Cover source={require('../images/IndianAirForce.jpg')} />
+
+         </Card>
+         
+        
+         </TouchableOpacity>
         </ScrollView>
       </View>
     );

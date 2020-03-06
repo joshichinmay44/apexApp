@@ -49,7 +49,7 @@ export default styles = StyleSheet.create({
   Title: {
     textAlign: 'center',
     fontFamily: 'Oswald-BoldItalic',
-    // fontWeight: 'bold',
+    // fontWeight:'bold',
     fontSize: 25,
   },
   Info: {
