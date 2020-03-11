@@ -13,8 +13,15 @@ export default class TeacherProfile extends Component {
   static navigationOptions = {
     headerShown: false,
   };
+  state={
+    email : this.props.route.params.username,
+    teacherInfo : this.props.route.params.teacherInfo,
+  }
+  
+
+
   back = () => {
-    this.props.navigation.navigate('Stack', {screen: 'Teacher Login'});
+    this.props.navigation.navigate('Teacher Login');
   };
   viewNotification = () => {
     this.props.navigation.navigate('ViewNotification');
@@ -30,11 +37,13 @@ export default class TeacherProfile extends Component {
     this.props.navigation.navigate('ViewCourseInfo');
   };
   writeNotices = () => {
-    this.props.navigation.navigate('Contact', {screen: 'ViewCourseInfo'});
+    this.props.navigation.navigate( 'ViewCourseInfo');
   };
 
   render() {
+    
     return (
+    
       <View style={styles.Container}>
         <ScrollView style={styles.Scroll}>
           <Appbar.Header>
@@ -48,12 +57,13 @@ export default class TeacherProfile extends Component {
               <Text style={styles.mytext}>Teacher ID</Text>
               <Text style={styles.mytext}>Contact Info</Text>
             </View> */}
+            
 
             <Card style={styles.cardContainer}>
-              <Card.Title title="Teacher Name" style={{marginBottom: '-5%'}} />
-              <Card.Title subtitle="Teacher Id" style={{marginBottom: '-5%'}} />
+              <Card.Title title={this.state.teacherInfo.Name} style={{marginBottom: '-5%'}} />
+              <Card.Title subtitle={this.state.email} style={{marginBottom: '-5%'}} />
               <Card.Title
-                subtitle="Contact Number"
+                subtitle={this.state.teacherInfo.Contact}
                 style={{marginBottom: '-5%'}}
               />
             </Card>

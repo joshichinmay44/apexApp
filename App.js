@@ -9,6 +9,8 @@ import Teacherlogin from './Screens/Teacherlogin';
 import StudentProfile from './Screens/StudentProfile';
 import {Provider as PaperProvider, DefaultTheme} from 'react-native-paper';
 
+
+
 export default class App extends Component {
   render() {
     return (

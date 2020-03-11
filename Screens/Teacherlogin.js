@@ -10,6 +10,10 @@ import {
   SafeAreaView,
 } from 'react-native';
 import styles from '../style/StyleLogin';
+import * as firebase from 'firebase';
+
+
+
 
 export default class Teacherlogin extends React.Component {
   static navigationOptions = {
@@ -18,6 +22,9 @@ export default class Teacherlogin extends React.Component {
   state = {
     username: '',
     password: '',
+    teacherInfo: [],
+    teacerList: [],
+    mylist: [],
   };
 
 
@@ -26,10 +33,70 @@ export default class Teacherlogin extends React.Component {
   };
  
 
-      teacherProfile = () => {
+     /*  teacherProfile = () => {
         this.props.navigation.navigate('TeacherProfile')
 
-      }
+      } */
+
+  login = () => {
+    firebase
+    .auth()
+    .signInWithEmailAndPassword(this.state.username, this.state.password)
+    .then(() => {
+      //console.log('successfully loged in');
+
+      const myitems = firebase.database().ref("Courses/")
+      myitems.on("value", datasnap=>{
+        this.setState({mylist : Object.values(datasnap.val())}
+        /* ,function(){console.log(this.state.mylist)} */
+        )
+      })
+
+      var temp = [];
+      const username = this.state.username;
+      this.state.mylist.map((item, index) => {
+       
+        Object.keys(item).map(function(key) {
+        
+          if (key.match('Teacher')) {
+          var teacher = item[key];
+         
+          Object.keys(teacher).map(function(key) {
+            
+            var info = teacher[key];
+           
+              if (info.Email.match(username))
+              { 
+                //temp.push(info) 
+                temp=info
+                //console.log("tmp :" + temp.Name)            
+              }  
+       
+          });
+        }
+      });
+    }); 
+   
+    this.setState({teacherInfo: temp},
+      function(){
+        console.log("this is teacher info: "+this.state.teacherInfo); 
+      
+    });
+
+      this.props.navigation.navigate('TeacherProfile', {
+      username : this.state.username,
+      teacherInfo : this.state.teacherInfo,  
+      });
+          
+  })
+    .catch(function(error) {
+          
+      var errorCode = error.code;
+      var errorMessage = error.message;
+      console.log(errorMessage);
+      });
+  };
+    
 
   render() {
     return (
@@ -66,7 +133,7 @@ export default class Teacherlogin extends React.Component {
                 onChangeText={password => this.setState({password})}
               />
               <View style={styles.button}>
-                <Button mode="contained" onPress={this.teacherProfile}>
+                <Button mode="contained" onPress={this.login}>
                   Login
                 </Button>
               </View>
