@@ -19,9 +19,7 @@ import ViewCourseInfo from './ViewCourseInfo';
 import CoursesOffered from './CoursesOffered';
 import CourseInfo from './offeredCourses/CourseInfo'
 import Services from './Services';
-import AboutArmy from './AboutArmy';
-import AboutNavy from './AboutNavy';
-import AboutAirForce from './AboutAirForce';
+
 import EntriesScreen from './EntriesScreen';
 import NDA from './Entries/NDA';
 import CDS from './Entries/CDS';
@@ -36,8 +34,9 @@ import EligibilityFormArmy from './Eligibility/EligibilityFormArmy';
 import EligibilityFormAirForce from './Eligibility/EligibilityFormAirForce';
 import EligibilityFormNavy from './Eligibility/EligibilityFormNavy';
 import EligibilityResultArmy from './Eligibility/EligibilityResultArmy';
+import AboutTheForces from './InfoAboutForces/AboutTheForces'
 
-
+import ServiceDescriptiveInfo from './InfoAboutForces/ServiceDescriptiveInfo'
 /* import EligibilityResultNavy from './Eligibility/EligibilityResultNavy'; */
 
 const Stack = createStackNavigator();
@@ -52,7 +51,7 @@ export default function Root() {
       <Stack.Screen name="CoursesOffered" component={CoursesOffered} />
       <Stack.Screen name="CourseInfo" component={CourseInfo}/>
 
-     
+   
       <Stack.Screen name="NDA" component={NDA} />
       <Stack.Screen name="CDS" component={CDS} />
       <Stack.Screen name="AFCAT" component={AFCAT} />
@@ -61,17 +60,15 @@ export default function Root() {
       <Stack.Screen name="JAG" component={JAG} />
       <Stack.Screen name="NCC" component={NCC} />
       <Stack.Screen name="TES" component={TES} />
-
-      <Stack.Screen name="AboutArmy" component={AboutArmy} />
-      <Stack.Screen name="AboutNavy" component={AboutNavy} />
-      <Stack.Screen name="AboutAirForce" component={AboutAirForce} />
+      <Stack.Screen name="ServiceDescriptiveInfo" component={ServiceDescriptiveInfo}/>
+     
       <Stack.Screen name="ViewCourseInfo" component={ViewCourseInfo} />
 
       <Stack.Screen name="StudentProfile" component={StudentProfile} />
       <Stack.Screen name="TeacherProfile" component={TeacherProfile} />
       <Stack.Screen name="ViewNotification" component={ViewNotification} />
 
-    
+    <Stack.Screen name="AboutTheForces" component={AboutTheForces}/>
 
 
   
@@ -79,7 +76,7 @@ export default function Root() {
       <Stack.Screen name="EligibilityFormAirForce" component={EligibilityFormAirForce} />
       <Stack.Screen name="EligibilityFormNavy" component={EligibilityFormNavy} />
       <Stack.Screen name="EligibilityResultArmy" component={EligibilityResultArmy} />
-        
+        <Stack.Screen name="ELigibilityHomeScreen" component={EligibilityHomeScreen}/>
     </Stack.Navigator>
     </NavigationContainer>
   );

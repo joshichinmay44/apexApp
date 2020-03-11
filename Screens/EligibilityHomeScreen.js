@@ -31,7 +31,7 @@ export default class EligibilityHomeScreen extends Component {
   render() {
     return (
       <View style={styles.Container}>
-        <ScrollView style={styles.Scroll}>
+        
           <Appbar.Header>
             <Appbar.Action
               icon="menu"
@@ -39,6 +39,7 @@ export default class EligibilityHomeScreen extends Component {
             />
             <Appbar.Content title="Eligibility" />
           </Appbar.Header>
+          <ScrollView style={styles.Scroll}>
           <TouchableOpacity onPress={this.EligibilityArmy}>
             <Card style={styles.cardContainer}>
               <Card.Title
