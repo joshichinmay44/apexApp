@@ -10,17 +10,93 @@ import {
 import {Appbar, Button, Card} from 'react-native-paper';
 import styles from '../style/Style';
 
-import * as firebase from 'firebase'
+import * as firebase from 'firebase';
 export default class StudentProfile extends Component {
   static navigationOptions = {
     headerShown: false,
   };
 
+  state = {
+    email: this.props.route.params.username,
+    mycourses: [],
+    info_val: [],
+    info_key: [],
+    courses: [],
+    details: 0,
+  };
+  componentDidMount() {
+    const myitems = firebase.database().ref('Courses/');
+    myitems.on('value', datasnap => {
+      if (datasnap.val()) {
+        this.setState({mycourses: Object.values(datasnap.val())}, () => {
+          console.log();
+        });
+
+        this.setState({courses: datasnap}, () => {
+          console.log();
+          this.getinfo();
+        });
+      }
+    });
+  }
+
+  getinfo() {
+    const email = this.state.email;
+    let courses = [];
+    let count = 0;
+    let coursedetail = '';
+    let courseindetail = '';
+    let flag = 0;
+
+    const ex = this.state.courses.val();
+    Object.keys(ex).map(key => {
+      courses.push(key);
+    });
+
+    const demo = this.state.mycourses;
+    count = 0;
+    Object.keys(demo).map(key => {
+      const item = demo[key];
+      Object.keys(item).map(key => {
+        if (key == 'Details') {
+          coursedetail = key;
+          courseindetail = item[key];
+        }
+        if (key == 'Students') {
+          var stud = item[key];
+          Object.keys(stud).map(key => {
+            var mail = stud[key];
+            Object.keys(mail).map(key => {
+              if (key == 'Email' && mail[key] == email) {
+                flag = 1;
+              }
+            });
+            if (flag == 1) {
+              this.state.info_key.push('id');
+              this.state.info_val.push(key);
+              this.state.info_key.push('Course');
+              this.state.info_val.push(courses[count]);
+              Object.keys(mail).map(key => {
+                this.state.info_key.push(key);
+                this.state.info_val.push(mail[key]);
+              });
+              this.setState({details: 1});
+              flag = 0;
+            }
+          });
+        }
+
+        if (this.state.details == 1) {
+          this.state.info_key.push(coursedetail);
+          this.state.info_val.push(courseindetail);
+          this.setState({details: 0});
+        }
+      });
+      count = count + 1;
+    });
+  }
   viewNotification = () => {
     this.props.navigation.navigate('ViewNotification');
-  };
-  back = () => {
-    this.props.navigation.navigate('Student Login');
   };
 
   viewCourseInfo = () => {
@@ -32,37 +108,45 @@ export default class StudentProfile extends Component {
   viewBlogs = () => {
     this.props.navigation.navigate('ViewCourseInfo');
   };
-  logout=()=>{
-    firebase.auth().signOut().then(()=>{
-      this.props.navigation.navigate('Studentlogin')
-    })
-  }
+  logout = () => {
+    firebase
+      .auth()
+      .signOut()
+      .then(() => {
+        this.props.navigation.navigate('Home', {screen: 'Studentlogin'});
+      });
+  };
   render() {
     return (
       <View style={styles.Container}>
         <ScrollView style={styles.Scroll}>
           <Appbar.Header>
-            <Appbar.BackAction onPress={this.back} />
             <Appbar.Content title="Student Profile" />
-            <Appbar.Action icon='logout' onPress={this.logout} />
+            <Appbar.Action icon="logout" onPress={this.logout} />
           </Appbar.Header>
 
           <View style={styles.Body}>
-            {/*  <View style={styles.mytextview}>
-              <Text style={styles.mytext}>Student Name</Text>
-              <Text style={styles.mytext}>Student ID</Text>
-              <Text style={styles.mytext}>Contact Number</Text>
-              <Text style={styles.mytext}>Course ID</Text>
-            </View> */}
-
             <Card style={styles.cardContainer}>
-              <Card.Title title="Student Name" style={{marginBottom: '-5%'}} />
-              <Card.Title subtitle="Student Id" style={{marginBottom: '-5%'}} />
               <Card.Title
-                subtitle="Contact Number"
+                subtitle={this.state.info_key[4]}
+                title={this.state.info_val[4]}
                 style={{marginBottom: '-5%'}}
               />
-              <Card.Title subtitle="Course ID" style={{marginBottom: '-5%'}} />
+              <Card.Title
+                subtitle={this.state.info_key[0]}
+                title={this.state.info_val[0]}
+                style={{marginBottom: '-5%'}}
+              />
+              <Card.Title
+                subtitle={this.state.info_key[2]}
+                title={this.state.info_val[2]}
+                style={{marginBottom: '-5%'}}
+              />
+              <Card.Title
+                subtitle={this.state.info_key[1]}
+                title={this.state.info_val[1]}
+                style={{marginBottom: '-5%'}}
+              />
             </Card>
 
             <View style={styles.button}>

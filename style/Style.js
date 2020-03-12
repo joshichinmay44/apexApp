@@ -1,27 +1,26 @@
 import {StyleSheet} from 'react-native';
 
 export default styles = StyleSheet.create({
-  ContainerLoading:{
-    backgroundColor:'white',
-    height:'100%',
-    flex:1,
-   alignItems:'center',
-    justifyContent:'center',
-    alignContent:'center'
-},
-TextLoading:{
-    fontSize:15,
-    color:'black',
-    marginTop:'30%',
-
-},
-indicator:{
-   marginTop:'40%',
-},
-ContainerHome: {
-  height: '100%',
-  backgroundColor:'white',
-},
+  ContainerLoading: {
+    backgroundColor: 'white',
+    height: '100%',
+    flex: 1,
+    alignItems: 'center',
+    justifyContent: 'center',
+    alignContent: 'center',
+  },
+  TextLoading: {
+    fontSize: 15,
+    color: 'black',
+    marginTop: '30%',
+  },
+  indicator: {
+    marginTop: '40%',
+  },
+  ContainerHome: {
+    height: '100%',
+    backgroundColor: 'white',
+  },
   Container: {
     height: '100%',
     backgroundColor: 'ghostwhite',
@@ -50,7 +49,7 @@ ContainerHome: {
   Title: {
     textAlign: 'center',
     fontFamily: 'Oswald-BoldItalic',
-   // fontWeight:'bold',
+    // fontWeight:'bold',
     fontSize: 25,
   },
   Info: {
@@ -64,7 +63,7 @@ ContainerHome: {
     width: '100%',
     borderWidth: 1,
     marginBottom: '5%',
-    marginTop:3
+    marginTop: 3,
   },
 
   Picker: {
