@@ -17,7 +17,7 @@ import Teachermycourses1 from './Teachermycourses1';
 import Teacherstudentprogress from './Teacherstudentprogress';
 import ViewCourseInfo from './ViewCourseInfo';
 import CoursesOffered from './CoursesOffered';
-import CourseInfo from './offeredCourses/CourseInfo'
+import CourseInfo from './offeredCourses/CourseInfo';
 import Services from './Services';
 
 import EntriesScreen from './EntriesScreen';
@@ -34,54 +34,65 @@ import EligibilityFormArmy from './Eligibility/EligibilityFormArmy';
 import EligibilityFormAirForce from './Eligibility/EligibilityFormAirForce';
 import EligibilityFormNavy from './Eligibility/EligibilityFormNavy';
 import EligibilityResultArmy from './Eligibility/EligibilityResultArmy';
-import AboutTheForces from './InfoAboutForces/AboutTheForces'
+import AboutTheForces from './InfoAboutForces/AboutTheForces';
 
-import ServiceDescriptiveInfo from './InfoAboutForces/ServiceDescriptiveInfo'
+import ServiceDescriptiveInfo from './InfoAboutForces/ServiceDescriptiveInfo';
 /* import EligibilityResultNavy from './Eligibility/EligibilityResultNavy'; */
 
 const Stack = createStackNavigator();
 export default function Root() {
+  return (
+    <NavigationContainer>
+      <Stack.Navigator headerMode="none" initialRouteName="LoadingScreen">
+        <Stack.Screen name="LoadingScreen" component={LoadingScreen} />
+        <Stack.Screen name="Home" component={Home} />
 
- return (
-  <NavigationContainer> 
-      <Stack.Navigator headerMode='none' initialRouteName='LoadingScreen'>
-      <Stack.Screen name="LoadingScreen" component={LoadingScreen} />
-      <Stack.Screen name="Home" component={Home} />
+        <Stack.Screen name="CoursesOffered" component={CoursesOffered} />
+        <Stack.Screen name="CourseInfo" component={CourseInfo} />
 
-      <Stack.Screen name="CoursesOffered" component={CoursesOffered} />
-      <Stack.Screen name="CourseInfo" component={CourseInfo}/>
+        <Stack.Screen name="NDA" component={NDA} />
+        <Stack.Screen name="CDS" component={CDS} />
+        <Stack.Screen name="AFCAT" component={AFCAT} />
+        <Stack.Screen name="INET" component={INET} />
+        <Stack.Screen name="SSC" component={SSC} />
+        <Stack.Screen name="JAG" component={JAG} />
+        <Stack.Screen name="NCC" component={NCC} />
+        <Stack.Screen name="TES" component={TES} />
+        <Stack.Screen
+          name="ServiceDescriptiveInfo"
+          component={ServiceDescriptiveInfo}
+        />
 
-   
-      <Stack.Screen name="NDA" component={NDA} />
-      <Stack.Screen name="CDS" component={CDS} />
-      <Stack.Screen name="AFCAT" component={AFCAT} />
-      <Stack.Screen name="INET" component={INET} />
-      <Stack.Screen name="SSC" component={SSC} />
-      <Stack.Screen name="JAG" component={JAG} />
-      <Stack.Screen name="NCC" component={NCC} />
-      <Stack.Screen name="TES" component={TES} />
-      <Stack.Screen name="ServiceDescriptiveInfo" component={ServiceDescriptiveInfo}/>
-     
-      <Stack.Screen name="ViewCourseInfo" component={ViewCourseInfo} />
+        <Stack.Screen name="ViewCourseInfo" component={ViewCourseInfo} />
 
-      <Stack.Screen name="StudentProfile" component={StudentProfile} />
-      <Stack.Screen name="TeacherProfile" component={TeacherProfile} />
-      <Stack.Screen name="ViewNotification" component={ViewNotification} />
+        <Stack.Screen name="StudentProfile" component={StudentProfile} />
+        <Stack.Screen name="TeacherProfile" component={TeacherProfile} />
+        <Stack.Screen name="ViewNotification" component={ViewNotification} />
+        <Stack.Screen name="Teachermycourses1" component={Teachermycourses1} />
 
-    <Stack.Screen name="AboutTheForces" component={AboutTheForces}/>
+        <Stack.Screen name="AboutTheForces" component={AboutTheForces} />
 
-
-  
-      <Stack.Screen name="EligibilityFormArmy" component={EligibilityFormArmy} />
-      <Stack.Screen name="EligibilityFormAirForce" component={EligibilityFormAirForce} />
-      <Stack.Screen name="EligibilityFormNavy" component={EligibilityFormNavy} />
-      <Stack.Screen name="EligibilityResultArmy" component={EligibilityResultArmy} />
-        
-    </Stack.Navigator>
+        <Stack.Screen
+          name="EligibilityFormArmy"
+          component={EligibilityFormArmy}
+        />
+        <Stack.Screen
+          name="EligibilityFormAirForce"
+          component={EligibilityFormAirForce}
+        />
+        <Stack.Screen
+          name="EligibilityFormNavy"
+          component={EligibilityFormNavy}
+        />
+        <Stack.Screen
+          name="EligibilityResultArmy"
+          component={EligibilityResultArmy}
+        />
+        <Stack.Screen
+          name="ELigibilityHomeScreen"
+          component={EligibilityHomeScreen}
+        />
+      </Stack.Navigator>
     </NavigationContainer>
   );
-}   
-
-    
- 
-
+}

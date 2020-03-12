@@ -98,7 +98,7 @@ export default class AboutTheForces extends Component {
       
          <Card style={styles.cardContainer}>
              <TouchableOpacity onPress={()=>this.props.navigation.navigate('ServiceDescriptiveInfo',{
-                 variable:'Our Brave Air Warriors'
+                 variable:'Air Warriors'
              })}>
             <Text style={styles.Title}>Our Heroes</Text>
              <Card.Cover source={{uri:'https://images.newindianexpress.com/uploads/user/imagelibrary/2019/9/2/w900X450/IMG-20190902-WA0003.jpg'}}/>
@@ -140,7 +140,7 @@ export default class AboutTheForces extends Component {
       
          <Card style={styles.cardContainer}>
              <TouchableOpacity onPress={()=>this.props.navigation.navigate('ServiceDescriptiveInfo',{
-                 variable:'Our Bravehearts'
+                 variable:'Sea Warriors'
              })}>
             <Text style={styles.Title}>Our Heroes</Text>
              <Card.Cover source={{uri:'https://cdn.dnaindia.com/sites/default/files/styles/full/public/2019/05/14/823489-819968-picture-for-representationindian-navy-twitter-indiannv.jpg'}}/>

@@ -36,7 +36,7 @@ export default class EligibilityFormArmy extends Component {
     service: '',
   };
   back = () => {
-    this.props.navigation.navigate( 'EligibilityHomeScreen');
+    this.props.navigation.navigate('Home');
   };
 
 

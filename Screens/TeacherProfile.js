@@ -13,6 +13,11 @@ export default class TeacherProfile extends Component {
   static navigationOptions = {
     headerShown: false,
   };
+  state = {
+    email: this.props.route.params.username,
+    teacherInfo: this.props.route.params.teacherInfo,
+  };
+
   back = () => {
     this.props.navigation.navigate('Teacher Login');
   };
@@ -50,10 +55,16 @@ export default class TeacherProfile extends Component {
             </View> */}
 
             <Card style={styles.cardContainer}>
-              <Card.Title title="Teacher Name" style={{marginBottom: '-5%'}} />
-              <Card.Title subtitle="Teacher Id" style={{marginBottom: '-5%'}} />
               <Card.Title
-                subtitle="Contact Number"
+                title={this.state.teacherInfo.Name}
+                style={{marginBottom: '-5%'}}
+              />
+              <Card.Title
+                subtitle={this.state.email}
+                style={{marginBottom: '-5%'}}
+              />
+              <Card.Title
+                subtitle={this.state.teacherInfo.Contact}
                 style={{marginBottom: '-5%'}}
               />
             </Card>
