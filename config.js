@@ -1,4 +1,6 @@
-export const firebaseConfig = {
+import * as firebase from 'firebase';
+
+var firebaseConfig = {
   apiKey: 'AIzaSyAayYrGhGVGC_YW0oU7tNCoDntm8MDmoxo',
   authDomain: 'jsondb-29312.firebaseapp.com',
   databaseURL: 'https://jsondb-29312.firebaseio.com',
@@ -7,3 +9,5 @@ export const firebaseConfig = {
   messagingSenderId: '522893672453',
   appId: '1:522893672453:web:771ed13feefb81ffc55c6c',
 };
+
+firebase.initializeApp(firebaseConfig);

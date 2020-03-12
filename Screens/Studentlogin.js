@@ -10,7 +10,7 @@ import {
   SafeAreaView,
 } from 'react-native';
 import styles from '../style/StyleLogin';
-
+import * as firebase from 'firebase';
 
 export default class Studentlogin extends React.Component {
   static navigationOptions = {
@@ -21,25 +21,34 @@ export default class Studentlogin extends React.Component {
     password: '',
   };
 
+  static navigationOptions = {
+    headerShown: false,
+  };
+  state = {
+    username: '',
+    password: '',
+  };
 
- 
- 
-    static navigationOptions = {
-        headerShown: false
-    }
-    state = {
-        username: '',
-        password: ''
-      };
-
-      backToHome = () => {
-        this.props.navigation.navigate('Home')
-
-      }
-      studentProfile = () => {
-        this.props.navigation.navigate('StudentProfile')
-
-      }
+  backToHome = () => {
+    this.props.navigation.navigate('Home');
+  };
+  studentProfile = () => {
+    firebase
+      .auth()
+      .signInWithEmailAndPassword(this.state.username, this.state.password)
+      .then(() => {
+        console.log('successfully loged in');
+        this.props.navigation.navigate('StudentProfile', {
+          username: this.state.username,
+        });
+      })
+      .catch(function(error) {
+        // Handle Errors here
+        var errorCode = error.code;
+        var errorMessage = error.message;
+        alert(errorMessage);
+      });
+  };
 
   render() {
     return (
