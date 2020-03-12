@@ -16,6 +16,7 @@ export default class Studentlogin extends React.Component {
   static navigationOptions = {
     headerShown: false,
   };
+
   state = {
     username: '',
     password: '',
@@ -27,29 +28,36 @@ export default class Studentlogin extends React.Component {
   state = {
     username: '',
     password: '',
+    email: '',
   };
 
   backToHome = () => {
     this.props.navigation.navigate('Home');
   };
+  onLoginSuccess = () => {
+    this.setState({username: '', password: ''});
+  };
   studentProfile = () => {
     firebase
       .auth()
       .signInWithEmailAndPassword(this.state.username, this.state.password)
+
       .then(() => {
         console.log('successfully loged in');
         this.props.navigation.navigate('StudentProfile', {
           username: this.state.username,
         });
       })
+      .then(this.onLoginSuccess)
       .catch(function(error) {
-        // Handle Errors here
         var errorCode = error.code;
         var errorMessage = error.message;
         alert(errorMessage);
       });
   };
-
+  handleSubmit() {
+    this.setState({username: ''});
+  }
   render() {
     return (
       <View style={styles.Container}>
