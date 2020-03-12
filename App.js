@@ -2,8 +2,9 @@ import React, {Component} from 'react';
 import {Text, View, StatusBar} from 'react-native';
 import Navigator from './Screens/Stack';
 import {Provider as PaperProvider, DefaultTheme} from 'react-native-paper';
-import * as firebase from 'firebase';
-import firebaseConfig from './config';
+import * as firebase from 'firebase'
+import firebaseConfig from './config'
+
 
 export default class App extends Component {
   render() {
