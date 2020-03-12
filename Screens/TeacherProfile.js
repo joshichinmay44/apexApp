@@ -9,13 +9,18 @@ import {
 } from 'react-native';
 import {Appbar, Button, Card} from 'react-native-paper';
 import styles from '../style/Style';
+import * as firebase from 'firebase';
+
 export default class TeacherProfile extends Component {
   static navigationOptions = {
     headerShown: false,
   };
   state={
     email : this.props.route.params.username,
-    teacherInfo : this.props.route.params.teacherInfo,
+    Name : this.props.route.params.Name,
+    Contact : this.props.route.params.Contact,
+    courseList : [],
+    mylist : [],
   }
   
 
@@ -26,9 +31,44 @@ export default class TeacherProfile extends Component {
   viewNotification = () => {
     this.props.navigation.navigate('ViewNotification');
   };
+
   viewCourseInfo = () => {
-    this.props.navigation.navigate('Teachermycourses1');
-  };
+    const myitems = firebase.database().ref("Courses/")
+    myitems.on("value", datasnap=>{
+      this.setState({mylist : Object.values(datasnap.val())}
+       ,function(){console.log(this.state.mylist)} 
+      )
+    })
+
+    var temp = [];
+    var info = [];
+    const username = this.state.username;
+   
+    this.state.mylist.map((item, index) => {
+      
+      Object.keys(item).map(function(key) {
+        if (key.match('Teacher')) {
+        var teacher = item[key];
+       
+        Object.keys(teacher).map(function(key) {
+          var teacherInformation=teacher[key]
+            if (teacherInformation.Email.match(username))
+            { 
+              temp=info
+              //console.log("tmp :" + temp)            
+            }  
+        });
+      }
+    });
+  }); 
+ 
+  this.setState({courseList: temp},
+    function(){
+      console.log("this is course info: "+this.state.courseList); 
+    //this.props.navigation.navigate('Teachermycourses1');
+  })
+};
+
   viewProgress = () => {
     this.props.navigation.navigate('Teacherstudentprogress');
   };
@@ -60,10 +100,10 @@ export default class TeacherProfile extends Component {
             
 
             <Card style={styles.cardContainer}>
-              <Card.Title title={this.state.teacherInfo.Name} style={{marginBottom: '-5%'}} />
+              <Card.Title title={this.state.Name} style={{marginBottom: '-5%'}} />
               <Card.Title subtitle={this.state.email} style={{marginBottom: '-5%'}} />
               <Card.Title
-                subtitle={this.state.teacherInfo.Contact}
+                subtitle={this.state.Contact}
                 style={{marginBottom: '-5%'}}
               />
             </Card>

@@ -57,35 +57,32 @@ export default class Teacherlogin extends React.Component {
       this.state.mylist.map((item, index) => {
        
         Object.keys(item).map(function(key) {
-        
           if (key.match('Teacher')) {
           var teacher = item[key];
          
           Object.keys(teacher).map(function(key) {
-            
             var info = teacher[key];
-           
               if (info.Email.match(username))
               { 
                 //temp.push(info) 
                 temp=info
                 //console.log("tmp :" + temp.Name)            
               }  
-       
           });
         }
       });
     }); 
    
     this.setState({teacherInfo: temp},
-      function(){
-        console.log("this is teacher info: "+this.state.teacherInfo); 
-      
-    });
+       function(){
+        console.log("this is teacher info: "+this.state.teacherInfo);   
+    } 
+    );
 
       this.props.navigation.navigate('TeacherProfile', {
       username : this.state.username,
-      teacherInfo : this.state.teacherInfo,  
+      Name : this.state.teacherInfo.Name,  
+      Contact : this.state.teacherInfo.Contact,
       });
           
   })

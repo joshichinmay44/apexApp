@@ -8,8 +8,10 @@ import Studentlogin from './Screens/Studentlogin';
 import Teacherlogin from './Screens/Teacherlogin';
 import StudentProfile from './Screens/StudentProfile';
 import {Provider as PaperProvider, DefaultTheme} from 'react-native-paper';
+import * as firebase from 'firebase';
+import {firebaseConfig} from './config';
 
-
+firebase.initializeApp(firebaseConfig)
 
 export default class App extends Component {
   render() {

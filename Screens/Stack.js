@@ -63,7 +63,7 @@ export default function Root() {
       <Stack.Screen name="ServiceDescriptiveInfo" component={ServiceDescriptiveInfo}/>
      
       <Stack.Screen name="ViewCourseInfo" component={ViewCourseInfo} />
-
+      <Stack.Screen name="Teachermycourses1" component={Teachermycourses1}/>
       <Stack.Screen name="StudentProfile" component={StudentProfile} />
       <Stack.Screen name="TeacherProfile" component={TeacherProfile} />
       <Stack.Screen name="ViewNotification" component={ViewNotification} />
