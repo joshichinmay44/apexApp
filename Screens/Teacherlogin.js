@@ -23,7 +23,7 @@ export default class Teacherlogin extends React.Component {
     username: '',
     password: '',
     teacherInfo: [],
-    teacerList: [],
+    teacherList: [],
     mylist: [],
   };
 

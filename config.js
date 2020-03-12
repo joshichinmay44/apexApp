@@ -1,6 +1,7 @@
 import * as firebase from 'firebase';
 
 var firebaseConfig = {
+
   apiKey: "AIzaSyAayYrGhGVGC_YW0oU7tNCoDntm8MDmoxo",
   authDomain: "jsondb-29312.firebaseapp.com",
   databaseURL: "https://jsondb-29312.firebaseio.com",
@@ -8,6 +9,7 @@ var firebaseConfig = {
   storageBucket: "jsondb-29312.appspot.com",
   messagingSenderId: "522893672453",
   appId: "1:522893672453:web:771ed13feefb81ffc55c6c"
+  
 };
  
 firebase.initializeApp(firebaseConfig)

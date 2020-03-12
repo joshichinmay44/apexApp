@@ -70,6 +70,7 @@ export default class TeacherProfile extends Component {
             
 
             <Card style={styles.cardContainer}>
+              
               <Card.Title title={this.state.teacherInfo.Name} style={{marginBottom: '-5%'}} />
               <Card.Title subtitle={this.state.email} style={{marginBottom: '-5%'}} />
               <Card.Title
