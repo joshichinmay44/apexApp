@@ -45,44 +45,13 @@ export default class Teacherlogin extends React.Component {
     .then(() => {
       //console.log('successfully loged in');
 
-      const myitems = firebase.database().ref("Courses/")
-      myitems.on("value", datasnap=>{
-        this.setState({mylist : Object.values(datasnap.val())}
-        /* ,function(){console.log(this.state.mylist)} */
-        )
-      })
-
-      var temp = [];
-      const username = this.state.username;
-      this.state.mylist.map((item, index) => {
-       
-        Object.keys(item).map(function(key) {
-          if (key.match('Teacher')) {
-          var teacher = item[key];
-         
-          Object.keys(teacher).map(function(key) {
-            var info = teacher[key];
-              if (info.Email.match(username))
-              { 
-                //temp.push(info) 
-                temp=info
-                //console.log("tmp :" + temp.Name)            
-              }  
-          });
-        }
-      });
-    }); 
+      
+ 
    
-    this.setState({teacherInfo: temp},
-       function(){
-        console.log("this is teacher info: "+this.state.teacherInfo);   
-    } 
-    );
 
       this.props.navigation.navigate('TeacherProfile', {
       username : this.state.username,
-      Name : this.state.teacherInfo.Name,  
-      Contact : this.state.teacherInfo.Contact,
+     
       });
           
   })

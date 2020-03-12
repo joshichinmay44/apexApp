@@ -9,6 +9,8 @@ import {
 } from 'react-native';
 import {Appbar, Button, Card} from 'react-native-paper';
 import styles from '../style/Style';
+
+import * as firebase from 'firebase'
 export default class StudentProfile extends Component {
   static navigationOptions = {
     headerShown: false,
@@ -30,6 +32,11 @@ export default class StudentProfile extends Component {
   viewBlogs = () => {
     this.props.navigation.navigate('ViewCourseInfo');
   };
+  logout=()=>{
+    firebase.auth().signOut().then(()=>{
+      this.props.navigation.navigate('Studentlogin')
+    })
+  }
   render() {
     return (
       <View style={styles.Container}>
@@ -37,6 +44,7 @@ export default class StudentProfile extends Component {
           <Appbar.Header>
             <Appbar.BackAction onPress={this.back} />
             <Appbar.Content title="Student Profile" />
+            <Appbar.Action icon='logout' onPress={this.logout} />
           </Appbar.Header>
 
           <View style={styles.Body}>

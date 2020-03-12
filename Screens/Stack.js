@@ -35,7 +35,8 @@ import EligibilityFormAirForce from './Eligibility/EligibilityFormAirForce';
 import EligibilityFormNavy from './Eligibility/EligibilityFormNavy';
 import EligibilityResultArmy from './Eligibility/EligibilityResultArmy';
 import AboutTheForces from './InfoAboutForces/AboutTheForces'
-
+import Teacherlogin from './Teacherlogin'
+import Studentlogin from './Studentlogin'
 import ServiceDescriptiveInfo from './InfoAboutForces/ServiceDescriptiveInfo'
 /* import EligibilityResultNavy from './Eligibility/EligibilityResultNavy'; */
 
@@ -69,7 +70,8 @@ export default function Root() {
       <Stack.Screen name="ViewNotification" component={ViewNotification} />
 
     <Stack.Screen name="AboutTheForces" component={AboutTheForces}/>
-
+    {/* <Stack.Screen  name='Teacherlogin' component={TeacherLogin}/> */}
+    <Stack.Screen name='Studentlogin' component={Studentlogin}/>
 
   
       <Stack.Screen name="EligibilityFormArmy" component={EligibilityFormArmy} />

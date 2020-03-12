@@ -9,21 +9,63 @@ import {
 } from 'react-native';
 import {Appbar, Button, Card} from 'react-native-paper';
 import styles from '../style/Style';
-import * as firebase from 'firebase';
-
+import * as firebase from 'firebase'
 export default class TeacherProfile extends Component {
   static navigationOptions = {
     headerShown: false,
   };
   state={
-    email : this.props.route.params.username,
+    username : this.props.route.params.username,
     Name : this.props.route.params.Name,
     Contact : this.props.route.params.Contact,
     courseList : [],
     mylist : [],
+    teacherInfo : [],
   }
   
+  componentDidMount(){
+    const myitems = firebase.database().ref("Courses/")
+    myitems.on("value", datasnap=>{
+      this.setState({mylist : Object.values(datasnap.val())}
+       ,function(){
+         console.log(this.state.mylist)
+        this.getTeacherInfo()
+      } 
+      )
+    })
+  }
 
+  getTeacherInfo=()=>{
+    var temp = [];
+      const username = this.state.username;
+      this.state.mylist.map((item, index) => {
+       
+        Object.keys(item).map(function(key) {
+          if (key.match('Teacher')) {
+          var teacher = item[key];
+         
+          Object.keys(teacher).map(function(key) {
+            var info = teacher[key];
+              if (info.Email.match(username))
+              { 
+                //temp.push(info) 
+                temp=info
+                //console.log("tmp :" + temp.Name)            
+              }  
+          });
+        }
+      });
+    }); 
+   
+
+    this.setState({teacherInfo: temp},
+      function(){
+      //console.log("this is teacher info: "+this.state.teacherInfo);   
+      
+   } 
+   );
+    
+  }
 
   back = () => {
     this.props.navigation.navigate('Teacher Login');
@@ -33,40 +75,10 @@ export default class TeacherProfile extends Component {
   };
 
   viewCourseInfo = () => {
-    const myitems = firebase.database().ref("Courses/")
-    myitems.on("value", datasnap=>{
-      this.setState({mylist : Object.values(datasnap.val())}
-       ,function(){console.log(this.state.mylist)} 
-      )
-    })
+    this.props.navigation.navigate('Teachermycourses1', {
+      username : this.state.username,
 
-    var temp = [];
-    var info = [];
-    const username = this.state.username;
-   
-    this.state.mylist.map((item, index) => {
-      
-      Object.keys(item).map(function(key) {
-        if (key.match('Teacher')) {
-        var teacher = item[key];
-       
-        Object.keys(teacher).map(function(key) {
-          var teacherInformation=teacher[key]
-            if (teacherInformation.Email.match(username))
-            { 
-              temp=info
-              //console.log("tmp :" + temp)            
-            }  
-        });
-      }
     });
-  }); 
- 
-  this.setState({courseList: temp},
-    function(){
-      console.log("this is course info: "+this.state.courseList); 
-    //this.props.navigation.navigate('Teachermycourses1');
-  })
 };
 
   viewProgress = () => {
@@ -74,11 +86,17 @@ export default class TeacherProfile extends Component {
   };
 
   writeBlogs = () => {
-    this.props.navigation.navigate('ViewCourseInfo');
+    //this.props.navigation.navigate('ViewCourseInfo');
   };
   writeNotices = () => {
-    this.props.navigation.navigate( 'ViewCourseInfo');
+   // this.props.navigation.navigate( 'ViewCourseInfo');
   };
+
+  logout=()=>{
+    firebase.auth().signOut().then(()=>{
+      this.props.navigation.navigate('Home',{screen:'Teacherlogin'})
+    })
+  }
 
   render() {
     
@@ -88,7 +106,10 @@ export default class TeacherProfile extends Component {
         <ScrollView style={styles.Scroll}>
           <Appbar.Header>
             <Appbar.BackAction onPress={this.back} />
+            
             <Appbar.Content title="Teacher Profile" />
+
+            <Appbar.Action icon='logout' onPress={this.logout}/>
           </Appbar.Header>
 
           <View style={styles.Body}>
@@ -100,10 +121,10 @@ export default class TeacherProfile extends Component {
             
 
             <Card style={styles.cardContainer}>
-              <Card.Title title={this.state.Name} style={{marginBottom: '-5%'}} />
-              <Card.Title subtitle={this.state.email} style={{marginBottom: '-5%'}} />
+              <Card.Title title={this.state.teacherInfo.Name} style={{marginBottom: '-5%'}} />
+              <Card.Title subtitle={this.state.username} style={{marginBottom: '-5%'}} />
               <Card.Title
-                subtitle={this.state.Contact}
+                subtitle={this.state.teacherInfo.Contact}
                 style={{marginBottom: '-5%'}}
               />
             </Card>
