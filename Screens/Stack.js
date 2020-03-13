@@ -12,7 +12,7 @@ import LoadingScreen from './LoadingScreen';
 import StudentProfile from './StudentProfile';
 import TeacherProfile from './TeacherProfile';
 import StudentLogin from './Studentlogin';
-import TeacherLogin from './Teacherlogin';
+import Teacherlogin from './Teacherlogin';
 import Teachermycourses1 from './Teachermycourses1';
 import Teacherstudentprogress from './Teacherstudentprogress';
 import ViewCourseInfo from './ViewCourseInfo';
@@ -37,6 +37,7 @@ import EligibilityResultArmy from './Eligibility/EligibilityResultArmy';
 import AboutTheForces from './InfoAboutForces/AboutTheForces';
 
 import ServiceDescriptiveInfo from './InfoAboutForces/ServiceDescriptiveInfo';
+//import TeacherCourseInfo from './TeacherCourseInfo';
 /* import EligibilityResultNavy from './Eligibility/EligibilityResultNavy'; */
 
 const Stack = createStackNavigator();
@@ -92,6 +93,9 @@ export default function Root() {
           name="ELigibilityHomeScreen"
           component={EligibilityHomeScreen}
         />
+
+<Stack.Screen name='Teacherlogin' component={Teacherlogin} />
+      
       </Stack.Navigator>
     </NavigationContainer>
   );

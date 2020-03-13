@@ -19,10 +19,10 @@ export default class StudentProfile extends Component {
   state = {
     email: this.props.route.params.username,
     mycourses: [],
+    my_courses: [],
     info_val: [],
     info_key: [],
     courses: [],
-    details: 0,
   };
   componentDidMount() {
     const myitems = firebase.database().ref('Courses/');
@@ -42,13 +42,18 @@ export default class StudentProfile extends Component {
 
   getinfo() {
     const email = this.state.email;
+    let myinfoval = [];
+    let myinfokey = [];
     let courses = [];
+    let my_courses = [];
     let count = 0;
     let coursedetail = '';
     let courseindetail = '';
+    let detailsFlag = 0;
     let flag = 0;
 
     const ex = this.state.courses.val();
+    this.setState({courses: this.state.courses.val()});
     Object.keys(ex).map(key => {
       courses.push(key);
     });
@@ -72,28 +77,34 @@ export default class StudentProfile extends Component {
               }
             });
             if (flag == 1) {
-              this.state.info_key.push('id');
-              this.state.info_val.push(key);
-              this.state.info_key.push('Course');
-              this.state.info_val.push(courses[count]);
+              myinfokey.push('Course');
+              myinfoval.push(courses[count]);
+              my_courses.push(courses[count]);
+              myinfokey.push('id');
+              myinfoval.push(key);
+
               Object.keys(mail).map(key => {
-                this.state.info_key.push(key);
-                this.state.info_val.push(mail[key]);
+                myinfokey.push(key);
+                myinfoval.push(mail[key]);
               });
-              this.setState({details: 1});
+              detailsFlag = 1;
               flag = 0;
             }
           });
         }
 
-        if (this.state.details == 1) {
-          this.state.info_key.push(coursedetail);
-          this.state.info_val.push(courseindetail);
-          this.setState({details: 0});
+        if (detailsFlag == 1) {
+          myinfokey.push(coursedetail);
+          myinfoval.push(courseindetail);
+          detailsFlag = 0;
         }
       });
       count = count + 1;
     });
+
+    this.setState({info_val: myinfoval}, () => {});
+    this.setState({info_key: myinfokey}, () => {});
+    this.setState({my_courses: my_courses}, () => {});
   }
   viewNotification = () => {
     this.props.navigation.navigate('ViewNotification');
@@ -113,7 +124,7 @@ export default class StudentProfile extends Component {
       .auth()
       .signOut()
       .then(() => {
-        this.props.navigation.navigate('Home', {screen: 'Studentlogin'});
+        this.props.navigation.navigate( 'Studentlogin');
       });
   };
   render() {
@@ -126,25 +137,24 @@ export default class StudentProfile extends Component {
           </Appbar.Header>
 
           <View style={styles.Body}>
+            {console.log('info_key = [' + this.state.info_key + ']')}
+            {console.log('info_val=[' + this.state.info_val + ']')}
+            {console.log('my_courses=[' + this.state.my_courses + ']')}
             <Card style={styles.cardContainer}>
               <Card.Title
-                subtitle={this.state.info_key[4]}
                 title={this.state.info_val[4]}
+                subtitle={this.state.info_key[4]}
                 style={{marginBottom: '-5%'}}
               />
+
               <Card.Title
-                subtitle={this.state.info_key[0]}
-                title={this.state.info_val[0]}
-                style={{marginBottom: '-5%'}}
-              />
-              <Card.Title
-                subtitle={this.state.info_key[2]}
                 title={this.state.info_val[2]}
+                subtitle={this.state.info_key[2]}
                 style={{marginBottom: '-5%'}}
               />
               <Card.Title
-                subtitle={this.state.info_key[1]}
-                title={this.state.info_val[1]}
+                title={this.state.info_val[3]}
+                subtitle={this.state.info_key[3]}
                 style={{marginBottom: '-5%'}}
               />
             </Card>

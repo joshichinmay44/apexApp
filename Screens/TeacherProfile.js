@@ -10,10 +10,12 @@ import {
 import {Appbar, Button, Card} from 'react-native-paper';
 import styles from '../style/Style';
 import * as firebase from 'firebase';
+
 export default class TeacherProfile extends Component {
   static navigationOptions = {
     headerShown: false,
   };
+
   state={
     username : this.props.route.params.username,
     Name : this.props.route.params.Name,
@@ -96,11 +98,11 @@ export default class TeacherProfile extends Component {
       
       .auth()
       .signOut()
-      .then(() => {
-        this.props.navigation.navigate('Home', {screen: 'Home'},
-         );
-      });
-  };
+    .then(()=>{this.props.navigation.navigate('Teacherlogin')
+  console.log('Logged Out')})
+      }
+     
+
 
   render() {
     return (
@@ -109,7 +111,7 @@ export default class TeacherProfile extends Component {
           <Appbar.Header>
             <Appbar.Content title="Teacher Profile" />
 
-            <Appbar.Action icon="logout" onPress={this.logout} />
+            <Appbar.Action icon="logout" onPress={this.logout } />
           </Appbar.Header>
 
           <View style={styles.Body}>
@@ -120,6 +122,7 @@ export default class TeacherProfile extends Component {
             </View> */}
 
             <Card style={styles.cardContainer}>
+              
               <Card.Title title={this.state.teacherInfo.Name} style={{marginBottom: '-5%'}} />
               <Card.Title subtitle={this.state.username} style={{marginBottom: '-5%'}} />
               <Card.Title

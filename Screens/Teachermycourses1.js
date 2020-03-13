@@ -9,7 +9,7 @@ import {
   ScrollView,
 } from 'react-native';
 import styles from '../style/Style';
-import {Appbar, Button} from 'react-native-paper';
+import {Appbar, Card} from 'react-native-paper';
 import * as firebase from 'firebase';
 
 export default class Teachermycourses1 extends React.Component {
@@ -44,6 +44,24 @@ export default class Teachermycourses1 extends React.Component {
     this.props.navigation.navigate('TeacherProfile');
   };
 
+  
+
+  renderCourseButton=()=>{
+   let length=this.state.coursesTeaching.length
+   console.log(length)
+   let renderer=[]
+   for(var i=0;i<length;i++){
+  renderer[i]=(
+     <Card style={{margin:20}}>
+    
+      <Card.Title title={this.state.coursesTeaching[i]}/>
+      <Card.Cover source={require('../images/ApexLogo.jpg')}/>
+           
+    </Card>)
+   }
+return(renderer)
+  }
+
   getCourses=()=>{
       var temp = [];
       var courseList = this.state.courseList;
@@ -65,6 +83,8 @@ export default class Teachermycourses1 extends React.Component {
                //console.log("tmp :" + temp)            
               }  
           });
+
+          console.log(courseList.length)
         }
       });
     }); 
@@ -77,35 +97,28 @@ export default class Teachermycourses1 extends React.Component {
    );
 }   
   
-
+logout = () => {
+  firebase
+    .auth()
+    .signOut()
+    .then(() => {
+      this.props.navigation.navigate('Teacherlogin');
+    });
+};
   render() {
     return (
       <View style={styles.Container}>
-        <ScrollView style={styles.Scroll}>
+    
           <Appbar.Header>
             <Appbar.BackAction onPress={this.back} />
             <Appbar.Content title="Teacher Courses" />
+            <Appbar.Action icon="logout" onPress={this.logout} />
           </Appbar.Header>
+          <ScrollView style={styles.Scroll}>
+          <View>
+        {this.renderCourseButton()}
+        </View>
 
-          <View style={styles.Body}>
-            <View style={styles.button}>
-              <Button mode="contained" onPress={this.teacherProfile}>
-                Course 1
-              </Button>
-            </View>
-
-            <View style={styles.button}>
-              <Button mode="contained" onPress={this.teacherProfile}>
-                Course 2
-              </Button>
-            </View>
-
-            <View style={styles.button}>
-              <Button mode="contained" onPress={this.teacherProfile}>
-                Course 3
-              </Button>
-            </View>
-          </View>
         </ScrollView>
       </View>
     );

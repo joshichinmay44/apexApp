@@ -20,24 +20,19 @@ export default class Teacherlogin extends React.Component {
   static navigationOptions = {
     headerShown: false,
   };
- 
-    state = {
-      username: '',
-      password: '',
-      teacherInfo: [],
-      teacerList: [],
-      mylist: [],
-    };
- 
-  
- 
- /*  componentDidMount(){
-    
-    this.setState({username : ''},
-    );
-}
- */
- 
+  state = {
+    username: '',
+    password: '',
+    teacherInfo: [],
+    teacherList: [],
+    mylist: [],
+    loggedIn:false
+  };
+
+
+  backToHome = () => {
+    this.props.navigation.navigate('Home');
+  };
  
 
      /*  teacherProfile = () => {
@@ -50,7 +45,7 @@ export default class Teacherlogin extends React.Component {
     .auth()
     .signInWithEmailAndPassword(this.state.username, this.state.password)
     .then(() => {
-      //console.log('successfully loged in');
+      console.log('successfully logged in');
 
       
  
@@ -67,32 +62,39 @@ export default class Teacherlogin extends React.Component {
           
       var errorCode = error.code;
       var errorMessage = error.message;
-      console.log(errorMessage);
+      alert(errorMessage);
       });
   };
     
 
-  render() {
+  render(){
 
+   
     return (
       <View style={styles.Container}>
         <Appbar.Header>
-          <Appbar.BackAction onPress={this.backToHome} />
+        <Appbar.Action
+              icon="menu"
+              
+              onPress={() => this.props.navigation.openDrawer()}
+              
+            />
           <Appbar.Content title="Teacher Login" />
-          <Appbar.Action icon="home" onPress={this.backToHome} />
+         
+         
         </Appbar.Header>
         <ScrollView style={styles.scrollView}>
           <View style={styles.body}>
             <View style={styles.imageview}>
               <Image
                 style={styles.userimage}
-                source={require('../images/user3.png')}
+                source={require('../images/ApexLogo.jpg')}
               />
             </View>
 
             <View style={styles.textinputview}>
               <TextInput
-                label="Username "
+                label="Username"
                 mode="outlined"
                 
                 style={styles.mytextinput}
@@ -102,7 +104,7 @@ export default class Teacherlogin extends React.Component {
               <TextInput
                 label="Password"
                 mode="outlined"
-               
+                clearTextOnFocus={true}
                 secureTextEntry={true}
                 style={styles.mytextinput}
                 onChangeText={password => this.setState({password})}
@@ -117,5 +119,10 @@ export default class Teacherlogin extends React.Component {
         </ScrollView>
       </View>
     );
+  
+
+
+
+
   }
 }
