@@ -129,7 +129,7 @@ export default function mydrawer() {
       <Drawer.Screen name="Director's Desk" component={DirectorsDesk} />
       <Drawer.Screen name="Success Stories" component={SuccessStories} />
       <Drawer.Screen
-        name="EligibilityHomeScreen"
+        name="Check Eligibility"
         component={EligibilityHomeScreen}
       />
       <Drawer.Screen name="Teacher Login" component={TeacherLogin} />

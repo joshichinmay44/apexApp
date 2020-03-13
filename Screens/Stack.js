@@ -37,6 +37,7 @@ import EligibilityResultArmy from './Eligibility/EligibilityResultArmy';
 import AboutTheForces from './InfoAboutForces/AboutTheForces';
 
 import ServiceDescriptiveInfo from './InfoAboutForces/ServiceDescriptiveInfo';
+//import TeacherCourseInfo from './TeacherCourseInfo';
 /* import EligibilityResultNavy from './Eligibility/EligibilityResultNavy'; */
 
 const Stack = createStackNavigator();
@@ -92,6 +93,8 @@ export default function Root() {
           name="ELigibilityHomeScreen"
           component={EligibilityHomeScreen}
         />
+
+      
       </Stack.Navigator>
     </NavigationContainer>
   );

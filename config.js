@@ -1,4 +1,4 @@
-import * as firebase from 'firebase';
+import * as firebase from 'firebase'
 
 var firebaseConfig = {
 
@@ -11,5 +11,7 @@ var firebaseConfig = {
   appId: "1:522893672453:web:771ed13feefb81ffc55c6c"
   
 };
-
-firebase.initializeApp(firebaseConfig);
+ 
+if(!firebase.apps.length){
+firebase.initializeApp(firebaseConfig)
+}
