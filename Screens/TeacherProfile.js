@@ -67,9 +67,7 @@ export default class TeacherProfile extends Component {
     
   }
 
-  back = () => {
-    this.props.navigation.navigate('Teacher Login');
-  };
+
 
   viewNotification = () => {
     this.props.navigation.navigate('ViewNotification');
@@ -95,10 +93,12 @@ export default class TeacherProfile extends Component {
 
   logout = () => {
     firebase
+      
       .auth()
       .signOut()
       .then(() => {
-        this.props.navigation.navigate('Home', {screen: 'Teacherlogin'});
+        this.props.navigation.navigate('Home', {screen: 'Home'},
+         );
       });
   };
 

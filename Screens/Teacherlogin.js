@@ -12,6 +12,7 @@ import {
 import styles from '../style/StyleLogin';
 import * as firebase from 'firebase';
 
+import { useFocusEffect } from '@react-navigation/native';
 
 
 
@@ -19,18 +20,24 @@ export default class Teacherlogin extends React.Component {
   static navigationOptions = {
     headerShown: false,
   };
-  state = {
-    username: '',
-    password: '',
-    teacherInfo: [],
-    teacerList: [],
-    mylist: [],
-  };
-
-
-  backToHome = () => {
-    this.props.navigation.navigate('Home');
-  };
+ 
+    state = {
+      username: '',
+      password: '',
+      teacherInfo: [],
+      teacerList: [],
+      mylist: [],
+    };
+ 
+  
+ 
+ /*  componentDidMount(){
+    
+    this.setState({username : ''},
+    );
+}
+ */
+ 
  
 
      /*  teacherProfile = () => {
@@ -53,7 +60,8 @@ export default class Teacherlogin extends React.Component {
       username : this.state.username,
      
       });
-          
+      
+   
   })
     .catch(function(error) {
           
@@ -65,6 +73,7 @@ export default class Teacherlogin extends React.Component {
     
 
   render() {
+
     return (
       <View style={styles.Container}>
         <Appbar.Header>
@@ -85,7 +94,7 @@ export default class Teacherlogin extends React.Component {
               <TextInput
                 label="Username "
                 mode="outlined"
-                value={this.state.text}
+                
                 style={styles.mytextinput}
                 onChangeText={username => this.setState({username})}
               />
@@ -93,7 +102,7 @@ export default class Teacherlogin extends React.Component {
               <TextInput
                 label="Password"
                 mode="outlined"
-                value={this.state.text}
+               
                 secureTextEntry={true}
                 style={styles.mytextinput}
                 onChangeText={password => this.setState({password})}
