@@ -124,7 +124,7 @@ export default class StudentProfile extends Component {
       .auth()
       .signOut()
       .then(() => {
-        this.props.navigation.navigate('Home', {screen: 'Studentlogin'});
+        this.props.navigation.navigate( 'Studentlogin');
       });
   };
   render() {

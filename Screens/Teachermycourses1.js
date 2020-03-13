@@ -97,7 +97,14 @@ return(renderer)
    );
 }   
   
-
+logout = () => {
+  firebase
+    .auth()
+    .signOut()
+    .then(() => {
+      this.props.navigation.navigate('Teacherlogin');
+    });
+};
   render() {
     return (
       <View style={styles.Container}>
@@ -105,6 +112,7 @@ return(renderer)
           <Appbar.Header>
             <Appbar.BackAction onPress={this.back} />
             <Appbar.Content title="Teacher Courses" />
+            <Appbar.Action icon="logout" onPress={this.logout} />
           </Appbar.Header>
           <ScrollView style={styles.Scroll}>
           <View>

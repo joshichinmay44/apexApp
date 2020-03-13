@@ -71,13 +71,13 @@ export default class Studentlogin extends React.Component {
             <View style={styles.imageview}>
               <Image
                 style={styles.userimage}
-                source={require('../images/user3.png')}
+                source={require('../images/ApexLogo.jpg')}
               />
             </View>
 
             <View style={styles.textinputview}>
               <TextInput
-                label="Username "
+                label="Username"
                 mode="outlined"
                 value={this.state.text}
                 style={styles.mytextinput}

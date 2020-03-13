@@ -25,6 +25,7 @@ export default class Teacherlogin extends React.Component {
     teacherInfo: [],
     teacherList: [],
     mylist: [],
+    loggedIn:false
   };
 
 
@@ -43,7 +44,7 @@ export default class Teacherlogin extends React.Component {
     .auth()
     .signInWithEmailAndPassword(this.state.username, this.state.password)
     .then(() => {
-      //console.log('successfully loged in');
+      console.log('successfully logged in');
 
       
  
@@ -59,33 +60,41 @@ export default class Teacherlogin extends React.Component {
           
       var errorCode = error.code;
       var errorMessage = error.message;
-      console.log(errorMessage);
+      alert(errorMessage);
       });
   };
     
 
-  render() {
+  render(){
+
+   
     return (
       <View style={styles.Container}>
         <Appbar.Header>
-          <Appbar.BackAction onPress={this.backToHome} />
+        <Appbar.Action
+              icon="menu"
+              
+              onPress={() => {this.props.navigation.openDrawer()}}
+              
+            />
           <Appbar.Content title="Teacher Login" />
-          <Appbar.Action icon="home" onPress={this.backToHome} />
+         
+         
         </Appbar.Header>
         <ScrollView style={styles.scrollView}>
           <View style={styles.body}>
             <View style={styles.imageview}>
               <Image
                 style={styles.userimage}
-                source={require('../images/user3.png')}
+                source={require('../images/ApexLogo.jpg')}
               />
             </View>
 
             <View style={styles.textinputview}>
               <TextInput
-                label="Username "
+                label="Username"
                 mode="outlined"
-                value={this.state.text}
+                
                 style={styles.mytextinput}
                 onChangeText={username => this.setState({username})}
               />
@@ -93,7 +102,7 @@ export default class Teacherlogin extends React.Component {
               <TextInput
                 label="Password"
                 mode="outlined"
-                value={this.state.text}
+                clearTextOnFocus={true}
                 secureTextEntry={true}
                 style={styles.mytextinput}
                 onChangeText={password => this.setState({password})}
@@ -108,5 +117,10 @@ export default class Teacherlogin extends React.Component {
         </ScrollView>
       </View>
     );
+  
+
+
+
+
   }
 }

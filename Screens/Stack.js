@@ -12,7 +12,7 @@ import LoadingScreen from './LoadingScreen';
 import StudentProfile from './StudentProfile';
 import TeacherProfile from './TeacherProfile';
 import StudentLogin from './Studentlogin';
-import TeacherLogin from './Teacherlogin';
+import Teacherlogin from './Teacherlogin';
 import Teachermycourses1 from './Teachermycourses1';
 import Teacherstudentprogress from './Teacherstudentprogress';
 import ViewCourseInfo from './ViewCourseInfo';
@@ -94,6 +94,7 @@ export default function Root() {
           component={EligibilityHomeScreen}
         />
 
+<Stack.Screen name='Teacherlogin' component={Teacherlogin} />
       
       </Stack.Navigator>
     </NavigationContainer>
