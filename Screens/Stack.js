@@ -35,7 +35,7 @@ import EligibilityFormAirForce from './Eligibility/EligibilityFormAirForce';
 import EligibilityFormNavy from './Eligibility/EligibilityFormNavy';
 import EligibilityResultArmy from './Eligibility/EligibilityResultArmy';
 import AboutTheForces from './InfoAboutForces/AboutTheForces';
-
+import TeacherCourseDetails from './TeacherCourseDetails'
 import ServiceDescriptiveInfo from './InfoAboutForces/ServiceDescriptiveInfo';
 //import TeacherCourseInfo from './TeacherCourseInfo';
 /* import EligibilityResultNavy from './Eligibility/EligibilityResultNavy'; */
@@ -63,7 +63,7 @@ export default function Root() {
           name="ServiceDescriptiveInfo"
           component={ServiceDescriptiveInfo}
         />
-       
+       <Stack.Screen name='TeacherCourseDetails' component={TeacherCourseDetails}/>
         <Stack.Screen name="ViewCourseInfo" component={ViewCourseInfo} />
 
         <Stack.Screen name="StudentProfile" component={StudentProfile} />

@@ -14,6 +14,8 @@ import * as firebase from 'firebase';
 import {NavigationEvents} from 'react-navigation'
 import { useFocusEffect } from '@react-navigation/native';
 
+  
+
 
 
 export default class Teacherlogin extends React.Component {
@@ -37,10 +39,7 @@ componentDidMount(){
   };
  
 
-     /*  teacherProfile = () => {
-        this.props.navigation.navigate('TeacherProfile')
-
-      } */
+    
 
   login = () => {
 
@@ -72,8 +71,7 @@ componentDidMount(){
       });
     
   };
-    
-
+ 
   render(){
    
     if(this.state.loggedIn==false){
@@ -123,8 +121,9 @@ componentDidMount(){
               <TextInput
                 label="Password"
                 mode="outlined"
-                clearTextOnFocus={true}
+               
                 secureTextEntry={true}
+                
                 style={styles.mytextinput}
                 onChangeText={password => this.setState({password})}
                 onFocus={()=>this.setState({

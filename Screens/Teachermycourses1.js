@@ -1,4 +1,4 @@
-import React from 'react';
+import React, {Component} from 'react';
 
 import {
   View,
@@ -9,16 +9,18 @@ import {
   ScrollView,
 } from 'react-native';
 import styles from '../style/Style';
-import {Appbar, Card} from 'react-native-paper';
+import {Appbar, Card, Button} from 'react-native-paper';
 import * as firebase from 'firebase';
 
 export default class Teachermycourses1 extends React.Component {
   state={
     username : this.props.route.params.username,
-   
+    details: [],
     courseList : [],
     mylist : [],
     coursesTeaching : [],
+    studentsInfo : [],
+    id:-1
   }
 
   componentDidMount(){
@@ -44,26 +46,41 @@ export default class Teachermycourses1 extends React.Component {
     this.props.navigation.navigate('TeacherProfile');
   };
 
-  
+  renderCourseDetails=(i)=>{
+  console.log(i)
+   this.props.navigation.navigate('TeacherCourseDetails',{
+   
+    course: i
+    })
+  }
 
   renderCourseButton=()=>{
    let length=this.state.coursesTeaching.length
-   console.log(length)
+   
    let renderer=[]
-   for(var i=0;i<length;i++){
-  renderer[i]=(
-     <Card style={{margin:20}}>
-    
-      <Card.Title title={this.state.coursesTeaching[i]}/>
-      <Card.Cover source={require('../images/ApexLogo.jpg')}/>
-           
-    </Card>)
-   }
-return(renderer)
+   for(let i=0;i<length;i++){
+  
+    console.log(i)
+    renderer[i]=(
+      
+      
+      <Card id={i} style={{margin:20}}>
+      <TouchableOpacity onPress={() => this.renderCourseDetails(this.state.coursesTeaching[i])}>
+          <Card.Title title={this.state.coursesTeaching[i]}/>
+          <Card.Title subtitle={this.state.details[i]}/> 
+          <Card.Cover source={require('../images/ApexLogo.jpg')}/>
+          </TouchableOpacity>
+        </Card>
+        )
+      }
+      
+    return(renderer)
   }
 
   getCourses=()=>{
       var temp = [];
+      var details = [];
+      var studentsInfo = [];
       var courseList = this.state.courseList;
       const username = this.state.username;
       this.state.mylist.map((item, index) => {
@@ -77,14 +94,15 @@ return(renderer)
               if (info.Email.match(username))
               { 
                 //console.log(index)
-                //console.log(courseList[index])
+                console.log("details: "+item.Details)
                 temp.push(courseList[index]) 
-              
+                details.push(item.Details)
+                studentsInfo.push(item.Students)
                //console.log("tmp :" + temp)            
               }  
           });
 
-          console.log(courseList.length)
+         
         }
       });
     }); 
@@ -95,6 +113,18 @@ return(renderer)
       console.log("this is course list: "+this.state.coursesTeaching);   
    } 
    );
+
+   this.setState({details: details},
+    function(){
+    console.log("these are details: "+this.state.details);   
+ } 
+ );
+
+ this.setState({studentsInfo},
+  function(){
+  console.log("this is contact: "+this.state.studentsInfo[0].id1.Contact);   
+} 
+);
 }   
   
 logout = () => {
@@ -117,6 +147,7 @@ logout = () => {
           <ScrollView style={styles.Scroll}>
           <View>
         {this.renderCourseButton()}
+
         </View>
 
         </ScrollView>

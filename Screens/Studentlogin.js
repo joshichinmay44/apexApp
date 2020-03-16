@@ -33,10 +33,11 @@ export default class Studentlogin extends React.Component {
     Students: [],
     Teachers: [],
   };
-
   backToHome = () => {
     this.props.navigation.navigate('Home');
   };
+ 
+ 
   onLoginSuccess = () => {
     this.setState({username: '', password: ''});
   };
@@ -69,7 +70,7 @@ export default class Studentlogin extends React.Component {
         });
         if (activeState == 1) {
           console.log('student navigate');
-          activeState = 0;
+          activeState=0
           this.props.navigation.navigate('StudentProfile', {
             username: this.state.username,
           });
@@ -95,7 +96,10 @@ export default class Studentlogin extends React.Component {
     return (
       <View style={styles.Container}>
         <Appbar.Header>
-          <Appbar.BackAction onPress={this.backToHome} />
+        <Appbar.Action
+              icon="menu"
+              onPress={() => this.props.navigation.openDrawer()}
+            />
           <Appbar.Content title="Login" />
           <Appbar.Action icon="home" onPress={this.backToHome} />
         </Appbar.Header>
@@ -115,7 +119,7 @@ export default class Studentlogin extends React.Component {
                 value={this.state.text}
                 style={styles.mytextinput}
                 onChangeText={username => this.setState({username})}
-                onFocus={() => this.setState({username: ''})}
+                onFocus= {() => this.setState({username : ''})}
                 value={this.state.username}
               />
 
@@ -126,7 +130,7 @@ export default class Studentlogin extends React.Component {
                 secureTextEntry={true}
                 style={styles.mytextinput}
                 onChangeText={password => this.setState({password})}
-                onFocus={() => this.setState({password: ''})}
+                onFocus= {() => this.setState({password : ''})}
                 value={this.state.password}
               />
               <View style={styles.button}>
