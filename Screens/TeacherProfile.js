@@ -86,7 +86,7 @@ export default class TeacherProfile extends Component {
 
       .auth()
       .signOut()
-    .then(()=>{this.props.navigation.navigate('Home',{screen:'Teacherlogin'})
+    .then(()=>{this.props.navigation.navigate('Login')
   console.log('Logged Out')})
       }
      

@@ -102,7 +102,7 @@ logout = () => {
     .auth()
     .signOut()
     .then(() => {
-      this.props.navigation.navigate('Teacherlogin');
+      this.props.navigation.navigate('Login');
     });
 };
   render() {

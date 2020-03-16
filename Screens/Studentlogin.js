@@ -67,6 +67,7 @@ export default class Studentlogin extends React.Component {
         });
         if (activeState == 1) {
           console.log('student navigate');
+          activeState==0
           this.props.navigation.navigate('StudentProfile', {
             username: this.state.username,
           });

@@ -111,7 +111,13 @@ componentDidMount(){
                
                 style={styles.mytextinput}
                 onChangeText={username => this.setState({username})}
+                onFocus={()=>this.setState({
+                  username:'',
                 
+                  
+                })}
+
+                value={this.state.username}
               />
  
               <TextInput
@@ -121,6 +127,14 @@ componentDidMount(){
                 secureTextEntry={true}
                 style={styles.mytextinput}
                 onChangeText={password => this.setState({password})}
+                onFocus={()=>this.setState({
+                  password:'',
+                
+                  
+                })}
+
+                value={this.state.password}
+
               />
               <View style={styles.button}>
                 <Button mode="contained" onPress={()=>this.login()}>
