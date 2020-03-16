@@ -111,8 +111,17 @@ export default class StudentProfile extends Component {
   };
 
   viewCourseInfo = () => {
+    const detail = [];
+    const info = this.state.info_key;
+    const length = this.state.info_key.length;
+    for (let i = 1; i < length; i++) {
+      if (info[i] == 'Details') {
+        detail.push(this.state.info_val[i]);
+      }
+    }
     this.props.navigation.navigate('ViewCourseInfo', {
       my_courses: this.state.my_courses,
+      details: detail,
     });
   };
   viewMarks = () => {
@@ -126,7 +135,7 @@ export default class StudentProfile extends Component {
       .auth()
       .signOut()
       .then(() => {
-        this.props.navigation.navigate('Studentlogin');
+        this.props.navigation.navigate('Login');
       });
   };
   render() {
