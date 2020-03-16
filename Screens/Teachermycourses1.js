@@ -113,7 +113,14 @@ return(renderer)
 
  this.setState({studentsInfo},
   function(){
-  console.log("this is course list: "+this.state.studentsInfo[0].id1.Contact);   
+  //console.log("this is students list: "+this.state.studentsInfo[0].id1.Contact);
+  this.state.studentsInfo.map((item, index) => {
+    Object.keys(item).map(function(key) {
+      var stud=item[key]
+      console.log(stud)
+    })   
+  }) 
+
 } 
 );
 }   
