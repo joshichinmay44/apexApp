@@ -111,7 +111,9 @@ export default class StudentProfile extends Component {
   };
 
   viewCourseInfo = () => {
-    this.props.navigation.navigate('ViewCourseInfo');
+    this.props.navigation.navigate('ViewCourseInfo', {
+      my_courses: this.state.my_courses,
+    });
   };
   viewMarks = () => {
     this.props.navigation.navigate('ViewCourseInfo');
