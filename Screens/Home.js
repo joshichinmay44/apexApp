@@ -125,8 +125,8 @@ export default function mydrawer() {
         name="Check Eligibility"
         component={EligibilityHomeScreen}
       />
-      <Drawer.Screen name="Teacher Login" component={Teacherlogin} />
-      <Drawer.Screen name="Student Login" component={Studentlogin} />
+      
+      <Drawer.Screen name="Login" component={Studentlogin} />
       <Drawer.Screen name="Contact" component={Contact} />
     </Drawer.Navigator>
   );
