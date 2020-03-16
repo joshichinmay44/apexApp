@@ -58,8 +58,9 @@ export default class Teachermycourses1 extends React.Component {
     <Card style={{margin:20}}>
     
       <Card.Title title={this.state.coursesTeaching[i]}/>
-      <Card.Cover source={require('../images/ApexLogo.jpg')}/>
       <Card.Title subtitle={this.state.details[i]}/> 
+      <Card.Cover source={require('../images/ApexLogo.jpg')}/>
+     
     </Card>)
    }
   
