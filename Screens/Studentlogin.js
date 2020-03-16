@@ -33,7 +33,6 @@ export default class Studentlogin extends React.Component {
     Students: [],
     Teachers: [],
   };
-
   onLoginSuccess = () => {
     this.setState({username: '', password: ''});
   };

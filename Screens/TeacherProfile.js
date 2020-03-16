@@ -87,7 +87,7 @@ export default class TeacherProfile extends Component {
       .auth()
       .signOut()
       .then(() => {
-        this.props.navigation.navigate('Home', {screen: 'Studentlogin'});
+        this.props.navigation.navigate('Home', {screen: 'Login'});
         console.log('Logged Out');
       });
   };
@@ -155,50 +155,3 @@ export default class TeacherProfile extends Component {
     );
   }
 }
-/* 
-const styles = StyleSheet.create({
-  Container: {
-    height: '100%',
-    backgroundColor: '#fdfefe',
-  },
-  mytextview: {
-    // padding:'2%',
-  },
-  Scroll: {
-    backgroundColor: '#fdfefe',
-    height: '100%',
-  },
-
-  Body: {
-    backgroundColor: 'white',
-    height: '100%',
-    paddingBottom: '90%',
-    flexDirection: 'row',
-  },
-  innertextview: {
-    height: '900%',
-    borderLeftWidth: 2,
-    borderLeftColor: 'blue',
-
-    //padding:'2%',
-    //backgroundColor:'red',
-  },
-  mytext: {
-    margin: '5%',
-  },
-  logo: {
-    marginTop: '0%',
-    marginBottom: '20%',
-    height: '50%',
-    width: '30%',
-  },
-
-  button: {
-    margin: '3%',
-    marginLeft: '-1%',
-    borderWidth: 1,
-    borderRadius: 10,
-    borderColor: 'blue',
-  },
-});
- */
