@@ -12,7 +12,7 @@ export default class App extends Component {
       <PaperProvider theme={theme}>
         <StatusBar backgroundColor="#084d7b" barStyle="light-content" />
 
-        <Navigator />
+        <Navigator/>
       </PaperProvider>
     );
   }

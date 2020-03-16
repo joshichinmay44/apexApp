@@ -107,6 +107,7 @@ export default class AboutTheForces extends Component {
       
          </React.Fragment>
        )
+       
        }
 
        else if(service=='Indian Navy'){
@@ -157,6 +158,7 @@ export default class AboutTheForces extends Component {
         return (
             <React.Fragment>
             <Appbar.Header style={styles.Header}>
+            
             <Appbar.BackAction onPress={this.back} />
             <Appbar.Content title={service} />
             <Appbar.Action icon="home" onPress={this.backToHome} />

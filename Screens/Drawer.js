@@ -20,7 +20,7 @@ import Navigator from './Stack';
 import DirectorsDesk from './DirectorsDesk';
 import SuccessStories from './SuccessStories';
 import style from './Style'
-import About from './Home'
+import Home from './Home'
 
 
 const Drawer = createDrawerNavigator();
@@ -47,7 +47,7 @@ export default function mydrawer() {
 
       >
        
-        <Drawer.Screen name="Home" component={About} />
+        <Drawer.Screen name="Home" component={Home} />
         <Drawer.Screen name="Services" component={Services} />
         <Drawer.Screen name="Entries" component={EntriesScreen} />
         <Drawer.Screen name="Director's Desk" component={DirectorsDesk} />
@@ -57,6 +57,7 @@ export default function mydrawer() {
         <Drawer.Screen name="Student Login" component={Studentlogin} />
         <Drawer.Screen name="Contact" component={Contact} /> 
         <Drawer.Screen name="Stack" component={Navigator} /> 
+        
         
       </Drawer.Navigator>
   
