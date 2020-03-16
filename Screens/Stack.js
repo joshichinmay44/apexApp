@@ -11,7 +11,8 @@ import LoadingScreen from './LoadingScreen';
 
 import StudentProfile from './StudentProfile';
 import TeacherProfile from './TeacherProfile';
-import Studentlogin from './Studentlogin';
+import StudentLogin from './Studentlogin';
+import StudentMarks from './StudentMarks';
 import Teacherlogin from './Teacherlogin';
 import Teachermycourses1 from './Teachermycourses1';
 import Teacherstudentprogress from './Teacherstudentprogress';
@@ -65,8 +66,9 @@ export default function Root() {
         />
        <Stack.Screen name='TeacherCourseDetails' component={TeacherCourseDetails}/>
         <Stack.Screen name="ViewCourseInfo" component={ViewCourseInfo} />
-
+        <Stack.Screen name="StudentMarks" component={StudentMarks} />
         <Stack.Screen name="StudentProfile" component={StudentProfile} />
+
         <Stack.Screen name="TeacherProfile" component={TeacherProfile} />
         <Stack.Screen name="ViewNotification" component={ViewNotification} />
         <Stack.Screen name="Teachermycourses1" component={Teachermycourses1} />
@@ -94,8 +96,7 @@ export default function Root() {
           component={EligibilityHomeScreen}
         />
 
-
-      
+        <Stack.Screen name="Teacherlogin" component={Teacherlogin} />
       </Stack.Navigator>
     </NavigationContainer>
   );
