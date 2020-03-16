@@ -94,7 +94,7 @@ export default function Root() {
           component={EligibilityHomeScreen}
         />
 
-<Stack.Screen name='Teacherlogin' component={Teacherlogin} />
+
       
       </Stack.Navigator>
     </NavigationContainer>

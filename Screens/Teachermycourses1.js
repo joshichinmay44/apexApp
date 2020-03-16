@@ -15,10 +15,11 @@ import * as firebase from 'firebase';
 export default class Teachermycourses1 extends React.Component {
   state={
     username : this.props.route.params.username,
-   
+    details: [],
     courseList : [],
     mylist : [],
     coursesTeaching : [],
+    studentsInfo : [],
   }
 
   componentDidMount(){
@@ -48,22 +49,28 @@ export default class Teachermycourses1 extends React.Component {
 
   renderCourseButton=()=>{
    let length=this.state.coursesTeaching.length
-   console.log(length)
+   
    let renderer=[]
    for(var i=0;i<length;i++){
   renderer[i]=(
-     <Card style={{margin:20}}>
+    
+    
+    <Card style={{margin:20}}>
     
       <Card.Title title={this.state.coursesTeaching[i]}/>
       <Card.Cover source={require('../images/ApexLogo.jpg')}/>
-           
+      <Card.Title subtitle={this.state.details[i]}/> 
     </Card>)
    }
+  
+ 
 return(renderer)
   }
 
   getCourses=()=>{
       var temp = [];
+      var details = [];
+      var studentsInfo = [];
       var courseList = this.state.courseList;
       const username = this.state.username;
       this.state.mylist.map((item, index) => {
@@ -77,14 +84,15 @@ return(renderer)
               if (info.Email.match(username))
               { 
                 //console.log(index)
-                //console.log(courseList[index])
+                console.log("details: "+item.Details)
                 temp.push(courseList[index]) 
-              
+                details.push(item.Details)
+                studentsInfo.push(item.Students)
                //console.log("tmp :" + temp)            
               }  
           });
 
-          console.log(courseList.length)
+         
         }
       });
     }); 
@@ -95,6 +103,18 @@ return(renderer)
       console.log("this is course list: "+this.state.coursesTeaching);   
    } 
    );
+
+   this.setState({details: details},
+    function(){
+    console.log("this is course list: "+this.state.details);   
+ } 
+ );
+
+ this.setState({studentsInfo},
+  function(){
+  console.log("this is course list: "+this.state.studentsInfo[0].id1.Contact);   
+} 
+);
 }   
   
 logout = () => {
@@ -102,7 +122,7 @@ logout = () => {
     .auth()
     .signOut()
     .then(() => {
-      this.props.navigation.navigate('Teacherlogin');
+      this.props.navigation.navigate('Home',{screen:'Teacher Login'});
     });
 };
   render() {

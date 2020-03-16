@@ -11,9 +11,14 @@ import {
 } from 'react-native';
 import styles from '../style/StyleLogin';
 import * as firebase from 'firebase';
+import { useIsFocused } from '@react-navigation/native';
 
-import { useFocusEffect } from '@react-navigation/native';
+function Profile() {
+  // This hook returns `true` if the screen is focused, `false` otherwise
+  const isFocused = useIsFocused();
 
+  return !isFocused;
+} 
 
 
 export default class Teacherlogin extends React.Component {
@@ -35,10 +40,7 @@ export default class Teacherlogin extends React.Component {
   };
  
 
-     /*  teacherProfile = () => {
-        this.props.navigation.navigate('TeacherProfile')
-
-      } */
+    
 
   login = () => {
     firebase
@@ -65,10 +67,8 @@ export default class Teacherlogin extends React.Component {
       alert(errorMessage);
       });
   };
-    
-
+ 
   render(){
-
    
     return (
       <View style={styles.Container}>
@@ -96,18 +96,23 @@ export default class Teacherlogin extends React.Component {
               <TextInput
                 label="Username"
                 mode="outlined"
-                
+              
                 style={styles.mytextinput}
                 onChangeText={username => this.setState({username})}
+                onFocus= {() => this.setState({username : ''})}
+                value={this.state.username}
               />
 
               <TextInput
                 label="Password"
                 mode="outlined"
-                clearTextOnFocus={true}
+               
                 secureTextEntry={true}
+                
                 style={styles.mytextinput}
                 onChangeText={password => this.setState({password})}
+                onFocus= {() => this.setState({password : ''})}
+                value={this.state.password}
               />
               <View style={styles.button}>
                 <Button mode="contained" onPress={this.login}>
@@ -126,3 +131,4 @@ export default class Teacherlogin extends React.Component {
 
   }
 }
+ 
