@@ -29,6 +29,9 @@ export default class Studentlogin extends React.Component {
     username: '',
     password: '',
     email: '',
+    status: '',
+    Students: [],
+    Teachers: [],
   };
 
   backToHome = () => {
@@ -44,9 +47,35 @@ export default class Studentlogin extends React.Component {
 
       .then(() => {
         console.log('successfully loged in');
-        this.props.navigation.navigate('StudentProfile', {
-          username: this.state.username,
+
+        const myitems = firebase.database().ref('Students/');
+        myitems.on('value', datasnap => {
+          if (datasnap.val()) {
+            this.setState({Students: Object.values(datasnap.val())}, () => {});
+          }
         });
+        const ex = this.state.Students;
+        const username = this.state.username;
+        let activeState = 0;
+        Object.keys(ex).map(function(key) {
+          // console.log(ex[key]);
+          if (ex[key].match(username)) {
+            activeState = 1;
+
+            console.log('student found');
+          }
+        });
+        if (activeState == 1) {
+          console.log('student navigate');
+          this.props.navigation.navigate('StudentProfile', {
+            username: this.state.username,
+          });
+        } else if (activeState == 0) {
+          console.log('teacher found');
+          this.props.navigation.navigate('TeacherProfile', {
+            username: this.state.username,
+          });
+        }
       })
       .then(this.onLoginSuccess)
       .catch(function(error) {
@@ -58,12 +87,13 @@ export default class Studentlogin extends React.Component {
   handleSubmit() {
     this.setState({username: ''});
   }
+
   render() {
     return (
       <View style={styles.Container}>
         <Appbar.Header>
           <Appbar.BackAction onPress={this.backToHome} />
-          <Appbar.Content title="Student Login" />
+          <Appbar.Content title="Login" />
           <Appbar.Action icon="home" onPress={this.backToHome} />
         </Appbar.Header>
         <ScrollView style={styles.scrollView}>

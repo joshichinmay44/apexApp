@@ -124,7 +124,7 @@ export default class StudentProfile extends Component {
       .auth()
       .signOut()
       .then(() => {
-        this.props.navigation.navigate( 'Studentlogin');
+        this.props.navigation.navigate('Home', {screen: 'Studentlogin'});
       });
   };
   render() {
@@ -185,46 +185,3 @@ export default class StudentProfile extends Component {
     );
   }
 }
-/* 
-const styles = StyleSheet.create({
-  Container: {
-    height: '100%',
-    backgroundColor: '#fdfefe',
-  },
-  mytextview: {
-    padding: '2%',
-  },
-  Scroll: {
-    backgroundColor: '#fdfefe',
-    height: '100%',
-  },
-
-  Body: {
-    backgroundColor: 'white',
-    height: '100%',
-    paddingBottom: '90%',
-    flexDirection: 'row',
-  },
-  innertextview: {
-    height: '900%',
-    borderLeftWidth: 2,
-    borderLeftColor: 'blue',
-  },
-  mytext: {
-    marginTop: '5%',
-  },
-  logo: {
-    marginTop: '0%',
-    marginBottom: '20%',
-    height: '50%',
-    width: '30%',
-  },
-  button: {
-    margin: '3%',
-    marginLeft: '-1%',
-    borderWidth: 1,
-    borderRadius: 10,
-    borderColor: 'blue',
-  },
-});
- */
