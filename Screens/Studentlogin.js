@@ -34,13 +34,16 @@ export default class Studentlogin extends React.Component {
     Teachers: [],
   };
 
-  backToHome = () => {
-    this.props.navigation.navigate('Home');
-  };
   onLoginSuccess = () => {
     this.setState({username: '', password: ''});
   };
   studentProfile = () => {
+    const myitems = firebase.database().ref('Students/');
+    myitems.on('value', datasnap => {
+      if (datasnap.val()) {
+        this.setState({Students: Object.values(datasnap.val())}, () => {});
+      }
+    });
     firebase
       .auth()
       .signInWithEmailAndPassword(this.state.username, this.state.password)
@@ -48,12 +51,6 @@ export default class Studentlogin extends React.Component {
       .then(() => {
         console.log('successfully loged in');
 
-        const myitems = firebase.database().ref('Students/');
-        myitems.on('value', datasnap => {
-          if (datasnap.val()) {
-            this.setState({Students: Object.values(datasnap.val())}, () => {});
-          }
-        });
         const ex = this.state.Students;
         const username = this.state.username;
         let activeState = 0;
@@ -93,9 +90,11 @@ export default class Studentlogin extends React.Component {
     return (
       <View style={styles.Container}>
         <Appbar.Header>
-          <Appbar.BackAction onPress={this.backToHome} />
+          <Appbar.Action
+            icon="menu"
+            onPress={() => this.props.navigation.openDrawer()}
+          />
           <Appbar.Content title="Login" />
-          <Appbar.Action icon="home" onPress={this.backToHome} />
         </Appbar.Header>
         <ScrollView style={styles.scrollView}>
           <View style={styles.body}>

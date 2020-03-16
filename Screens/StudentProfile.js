@@ -23,6 +23,7 @@ export default class StudentProfile extends Component {
     info_val: [],
     info_key: [],
     courses: [],
+    marks: [],
   };
   componentDidMount() {
     const myitems = firebase.database().ref('Courses/');
@@ -51,6 +52,7 @@ export default class StudentProfile extends Component {
     let courseindetail = '';
     let detailsFlag = 0;
     let flag = 0;
+    let marks = [];
 
     const ex = this.state.courses.val();
     this.setState({courses: this.state.courses.val()});
@@ -84,8 +86,18 @@ export default class StudentProfile extends Component {
               myinfoval.push(key);
 
               Object.keys(mail).map(key => {
-                myinfokey.push(key);
-                myinfoval.push(mail[key]);
+                if (key == 'Marks') {
+                  marks.push(courses[count]);
+                  let course_mark = mail[key];
+                  Object.keys(course_mark).map(key => {
+                    marks.push(key);
+                    marks.push(course_mark[key]);
+                  });
+                  marks.push('  ');
+                } else {
+                  myinfokey.push(key);
+                  myinfoval.push(mail[key]);
+                }
               });
               detailsFlag = 1;
               flag = 0;
@@ -101,10 +113,11 @@ export default class StudentProfile extends Component {
       });
       count = count + 1;
     });
-
+    console.log(marks);
     this.setState({info_val: myinfoval}, () => {});
     this.setState({info_key: myinfokey}, () => {});
     this.setState({my_courses: my_courses}, () => {});
+    this.setState({marks: marks}, () => {});
   }
   viewNotification = () => {
     this.props.navigation.navigate('ViewNotification');
@@ -124,8 +137,11 @@ export default class StudentProfile extends Component {
       details: detail,
     });
   };
+
   viewMarks = () => {
-    this.props.navigation.navigate('ViewCourseInfo');
+    this.props.navigation.navigate('StudentMarks', {
+      marks: this.state.marks,
+    });
   };
   viewBlogs = () => {
     this.props.navigation.navigate('ViewCourseInfo');
@@ -151,21 +167,19 @@ export default class StudentProfile extends Component {
             {console.log('info_key = [' + this.state.info_key + ']')}
             {console.log('info_val=[' + this.state.info_val + ']')}
             {console.log('my_courses=[' + this.state.my_courses + ']')}
+            {console.log('marks=[' + this.state.marks + ']')}
             <Card style={styles.cardContainer}>
               <Card.Title
                 title={this.state.info_val[4]}
-                subtitle={this.state.info_key[4]}
                 style={{marginBottom: '-5%'}}
               />
 
               <Card.Title
                 title={this.state.info_val[2]}
-                subtitle={this.state.info_key[2]}
                 style={{marginBottom: '-5%'}}
               />
               <Card.Title
                 title={this.state.info_val[3]}
-                subtitle={this.state.info_key[3]}
                 style={{marginBottom: '-5%'}}
               />
             </Card>
