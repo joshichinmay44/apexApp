@@ -67,6 +67,7 @@ export default class Studentlogin extends React.Component {
         });
         if (activeState == 1) {
           console.log('student navigate');
+          activeState = 0;
           this.props.navigation.navigate('StudentProfile', {
             username: this.state.username,
           });
@@ -112,6 +113,8 @@ export default class Studentlogin extends React.Component {
                 value={this.state.text}
                 style={styles.mytextinput}
                 onChangeText={username => this.setState({username})}
+                onFocus={() => this.setState({username: ''})}
+                value={this.state.username}
               />
 
               <TextInput
@@ -121,6 +124,8 @@ export default class Studentlogin extends React.Component {
                 secureTextEntry={true}
                 style={styles.mytextinput}
                 onChangeText={password => this.setState({password})}
+                onFocus={() => this.setState({password: ''})}
+                value={this.state.password}
               />
               <View style={styles.button}>
                 <Button mode="contained" onPress={this.studentProfile}>

@@ -12,18 +12,19 @@ export default class ViewNotification extends Component {
   };
   state = {
     my_courses: this.props.route.params.my_courses,
+    details: this.props.route.params.details,
   };
   back = () => {
     this.props.navigation.navigate('StudentProfile');
   };
   renderCourseButton() {
     let length = this.state.my_courses.length;
-    console.log(length);
     let renderer = [];
     for (var i = 0; i < length; i++) {
       renderer[i] = (
         <Card style={{margin: 20}}>
           <Card.Title title={this.state.my_courses[i]} />
+          <Card.Title subtitle={this.state.details[i]} />
           <Card.Cover source={require('../images/ApexLogo.jpg')} />
         </Card>
       );
@@ -37,20 +38,10 @@ export default class ViewNotification extends Component {
         <ScrollView style={styles.Scroll}>
           <Appbar.Header>
             <Appbar.BackAction onPress={this.back} />
-            <Appbar.Content title="Course Information" subtitle="course name" />
+            <Appbar.Content title="Course Information" />
           </Appbar.Header>
 
-          <View style={styles.Body}>
-            {/* <Card style={styles.cardContainer}>
-              <Card.Title title="Course Name" />
-              <Card.Title subtitle="Course Id" />
-              <Card.Title subtitle="Course Duration" />
-            </Card>
-            <Card style={styles.cardContainer}>
-              <Card.Title title="Couse Details" />
-            </Card> */}
-            {this.renderCourseButton()}
-          </View>
+          <View style={styles.Body}>{this.renderCourseButton()}</View>
         </ScrollView>
       </View>
     );
