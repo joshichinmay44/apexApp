@@ -14,6 +14,7 @@ import * as firebase from 'firebase';
 export default class StudentProfile extends Component {
   static navigationOptions = {
     headerShown: false,
+   
   };
 
   state = {
