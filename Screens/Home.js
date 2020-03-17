@@ -26,8 +26,8 @@ import {NavigationContainer} from '@react-navigation/native';
 import {createStackNavigator} from '@react-navigation/stack';
 import {createAppContainer, createSwitchNavigator} from 'react-navigation';
 import LoadingScreen from './LoadingScreen';
-import StudentLogin from './Studentlogin';
-import TeacherLogin from './Teacherlogin';
+import Studentlogin from './Studentlogin';
+import Teacherlogin from './Teacherlogin';
 import Contact from './Contact';
 import Services from './Services';
 import EntriesScreen from './EntriesScreen';
@@ -39,7 +39,7 @@ import DirectorsDesk from './DirectorsDesk';
 import SuccessStories from './SuccessStories';
 import styles from '../style/Style';
 
-class About extends Component {
+class Home extends Component {
   static navigationOptions = {
     headerShown: false,
   };
@@ -69,11 +69,11 @@ class About extends Component {
                 In a span of 14 years, the institute has to its credit over 800
                 students cracking the SSB Interviews. Today, throughout the
                 country, if one has to crack SSB Interview, the first name that
-                comes to the mind of a youth is ‘APEX CAREERS’.
+                comes to the mind of the youth is ‘APEX CAREERS’.
               </Text>
             </Paragraph>
           </Card.Content>
-
+<Card.Content>
           <Paragraph>
             <Text style={styles.Info}>
               The approach of the organization has been totally professional.
@@ -84,15 +84,8 @@ class About extends Component {
               to various activities of the organization.
             </Text>
           </Paragraph>
-          <Paragraph>
-            <Text style={styles.Info}>
-              In a span of 14 years, the institute has to its credit over 800
-              students cracking the SSB Interviews. Today, throughout the
-              country, if one has to crack SSB Interview, the first name that
-              comes to the mind of a youth is ‘APEX CAREERS’.
-            </Text>
-          </Paragraph>
-
+          </Card.Content>
+         
           <View style={styles.button}>
             <Button mode="contained" onPress={this.CoursesOffered}>
               Courses Offered
@@ -108,7 +101,7 @@ const Drawer = createDrawerNavigator();
 
 export default function mydrawer() {
   return (
-    <Drawer.Navigator
+    <Drawer.Navigator 
       initialRouteName={LoadingScreen}
       drawerStyle={{
         backgroundColor: '#084d7b',
@@ -123,7 +116,7 @@ export default function mydrawer() {
         itemStyle: {marginVertical: '2%'},
       }}
       drawerContent={props => <CustomDrawerContent {...props} />}>
-      <Drawer.Screen name="Home" component={About} />
+      <Drawer.Screen name="Home" component={Home} />
       <Drawer.Screen name="Services" component={Services} />
       <Drawer.Screen name="Entries" component={EntriesScreen} />
       <Drawer.Screen name="Director's Desk" component={DirectorsDesk} />
@@ -132,8 +125,8 @@ export default function mydrawer() {
         name="Check Eligibility"
         component={EligibilityHomeScreen}
       />
-      {/*   <Drawer.Screen name="Teacher Login" component={TeacherLogin} /> */}
-      <Drawer.Screen name=" Login" component={StudentLogin} />
+      
+      <Drawer.Screen name="Login" component={Studentlogin} />
       <Drawer.Screen name="Contact" component={Contact} />
     </Drawer.Navigator>
   );

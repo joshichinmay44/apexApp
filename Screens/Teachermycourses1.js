@@ -1,4 +1,4 @@
-import React from 'react';
+import React, {Component} from 'react';
 
 import {
   View,
@@ -9,7 +9,7 @@ import {
   ScrollView,
 } from 'react-native';
 import styles from '../style/Style';
-import {Appbar, Card} from 'react-native-paper';
+import {Appbar, Card, Button} from 'react-native-paper';
 import * as firebase from 'firebase';
 
 export default class Teachermycourses1 extends React.Component {
@@ -20,6 +20,7 @@ export default class Teachermycourses1 extends React.Component {
     mylist : [],
     coursesTeaching : [],
     studentsInfo : [],
+    id:-1
   }
 
   componentDidMount(){
@@ -45,27 +46,39 @@ export default class Teachermycourses1 extends React.Component {
     this.props.navigation.navigate('TeacherProfile');
   };
 
-  
+  renderCourseDetails=(i)=>{
+    
+    //console.log("value of i: "+i)
+    let studentList=this.state.studentsInfo[i]
+    let course = this.state.coursesTeaching[i]
+    //console.log(studentList)
+    this.props.navigation.navigate('TeacherCourseDetails',{
+    studentList: studentList,
+    course: course,
+    })
+  }
 
   renderCourseButton=()=>{
    let length=this.state.coursesTeaching.length
    
    let renderer=[]
-   for(var i=0;i<length;i++){
-  renderer[i]=(
-    
-    
-    <Card style={{margin:20}}>
-    
-      <Card.Title title={this.state.coursesTeaching[i]}/>
-      <Card.Title subtitle={this.state.details[i]}/> 
-      <Card.Cover source={require('../images/ApexLogo.jpg')}/>
-     
-    </Card>)
-   }
+   for(let i=0;i<length;i++){
   
- 
-return(renderer)
+    //console.log(i)
+    renderer[i]=(
+      
+      
+      <Card id={i} style={{margin:20}}>
+      <TouchableOpacity onPress={() => this.renderCourseDetails(i)}>
+          <Card.Title title={this.state.coursesTeaching[i]}/>
+          <Card.Title subtitle={this.state.details[i]}/> 
+          <Card.Cover source={require('../images/ApexLogo.jpg')}/>
+          </TouchableOpacity>
+        </Card>
+        )
+      }
+      
+    return(renderer)
   }
 
   getCourses=()=>{
@@ -107,19 +120,19 @@ return(renderer)
 
    this.setState({details: details},
     function(){
-    console.log("this is course list: "+this.state.details);   
+    console.log("these are details: "+this.state.details);   
  } 
  );
 
  this.setState({studentsInfo},
   function(){
-  //console.log("this is students list: "+this.state.studentsInfo[0].id1.Contact);
+  /* console.log("this is students list: "+this.state.studentsInfo[0].id1.Contact);
   this.state.studentsInfo.map((item, index) => {
     Object.keys(item).map(function(key) {
       var stud=item[key]
       console.log(stud)
     })   
-  }) 
+  })  */
 
 } 
 );
@@ -130,7 +143,7 @@ logout = () => {
     .auth()
     .signOut()
     .then(() => {
-      this.props.navigation.navigate('Home',{screen:'Login'});
+      this.props.navigation.navigate('Login');
     });
 };
   render() {
@@ -145,6 +158,7 @@ logout = () => {
           <ScrollView style={styles.Scroll}>
           <View>
         {this.renderCourseButton()}
+
         </View>
 
         </ScrollView>

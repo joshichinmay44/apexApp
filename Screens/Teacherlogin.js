@@ -11,14 +11,11 @@ import {
 } from 'react-native';
 import styles from '../style/StyleLogin';
 import * as firebase from 'firebase';
-import { useIsFocused } from '@react-navigation/native';
+import {NavigationEvents} from 'react-navigation'
+import { useFocusEffect } from '@react-navigation/native';
 
-function Profile() {
-  // This hook returns `true` if the screen is focused, `false` otherwise
-  const isFocused = useIsFocused();
+  
 
-  return !isFocused;
-} 
 
 
 export default class Teacherlogin extends React.Component {
@@ -34,7 +31,9 @@ export default class Teacherlogin extends React.Component {
     loggedIn:false
   };
 
+componentDidMount(){
 
+}
   backToHome = () => {
     this.props.navigation.navigate('Home');
   };
@@ -43,6 +42,8 @@ export default class Teacherlogin extends React.Component {
     
 
   login = () => {
+
+    
     firebase
     .auth()
     .signInWithEmailAndPassword(this.state.username, this.state.password)
@@ -51,26 +52,33 @@ export default class Teacherlogin extends React.Component {
 
       
  
-   
+      this.state.loggedIn=true
 
       this.props.navigation.navigate('TeacherProfile', {
       username : this.state.username,
      
       });
-      
+     
    
   })
+
+
     .catch(function(error) {
           
       var errorCode = error.code;
       var errorMessage = error.message;
       alert(errorMessage);
       });
+    
   };
  
   render(){
    
+    if(this.state.loggedIn==false){
+   
     return (
+     
+      
       <View style={styles.Container}>
         <Appbar.Header>
         <Appbar.Action
@@ -93,16 +101,23 @@ export default class Teacherlogin extends React.Component {
             </View>
 
             <View style={styles.textinputview}>
+            
               <TextInput
                 label="Username"
+               
                 mode="outlined"
-              
+               
                 style={styles.mytextinput}
                 onChangeText={username => this.setState({username})}
-                onFocus= {() => this.setState({username : ''})}
+                onFocus={()=>this.setState({
+                  username:'',
+                
+                  
+                })}
+
                 value={this.state.username}
               />
-
+ 
               <TextInput
                 label="Password"
                 mode="outlined"
@@ -111,11 +126,17 @@ export default class Teacherlogin extends React.Component {
                 
                 style={styles.mytextinput}
                 onChangeText={password => this.setState({password})}
-                onFocus= {() => this.setState({password : ''})}
+                onFocus={()=>this.setState({
+                  password:'',
+                
+                  
+                })}
+
                 value={this.state.password}
+
               />
               <View style={styles.button}>
-                <Button mode="contained" onPress={this.login}>
+                <Button mode="contained" onPress={()=>this.login()}>
                   Login
                 </Button>
               </View>
@@ -125,10 +146,10 @@ export default class Teacherlogin extends React.Component {
       </View>
     );
   
+      
 
 
 
+      }
 
-  }
-}
- 
+}}
