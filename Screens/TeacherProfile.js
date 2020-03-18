@@ -9,6 +9,7 @@ import {
 } from 'react-native';
 import {Appbar, Button, Card} from 'react-native-paper';
 import styles from '../style/Style';
+import { mdiTypewriter } from '@mdi/js';
 import * as firebase from 'firebase';
 
 export default class TeacherProfile extends Component {
@@ -90,15 +91,19 @@ export default class TeacherProfile extends Component {
   console.log('Logged Out')})
       }
      
+renderName=()=>{
 
+
+  return (this.state.teacherInfo.Name)
+  
+}
 
   render() {
     return (
       <View style={styles.Container}>
         <ScrollView style={styles.Scroll}>
           <Appbar.Header>
-            <Appbar.Content title="Teacher Profile" />
-
+            <Appbar.Content style={styles.Title}  title="Teacher Profile" /> 
             <Appbar.Action icon="logout" onPress={this.logout} />
           </Appbar.Header>
 
@@ -110,21 +115,25 @@ export default class TeacherProfile extends Component {
             </View> */}
 
             <Card style={styles.cardContainer}>
-              <Card.Title
-                title={this.state.teacherInfo.Name}
-                style={{marginBottom: '-5%'}}
-              />
-              <Card.Title
-                subtitle={this.state.username}
-                style={{marginBottom: '-5%'}}
-              />
-              <Card.Title
-                subtitle={this.state.teacherInfo.Contact}
-                style={{marginBottom: '-5%'}}
-              />
+              <Card.Cover source={require('../images/welcome.jpg')}/>
             </Card>
 
-            <View style={styles.button}>
+            <Card.Title title={this.renderName()} subtitle={this.state.teacherInfo.Contact} />
+            
+            <View style={{flexDirection:'row', marginTop:60,alignSelf:'center'}}>
+            <Button  icon='information' style={{marginRight:20}} onPress={this.viewCourseInfo}> My Courses</Button>
+            <Button  icon='account-details'  onPress={this.viewCourseInfo}> Student Marks</Button>
+            </View>
+            <View style={{flexDirection:'row', marginTop:30,alignSelf:'center'}}>
+            <Button  icon='pen-plus' style={{marginRight:20}} onPress={this.viewCourseInfo}> Write Notices</Button>
+            <Button  icon='bell-outline'  onPress={this.viewCourseInfo}> View Notices</Button>
+            </View>
+            <View style={{flexDirection:'row', marginTop:30,alignSelf:'center'}}>
+            <Button  icon='pen' style={{marginRight:20}} onPress={this.viewCourseInfo}> Write Blogs</Button>
+            <Button  icon='book-open'  onPress={this.viewCourseInfo}>Read Blogs</Button>
+            </View>
+
+           {/*  <View style={styles.button}>
               <Button mode="contained" onPress={this.viewNotification}>
                 View Notices
               </Button>
@@ -148,10 +157,12 @@ export default class TeacherProfile extends Component {
               <Button mode="contained" onPress={this.writeBlogs}>
                 Write Blogs
               </Button>
-            </View>
+            </View> */}
           </View>
         </ScrollView>
       </View>
     );
   }
 }
+
+

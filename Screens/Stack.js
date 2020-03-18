@@ -97,6 +97,7 @@ export default function Root() {
         />
 
         <Stack.Screen name="Teacherlogin" component={Teacherlogin} />
+        <Stack.Screen name="Teacherstudentprogress" component={Teacherstudentprogress}/>
       </Stack.Navigator>
     </NavigationContainer>
   );
