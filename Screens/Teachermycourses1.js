@@ -47,10 +47,14 @@ export default class Teachermycourses1 extends React.Component {
   };
 
   renderCourseDetails=(i)=>{
-  console.log(i)
-   this.props.navigation.navigate('TeacherCourseDetails',{
-   
-    course: i
+    
+    //console.log("value of i: "+i)
+    let studentList=this.state.studentsInfo[i]
+    let course = this.state.coursesTeaching[i]
+    //console.log(studentList)
+    this.props.navigation.navigate('TeacherCourseDetails',{
+    studentList: studentList,
+    course: course,
     })
   }
 
@@ -60,12 +64,12 @@ export default class Teachermycourses1 extends React.Component {
    let renderer=[]
    for(let i=0;i<length;i++){
   
-    console.log(i)
+    //console.log(i)
     renderer[i]=(
       
       
       <Card id={i} style={{margin:20}}>
-      <TouchableOpacity onPress={() => this.renderCourseDetails(this.state.coursesTeaching[i])}>
+      <TouchableOpacity onPress={() => this.renderCourseDetails(i)}>
           <Card.Title title={this.state.coursesTeaching[i]}/>
           <Card.Title subtitle={this.state.details[i]}/> 
           <Card.Cover source={require('../images/ApexLogo.jpg')}/>
@@ -122,7 +126,14 @@ export default class Teachermycourses1 extends React.Component {
 
  this.setState({studentsInfo},
   function(){
-  console.log("this is contact: "+this.state.studentsInfo[0].id1.Contact);   
+  /* console.log("this is students list: "+this.state.studentsInfo[0].id1.Contact);
+  this.state.studentsInfo.map((item, index) => {
+    Object.keys(item).map(function(key) {
+      var stud=item[key]
+      console.log(stud)
+    })   
+  })  */
+
 } 
 );
 }   
