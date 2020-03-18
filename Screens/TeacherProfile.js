@@ -78,7 +78,9 @@ export default class TeacherProfile extends Component {
     //this.props.navigation.navigate('ViewCourseInfo');
   };
   writeNotices = () => {
-    this.props.navigation.navigate('ViewCourseInfo');
+    this.props.navigation.navigate('Writenotification', {
+      username: this.state.username
+    });
   };
 
   logout = () => {

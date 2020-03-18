@@ -21,7 +21,7 @@ import CoursesOffered from './CoursesOffered';
 import CourseInfo from './offeredCourses/CourseInfo';
 import Services from './Services';
 
-import EntriesScreen from './EntriesScreen';
+import Writenotification from './Writenotification';
 import NDA from './Entries/NDA';
 import CDS from './Entries/CDS';
 import AFCAT from './Entries/AFCAT';
@@ -72,6 +72,7 @@ export default function Root() {
         <Stack.Screen name="TeacherProfile" component={TeacherProfile} />
         <Stack.Screen name="ViewNotification" component={ViewNotification} />
         <Stack.Screen name="Teachermycourses1" component={Teachermycourses1} />
+        <Stack.Screen name="Writenotification" component={Writenotification}/>
 
         <Stack.Screen name="AboutTheForces" component={AboutTheForces} />
 
