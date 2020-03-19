@@ -9,7 +9,7 @@ import {
 } from 'react-native';
 import {Appbar, Button, Card} from 'react-native-paper';
 import styles from '../style/Style';
-import { mdiTypewriter } from '@mdi/js';
+
 import * as firebase from 'firebase';
 
 export default class TeacherProfile extends Component {
@@ -116,7 +116,7 @@ renderName=()=>{
               <Text style={styles.mytext}>Contact Info</Text>
             </View> */}
 
-            <Card style={styles.cardContainer}>
+            {/* <Card style={styles.cardContainer}>
               <Card.Cover source={require('../images/welcome.jpg')}/>
             </Card>
 
@@ -133,9 +133,9 @@ renderName=()=>{
             <View style={{flexDirection:'row', marginTop:30,alignSelf:'center'}}>
             <Button  icon='pen' style={{marginRight:20}} onPress={this.viewCourseInfo}> Write Blogs</Button>
             <Button  icon='book-open'  onPress={this.viewCourseInfo}>Read Blogs</Button>
-            </View>
+            </View> */}
 
-           {/*  <View style={styles.button}>
+            <View style={styles.button}>
               <Button mode="contained" onPress={this.viewNotification}>
                 View Notices
               </Button>
@@ -159,7 +159,7 @@ renderName=()=>{
               <Button mode="contained" onPress={this.writeBlogs}>
                 Write Blogs
               </Button>
-            </View> */}
+            </View> 
           </View>
         </ScrollView>
       </View>
