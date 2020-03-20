@@ -38,6 +38,7 @@ import EligibilityResultArmy from './Eligibility/EligibilityResultArmy';
 import AboutTheForces from './InfoAboutForces/AboutTheForces';
 import TeacherCourseDetails from './TeacherCourseDetails'
 import ServiceDescriptiveInfo from './InfoAboutForces/ServiceDescriptiveInfo';
+import ProgressReport from './ProgressReport';
 //import TeacherCourseInfo from './TeacherCourseInfo';
 /* import EligibilityResultNavy from './Eligibility/EligibilityResultNavy'; */
 
@@ -68,7 +69,7 @@ export default function Root() {
         <Stack.Screen name="ViewCourseInfo" component={ViewCourseInfo} />
         <Stack.Screen name="StudentMarks" component={StudentMarks} />
         <Stack.Screen name="StudentProfile" component={StudentProfile} />
-
+<Stack.Screen name="ProgressReport" component={ProgressReport}/>
         <Stack.Screen name="TeacherProfile" component={TeacherProfile} />
         <Stack.Screen name="ViewNotification" component={ViewNotification} />
         <Stack.Screen name="Teachermycourses1" component={Teachermycourses1} />

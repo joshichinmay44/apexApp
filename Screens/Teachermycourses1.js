@@ -51,6 +51,7 @@ export default class Teachermycourses1 extends React.Component {
     //console.log("value of i: "+i)
     let studentList=this.state.studentsInfo[i]
     let course = this.state.coursesTeaching[i]
+  
     //console.log(studentList)
     this.props.navigation.navigate('TeacherCourseDetails',{
     studentList: studentList,

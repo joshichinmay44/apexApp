@@ -37,9 +37,12 @@ export default class Studentlogin extends React.Component {
     this.setState({username: '', password: ''});
   };
   studentProfile = () => {
+    let activeState = 0;
     const myitems = firebase.database().ref('Students/');
+    //console.log('MyItems'+myitems)
     myitems.on('value', datasnap => {
       if (datasnap.val()) {
+        console.log('Entered datasnap.val')
         this.setState({Students: Object.values(datasnap.val())}, () => {});
       }
     });
@@ -48,13 +51,13 @@ export default class Studentlogin extends React.Component {
       .signInWithEmailAndPassword(this.state.username, this.state.password)
 
       .then(() => {
-        console.log('successfully loged in');
+        console.log('successfully logged in');
 
         const ex = this.state.Students;
         const username = this.state.username;
-        let activeState = 0;
+        console.log(ex)
         Object.keys(ex).map(function(key) {
-          // console.log(ex[key]);
+        
           if (ex[key].match(username)) {
             activeState = 1;
 
