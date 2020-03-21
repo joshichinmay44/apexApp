@@ -182,6 +182,13 @@ export default class StudentProfile extends Component {
               <Card.Cover source={require('../images/welcome.jpg')} />
               <Card.Title
                 title={this.state.info_val[4]}
+                subtitle={this.state.info_val[2]}
+              />
+              <Card.Content>
+                <Text style={styles.Info}>Email: {this.state.info_val[3]}</Text>
+              </Card.Content>
+              {/*   <Card.Title
+                title={this.state.info_val[4]}
                 style={{marginBottom: '-5%'}}
               />
 
@@ -192,7 +199,7 @@ export default class StudentProfile extends Component {
               <Card.Title
                 title={this.state.info_val[3]}
                 style={{marginBottom: '-5%'}}
-              />
+              /> */}
             </Card>
 
             <View style={styles.button}>
