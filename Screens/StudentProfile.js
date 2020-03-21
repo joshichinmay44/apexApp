@@ -196,22 +196,34 @@ export default class StudentProfile extends Component {
             </Card>
 
             <View style={styles.button}>
-              <Button mode="contained" onPress={this.viewNotification}>
+              <Button
+                //mode="contained"
+                icon="bell-outline"
+                onPress={this.viewNotification}>
                 View Notification
               </Button>
             </View>
             <View style={styles.button}>
-              <Button mode="contained" onPress={this.viewCourseInfo}>
+              <Button
+                // mode="contained"
+                icon="information"
+                onPress={this.viewCourseInfo}>
                 View Course Information
               </Button>
             </View>
             <View style={styles.button}>
-              <Button mode="contained" onPress={this.viewMarks}>
+              <Button
+                // mode="contained"
+                icon="pen-plus"
+                onPress={this.viewMarks}>
                 View Marks
               </Button>
             </View>
             <View style={styles.button}>
-              <Button mode="contained" onPress={this.viewBlogs}>
+              <Button
+                // mode="contained"
+                icon="book-open"
+                onPress={this.viewBlogs}>
                 View Blogs
               </Button>
             </View>

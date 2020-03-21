@@ -42,15 +42,15 @@ export default class Studentlogin extends React.Component {
     //console.log('MyItems'+myitems)
     myitems.on('value', datasnap => {
       if (datasnap.val()) {
-        console.log('Entered datasnap.val');
+        console.log('Entered datasnap.val 1');
         this.setState({Students: Object.values(datasnap.val())}, () => {});
       }
     });
-    const myitem = firebase.database().ref('Teacher/');
+    const myitem = firebase.database().ref('Teachers/');
     //console.log('MyItems'+myitems)
     myitem.on('value', datasnap => {
       if (datasnap.val()) {
-        console.log('Entered datasnap.val');
+        console.log('Entered datasnap.val 2');
         this.setState({Teachers: Object.values(datasnap.val())}, () => {});
       }
     });
@@ -62,8 +62,11 @@ export default class Studentlogin extends React.Component {
         console.log('successfully logged in');
 
         const ex = this.state.Students;
+        const exx = this.state.Teachers;
         const username = this.state.username;
         console.log(ex);
+        console.log(exx);
+
         Object.keys(ex).map(function(key) {
           if (ex[key].match(username)) {
             activeState = 1;
@@ -71,15 +74,7 @@ export default class Studentlogin extends React.Component {
             console.log('student found');
           }
         });
-        if (activeState == 1) {
-          console.log('student navigate');
 
-          this.props.navigation.navigate('StudentProfile', {
-            username: this.state.username,
-          });
-        }
-        const exx = this.state.Teachers;
-        console.log(exx);
         Object.keys(exx).map(function(key) {
           if (exx[key].match(username)) {
             activeState = 2;
@@ -87,17 +82,27 @@ export default class Studentlogin extends React.Component {
             console.log('Teacher found');
           }
         });
+        if (activeState == 0) {
+          alert('please check your internet connection');
+        }
+        if (activeState == 1) {
+          console.log('student navigate');
+          activeState = 0;
+
+          this.props.navigation.navigate('StudentProfile', {
+            username: this.state.username,
+          });
+        }
+
         if (activeState == 2) {
           console.log('teacher navigate');
+          activeState = 0;
 
           this.props.navigation.navigate('TeacherProfile', {
             username: this.state.username,
           });
         }
-        if (activeState == 0) {
-          alert('please check your internet connection');
-        }
-        activeState = 0;
+
         /*  else if (activeState == 0) {
           console.log('teacher found');
           this.props.navigation.navigate('TeacherProfile', {
