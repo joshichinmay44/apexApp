@@ -14,7 +14,6 @@ import * as firebase from 'firebase';
 export default class StudentProfile extends Component {
   static navigationOptions = {
     headerShown: false,
-   
   };
 
   state = {
@@ -25,6 +24,7 @@ export default class StudentProfile extends Component {
     info_key: [],
     courses: [],
     marks: [],
+    Notification: [],
   };
   componentDidMount() {
     const myitems = firebase.database().ref('Courses/');
@@ -54,6 +54,7 @@ export default class StudentProfile extends Component {
     let detailsFlag = 0;
     let flag = 0;
     let marks = [];
+    let Notification = {};
 
     const ex = this.state.courses.val();
     this.setState({courses: this.state.courses.val()});
@@ -69,6 +70,10 @@ export default class StudentProfile extends Component {
         if (key == 'Details') {
           coursedetail = key;
           courseindetail = item[key];
+        }
+        if (key == 'Notifications') {
+          console.log(item[key]);
+          Notification = item[key];
         }
         if (key == 'Students') {
           var stud = item[key];
@@ -110,9 +115,11 @@ export default class StudentProfile extends Component {
           myinfokey.push(coursedetail);
           myinfoval.push(courseindetail);
           detailsFlag = 0;
+          this.setState({Notification: Notification}, () => {});
         }
       });
       count = count + 1;
+      Notification = {};
     });
     console.log(marks);
     this.setState({info_val: myinfoval}, () => {});
@@ -121,7 +128,9 @@ export default class StudentProfile extends Component {
     this.setState({marks: marks}, () => {});
   }
   viewNotification = () => {
-    this.props.navigation.navigate('ViewNotification');
+    this.props.navigation.navigate('ViewNotification', {
+      Notification: this.state.Notification,
+    });
   };
 
   viewCourseInfo = () => {
@@ -170,7 +179,7 @@ export default class StudentProfile extends Component {
             {console.log('my_courses=[' + this.state.my_courses + ']')}
             {console.log('marks=[' + this.state.marks + ']')}
             <Card style={styles.cardContainer}>
-              <Card.Cover source={require('../images/welcome.jpg')}/>
+              <Card.Cover source={require('../images/welcome.jpg')} />
               <Card.Title
                 title={this.state.info_val[4]}
                 style={{marginBottom: '-5%'}}
