@@ -5,8 +5,10 @@ import {
   ScrollView,
   Image,
   TouchableOpacity,
+  
 } from 'react-native';
 
+import Icon from 'react-native-vector-icons/FontAwesome';
 import {
   Appbar,
   Button,
@@ -15,6 +17,7 @@ import {
   Card,
   Avatar,
   Paragraph,
+  IconButton
 } from 'react-native-paper';
 import {
   createDrawerNavigator,
@@ -38,6 +41,7 @@ import Navigator from './Stack';
 import DirectorsDesk from './DirectorsDesk';
 import SuccessStories from './SuccessStories';
 import styles from '../style/Style';
+import ChatBot from './ChatBot';
 
 class Home extends Component {
   static navigationOptions = {
@@ -84,13 +88,19 @@ class Home extends Component {
               to various activities of the organization.
             </Text>
           </Paragraph>
-          </Card.Content>
+   </Card.Content>
          
           <View style={styles.button}>
             <Button mode="contained" onPress={this.CoursesOffered}>
               Courses Offered
             </Button>
           </View>
+
+          <TouchableOpacity onPress={()=>this.props.navigation.navigate('ChatBot')} style={{alignItems:'flex-end',marginTop:50, marginRight:20, marginBottom:0}}> 
+          <Icon name='comment' size={60} color='#084d7b'/>
+          </TouchableOpacity> 
+       
+
         </ScrollView>
       </View>
     );
@@ -125,7 +135,7 @@ export default function mydrawer() {
         name="Check Eligibility"
         component={EligibilityHomeScreen}
       />
-      
+      <Drawer.Screen name="ChatBot" component={ChatBot}/>
       <Drawer.Screen name="Login" component={Studentlogin} />
       <Drawer.Screen name="Contact" component={Contact} />
     </Drawer.Navigator>
