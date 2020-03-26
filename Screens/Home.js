@@ -41,7 +41,7 @@ import Navigator from './Stack';
 import DirectorsDesk from './DirectorsDesk';
 import SuccessStories from './SuccessStories';
 import styles from '../style/Style';
-import ChatBot from './ChatBot';
+import Chatbot from './Chatbot';
 
 class Home extends Component {
   static navigationOptions = {
@@ -96,7 +96,7 @@ class Home extends Component {
             </Button>
           </View>
 
-          <TouchableOpacity onPress={()=>this.props.navigation.navigate('ChatBot')} style={{alignItems:'flex-end',marginTop:50, marginRight:20, marginBottom:0}}> 
+          <TouchableOpacity onPress={()=>this.props.navigation.navigate('Chatbot')} style={{alignItems:'flex-end',marginTop:50, marginRight:20, marginBottom:0}}> 
           <Icon name='comment' size={60} color='#084d7b'/>
           </TouchableOpacity> 
        
@@ -135,7 +135,7 @@ export default function mydrawer() {
         name="Check Eligibility"
         component={EligibilityHomeScreen}
       />
-      <Drawer.Screen name="ChatBot" component={ChatBot}/>
+      <Drawer.Screen name="Chatbot" component={Chatbot}/>
       <Drawer.Screen name="Login" component={Studentlogin} />
       <Drawer.Screen name="Contact" component={Contact} />
     </Drawer.Navigator>
