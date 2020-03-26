@@ -170,6 +170,7 @@ export default class StudentProfile extends Component {
             {console.log('my_courses=[' + this.state.my_courses + ']')}
             {console.log('marks=[' + this.state.marks + ']')}
             <Card style={styles.cardContainer}>
+              <Card.Cover source={require('../images/welcome.jpg')}/>
               <Card.Title
                 title={this.state.info_val[4]}
                 style={{marginBottom: '-5%'}}

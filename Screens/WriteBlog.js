@@ -18,33 +18,36 @@ import {
     TextInput,
   } from 'react-native-paper';
 import * as firebase from 'firebase';
+import ShowMore from 'react-native-show-more-button';
 
-export default class Writenotification extends Component {
+export default class WriteBlog extends Component {
     state={
-        mylist : [],
-        subject : '',
-        description : [],
+      
+        blogTitle : '',
+        blogContent : [],
         username : this.props.route.params.username,
-        course: this.props.route.params.course,
-        notificationList: [],
-        notificationKeys: [],
+        
+        blogList: [],
+        blogKeys: [],
         data : ''
     }
     componentDidMount() {
-      let course= this.state.course
-      this.state.data = firebase.database().ref("Courses/"+course+"/Notifications/")
+    
+      this.state.data = firebase.database().ref("Blogs/")
+      
       this.state.data.on('value', datasnap => {
-        this.setState({notificationList: Object.values(datasnap.val())}, function() {
+        this.setState({blogList: Object.values(datasnap.val())}, function() {
           
-          console.log("notifications: "+this.state.notificationList);
+          console.log("blogs: "+this.state.blogList); 
+         
          
         });
 
-        this.setState({notificationKeys: Object.keys(datasnap.val())}, function() {
+        this.setState({blogKeys: Object.keys(datasnap.val())}, function() {
           
-          console.log("Keys: "+this.state.notificationKeys);
+          console.log("Keys: "+this.state.blogKeys);
          
-        });
+        }); 
       })
       } 
     
@@ -52,20 +55,20 @@ export default class Writenotification extends Component {
         this.props.navigation.goBack();
       };
      
-    addNotification = () => {
+    addBlog = () => {
         //let course= this.state.course
-        //const data = firebase.database().ref("Courses/"+course+"/Notifications/")
-        
+
+       /*  const data = firebase.database().ref("Blogs/") */
         let date = new Date().getDate();
         let month = new Date().getMonth() + 1;
         let year = new Date().getFullYear();
-        let sub =  this.state.subject;
-        let des = this.state.description;
+        let title =  this.state.blogTitle;
+        let content = this.state.blogContent;
         let username = this.state.username;
-        //console.log("username: "+username)
-        if(sub == "" || des == "")
+        
+        if(title == "" || content == "")
         {
-          alert("Your notification is empty")
+          alert("Your blog is empty")
         
         }
         else{
@@ -73,14 +76,14 @@ export default class Writenotification extends Component {
           {
             Username : username,
             Date : date+'/'+month+'/'+year,
-            Subject : sub,
-            Description : des,
+            Title : title,
+            Content : content,
           } )
        }
     }
-  
-    renderNotificationList=()=>{
-      let length=this.state.notificationList.length
+    
+    renderBlogList=()=>{
+      let length=this.state.blogList.length
      
       let renderer=[]
       for(let i=0;i<length;i++){
@@ -90,14 +93,17 @@ export default class Writenotification extends Component {
          
          
         <Card id={i} style={{margin:20,  backgroundColor: '#E9E9E9'}}>
-             <Card.Title title={this.state.notificationList[i].Subject}
+          <ShowMore >
+             <Card.Title title={this.state.blogList[i].Title}
               right={(props) =>
-              <TouchableOpacity  onPress={() => this.deleteNotification(i)}>
+              <TouchableOpacity  onPress={() => this.deleteBlog(i)}>
                 <Avatar.Icon {...props} style={{marginRight:'5%'}} icon="delete" />
               </TouchableOpacity>}
              />
              
-             <Text style={{fontSize:17, margin:'5%', }}>{this.state.notificationList[i].Description}</Text>
+              <Text style={{fontSize:17, margin:'5%', }}>{this.state.blogList[i].Content}</Text> 
+               
+          </ShowMore>
         </Card>
            )
          }
@@ -105,62 +111,63 @@ export default class Writenotification extends Component {
        return(renderer)
     }
 
-    deleteNotification=(i)=>{
-      //let course= this.state.course
-      //let data = firebase.database().ref("Courses/"+course+"/Notifications/")
-      this.state.data.child(this.state.notificationKeys[i]).remove();
+    deleteBlog = (i) => {
+      this.state.data.child(this.state.blogKeys[i]).remove();
     }
+    
     render() {
-        let courseTitle= this.state.course
+        
         return (
             <View style={styles.Container}>
            
               <Appbar.Header>
                 <Appbar.BackAction  onPress={this.back} />
-                <Appbar.Content title="Write notices" />
+                <Appbar.Content title="Write blogs" />
     
                
               </Appbar.Header>
             <ScrollView style={styles.Scroll}>
             <View style={styles.Body}>
               <View>
-              <Card.Title title={courseTitle}/> 
+              <View>  
               <TextInput
-                label="Subject of notice"
+                label="Title"
                 mode="outlined"
                 style={styles.mytextinput}
-                onChangeText={subject => this.setState({subject})}
+                onChangeText={blogTitle => this.setState({blogTitle})}
                 onFocus={()=>this.setState({
-                  subject:'',
+                    blogTitle:'',
+                
+                })}
+
+                value={this.state.blogTitle}
+              />
+              </View>
+              <View>
+              <TextInput
+                label="Start writing"
+                mode="outlined"
+                style={styles.mytextinput}
+                onChangeText={blogContent => this.setState({blogContent})}
+                onFocus={()=>this.setState({
+                    blogContent:'',
                 
                   
                 })}
 
-                value={this.state.subject}
+                value={this.state.blogContent}
               />
-   
-              <TextInput
-                label="Description for notice"
-                mode="outlined"
-                style={styles.mytextinput}
-                onChangeText={description => this.setState({description})}
-                onFocus={()=>this.setState({
-                  description:'',
-                
-                  
-                })}
-
-                value={this.state.description}
-              />
-
+              </View>
                 <View style={styles.button}>
-                    <Button mode="contained" onPress={this.addNotification}>
-                    Send
+                    <Button mode="contained" onPress={this.addBlog} >
+                    Share
                     </Button>
                 </View>
-                </View>
-                {this.renderNotificationList()}
+            </View>    
+
+                {this.renderBlogList()}
             </View>
+            
             </ScrollView>
                     
               

@@ -38,8 +38,9 @@ import EligibilityResultArmy from './Eligibility/EligibilityResultArmy';
 import AboutTheForces from './InfoAboutForces/AboutTheForces';
 import TeacherCourseDetails from './TeacherCourseDetails'
 import ServiceDescriptiveInfo from './InfoAboutForces/ServiceDescriptiveInfo';
-//import TeacherCourseInfo from './TeacherCourseInfo';
-/* import EligibilityResultNavy from './Eligibility/EligibilityResultNavy'; */
+import ProgressReport from './ProgressReport';
+import WriteBlog from './WriteBlog';
+import TeacherStudentMarks from './TeacherStudentsMarks'; 
 
 const Stack = createStackNavigator();
 export default function Root() {
@@ -68,11 +69,13 @@ export default function Root() {
         <Stack.Screen name="ViewCourseInfo" component={ViewCourseInfo} />
         <Stack.Screen name="StudentMarks" component={StudentMarks} />
         <Stack.Screen name="StudentProfile" component={StudentProfile} />
-
+        <Stack.Screen name="ProgressReport" component={ProgressReport}/>
         <Stack.Screen name="TeacherProfile" component={TeacherProfile} />
         <Stack.Screen name="ViewNotification" component={ViewNotification} />
         <Stack.Screen name="Teachermycourses1" component={Teachermycourses1} />
         <Stack.Screen name="Writenotification" component={Writenotification}/>
+        <Stack.Screen name="WriteBlog" component={WriteBlog}/>
+        <Stack.Screen name="TeacherStudentMarks" component={TeacherStudentMarks}/>
 
         <Stack.Screen name="AboutTheForces" component={AboutTheForces} />
 
