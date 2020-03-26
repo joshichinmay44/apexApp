@@ -57,6 +57,17 @@ export default styles = StyleSheet.create({
     fontSize: 15,
     marginTop: '2%',
   },
+  Mark: {
+    textAlign: 'center',
+    fontSize: 20,
+    margin: '2%',
+    fontWeight: 'bold',
+  },
+  MarkTitle: {
+    fontFamily: 'Oswald-BoldItalic',
+    margin: '2%',
+    fontSize: 25,
+  },
   cardContainer: {
     elevation: 1,
     // borderRadius: 60,

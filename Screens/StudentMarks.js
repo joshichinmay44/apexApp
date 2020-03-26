@@ -6,6 +6,7 @@ import {
   ScrollView,
   Image,
   TouchableOpacity,
+  ImageBackground,
 } from 'react-native';
 import {Appbar, Button, Card} from 'react-native-paper';
 import styles from '../style/Style';
@@ -27,18 +28,19 @@ export default class StudentMarks extends Component {
     let renderer = [];
     for (let i = 0; i < length; i++) {
       renderer[i] = (
-        <Card style={styles.cardContainer}>
+        /*  <Card>
           <Card.Title title={this.state.marks[i]} />
-        </Card>
+        </Card> */
+        <Text style={styles.MarkTitle}>{this.state.marks[i]}</Text>
       );
       i++;
       while (this.state.marks[i] != '  ') {
         renderer[i] = (
-          <View>
-            <Card>
-              <Card.Title title={this.state.marks[i]} />
-            </Card>
-          </View>
+          // <Card>
+          <Text style={styles.Mark}>
+            {this.state.marks[i++]} = {this.state.marks[i]}
+          </Text>
+          // </Card>
         );
         i++;
       }
@@ -51,10 +53,17 @@ export default class StudentMarks extends Component {
         <ScrollView style={styles.Scroll}>
           <Appbar.Header>
             <Appbar.BackAction icon="back" onPress={this.back} />
-            <Appbar.Content title="Student Profile" />
+            <Appbar.Content title=" Marks" />
           </Appbar.Header>
 
-          <View style={styles.Body}>{this.showMarks()}</View>
+          <View style={styles.Body}>
+            <ImageBackground
+              source={require('../images/India.jpeg')}
+              style={{width: '100%', height: '100%'}}
+              imageStyle={{opacity: 0.3}}>
+              {this.showMarks()}
+            </ImageBackground>
+          </View>
         </ScrollView>
       </View>
     );

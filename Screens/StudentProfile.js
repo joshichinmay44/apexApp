@@ -55,25 +55,30 @@ export default class StudentProfile extends Component {
     let flag = 0;
     let marks = [];
     let Notification = {};
+    let status = '';
 
     const ex = this.state.courses.val();
     this.setState({courses: this.state.courses.val()});
     Object.keys(ex).map(key => {
       courses.push(key);
     });
-
     const demo = this.state.mycourses;
     count = 0;
     Object.keys(demo).map(key => {
       const item = demo[key];
       Object.keys(item).map(key => {
+        if (key == 'ActiveStatus') {
+          status = item[key];
+        }
         if (key == 'Details') {
           coursedetail = key;
           courseindetail = item[key];
         }
         if (key == 'Notifications') {
-          console.log(item[key]);
-          Notification = item[key];
+          // console.log(item[key]);
+          if (status == 'Active') {
+            Notification = item[key];
+          }
         }
         if (key == 'Students') {
           var stud = item[key];
@@ -115,13 +120,15 @@ export default class StudentProfile extends Component {
           myinfokey.push(coursedetail);
           myinfoval.push(courseindetail);
           detailsFlag = 0;
-          this.setState({Notification: Notification}, () => {});
+          if (status == 'Active') {
+            this.setState({Notification: Notification}, () => {});
+          }
         }
       });
       count = count + 1;
       Notification = {};
     });
-    console.log(marks);
+
     this.setState({info_val: myinfoval}, () => {});
     this.setState({info_key: myinfokey}, () => {});
     this.setState({my_courses: my_courses}, () => {});
@@ -154,7 +161,7 @@ export default class StudentProfile extends Component {
     });
   };
   viewBlogs = () => {
-    this.props.navigation.navigate('ViewCourseInfo');
+    this.props.navigation.navigate('ViewBlogs');
   };
   logout = () => {
     firebase
@@ -174,10 +181,10 @@ export default class StudentProfile extends Component {
           </Appbar.Header>
 
           <View style={styles.Body}>
-            {console.log('info_key = [' + this.state.info_key + ']')}
+            {/*     {console.log('info_key = [' + this.state.info_key + ']')}
             {console.log('info_val=[' + this.state.info_val + ']')}
             {console.log('my_courses=[' + this.state.my_courses + ']')}
-            {console.log('marks=[' + this.state.marks + ']')}
+            {console.log('marks=[' + this.state.marks + ']')} */}
             <Card style={styles.cardContainer}>
               <Card.Cover source={require('../images/welcome.jpg')} />
               <Card.Title
@@ -187,19 +194,6 @@ export default class StudentProfile extends Component {
               <Card.Content>
                 <Text style={styles.Info}>Email: {this.state.info_val[3]}</Text>
               </Card.Content>
-              {/*   <Card.Title
-                title={this.state.info_val[4]}
-                style={{marginBottom: '-5%'}}
-              />
-
-              <Card.Title
-                title={this.state.info_val[2]}
-                style={{marginBottom: '-5%'}}
-              />
-              <Card.Title
-                title={this.state.info_val[3]}
-                style={{marginBottom: '-5%'}}
-              /> */}
             </Card>
 
             <View style={styles.button}>

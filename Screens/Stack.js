@@ -13,6 +13,7 @@ import StudentProfile from './StudentProfile';
 import TeacherProfile from './TeacherProfile';
 import StudentLogin from './Studentlogin';
 import StudentMarks from './StudentMarks';
+import ViewBlogs from './ViewBlogs';
 import Teacherlogin from './Teacherlogin';
 import Teachermycourses1 from './Teachermycourses1';
 import Teacherstudentprogress from './Teacherstudentprogress';
@@ -36,7 +37,7 @@ import EligibilityFormAirForce from './Eligibility/EligibilityFormAirForce';
 import EligibilityFormNavy from './Eligibility/EligibilityFormNavy';
 import EligibilityResultArmy from './Eligibility/EligibilityResultArmy';
 import AboutTheForces from './InfoAboutForces/AboutTheForces';
-import TeacherCourseDetails from './TeacherCourseDetails'
+import TeacherCourseDetails from './TeacherCourseDetails';
 import ServiceDescriptiveInfo from './InfoAboutForces/ServiceDescriptiveInfo';
 import ProgressReport from './ProgressReport';
 //import TeacherCourseInfo from './TeacherCourseInfo';
@@ -65,13 +66,17 @@ export default function Root() {
           name="ServiceDescriptiveInfo"
           component={ServiceDescriptiveInfo}
         />
-       <Stack.Screen name='TeacherCourseDetails' component={TeacherCourseDetails}/>
+        <Stack.Screen
+          name="TeacherCourseDetails"
+          component={TeacherCourseDetails}
+        />
         <Stack.Screen name="ViewCourseInfo" component={ViewCourseInfo} />
         <Stack.Screen name="StudentMarks" component={StudentMarks} />
         <Stack.Screen name="StudentProfile" component={StudentProfile} />
-<Stack.Screen name="ProgressReport" component={ProgressReport}/>
+        <Stack.Screen name="ProgressReport" component={ProgressReport} />
         <Stack.Screen name="TeacherProfile" component={TeacherProfile} />
         <Stack.Screen name="ViewNotification" component={ViewNotification} />
+        <Stack.Screen name="ViewBlogs" component={ViewBlogs} />
         <Stack.Screen name="Teachermycourses1" component={Teachermycourses1} />
 
         <Stack.Screen name="AboutTheForces" component={AboutTheForces} />
@@ -98,7 +103,10 @@ export default function Root() {
         />
 
         <Stack.Screen name="Teacherlogin" component={Teacherlogin} />
-        <Stack.Screen name="Teacherstudentprogress" component={Teacherstudentprogress}/>
+        <Stack.Screen
+          name="Teacherstudentprogress"
+          component={Teacherstudentprogress}
+        />
       </Stack.Navigator>
     </NavigationContainer>
   );
