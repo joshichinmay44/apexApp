@@ -1,7 +1,14 @@
 import React, {Component} from 'react';
-import {StyleSheet, View, ScrollView, Image} from 'react-native';
-import {Appbar, Text, Card} from 'react-native-paper';
+import {
+  StyleSheet,
+  View,
+  ScrollView,
+  Image,
+  TouchableOpacity,
+} from 'react-native';
+import {Appbar, Text, Card, Avatar} from 'react-native-paper';
 import styles from '../style/Style';
+import ShowMore from 'react-native-show-more-button';
 import * as firebase from 'firebase';
 export default class ViewBlogs extends Component {
   static navigationOptions = {
@@ -31,10 +38,21 @@ export default class ViewBlogs extends Component {
     Object.keys(data).map((obj, i) => {
       renderer[i] = (
         <Card style={styles.cardContainer}>
-          <Card.Title title={data[obj].Title} />
-          <Card.Title subtitle={data[obj].Date} />
-          <Card.Title subtitle={data[obj].Content} />
-          <Card.Title subtitle={data[obj].Username} />
+          <ShowMore>
+            <Card.Title
+              style={{marginHorizontal: '20%'}}
+              title={data[obj].Title}
+            />
+
+            <Text style={{fontSize: 15, margin: '2%'}}>{data[obj].Date}</Text>
+
+            <Text style={{fontSize: 15, margin: '2%'}}>
+              {data[obj].Username}
+            </Text>
+            <Text style={{fontSize: 15, margin: '2%'}}>
+              {data[obj].Content}
+            </Text>
+          </ShowMore>
         </Card>
       );
       i++;
