@@ -9,7 +9,7 @@ import {
 } from 'react-native';
 import {Appbar, Button, Card} from 'react-native-paper';
 import styles from '../style/Style';
-import { mdiTypewriter } from '@mdi/js';
+//import { mdiTypewriter } from '@mdi/js';
 import * as firebase from 'firebase';
 
 export default class TeacherProfile extends Component {
@@ -30,7 +30,7 @@ export default class TeacherProfile extends Component {
     const myitems = firebase.database().ref('Courses/');
     myitems.on('value', datasnap => {
       this.setState({mylist: Object.values(datasnap.val())}, function() {
-        console.log(this.state.mylist);
+        //console.log(this.state.mylist);
         this.getTeacherInfo();
       });
     });
@@ -61,27 +61,16 @@ export default class TeacherProfile extends Component {
     });
   };
 
-  viewNotification = () => {
-    this.props.navigation.navigate('ViewNotification');
-  };
-
   viewCourseInfo = () => {
     this.props.navigation.navigate('Teachermycourses1', {
       username: this.state.username,
     });
   };
 
-  viewProgress = () => {
-    this.props.navigation.navigate('Teacherstudentprogress',{
-      username:this.state.username
+  writeBlog = () => {
+    this.props.navigation.navigate('WriteBlog', {
+      username: this.state.username,
     });
-  };
-
-  writeBlogs = () => {
-    //this.props.navigation.navigate('ViewCourseInfo');
-  };
-  writeNotices = () => {
-    this.props.navigation.navigate('ViewCourseInfo');
   };
 
   logout = () => {
@@ -89,26 +78,25 @@ export default class TeacherProfile extends Component {
 
       .auth()
       .signOut()
-    .then(()=>{this.props.navigation.navigate('Login')
-  console.log('Logged Out')})
-      }
-     
-renderName=()=>{
+      .then(() => {
+        this.props.navigation.navigate('Login');
+        console.log('Logged Out');
+      });
+  };
 
-
-  return (this.state.teacherInfo.Name)
-  
-}
+  renderName = () => {
+    return this.state.teacherInfo.Name;
+  };
 
   render() {
     return (
       <View style={styles.Container}>
-        <ScrollView style={styles.Scroll}>
-          <Appbar.Header>
-            <Appbar.Content style={styles.Title}  title="Teacher Profile" /> 
-            <Appbar.Action icon="logout" onPress={this.logout} />
-          </Appbar.Header>
+        <Appbar.Header>
+          <Appbar.Content style={styles.Title} title="Teacher Profile" />
+          <Appbar.Action icon="logout" onPress={this.logout} />
+        </Appbar.Header>
 
+        <ScrollView style={styles.Scroll}>
           <View style={styles.Body}>
             {/*  <View style={styles.mytextview}>
               <Text style={styles.mytext}>Teacher Name</Text>
@@ -117,26 +105,37 @@ renderName=()=>{
             </View> */}
 
             <Card style={styles.cardContainer}>
-              <Card.Cover source={require('../images/welcome.jpg')}/>
+              <Card.Cover source={require('../images/welcome.jpg')} />
             </Card>
 
-            <Card.Title title={this.renderName()} subtitle={this.state.teacherInfo.Contact} />
-          <Card.Content><Text style={styles.Info}>Subject:{' '}{this.state.teacherInfo.Subject}</Text></Card.Content>
-            
-            <View style={{flexDirection:'row', marginTop:60,alignSelf:'center'}}>
-            <Button  icon='information' style={{marginRight:20}} onPress={this.viewCourseInfo}> My Courses</Button>
-            <Button  icon='account-details'  onPress={this.viewProgress}> Student Marks</Button>
-            </View>
-            <View style={{flexDirection:'row', marginTop:30,alignSelf:'center'}}>
-            <Button  icon='pen-plus' style={{marginRight:20}} onPress={this.viewCourseInfo}> Write Notices</Button>
-            <Button  icon='bell-outline'  onPress={this.viewCourseInfo}> View Notices</Button>
-            </View>
-            <View style={{flexDirection:'row', marginTop:30,alignSelf:'center'}}>
-            <Button  icon='pen-plus' style={{marginRight:20}} onPress={this.viewCourseInfo}> Write Blogs</Button>
-            <Button  icon='book-open'  onPress={this.viewCourseInfo}>Read Blogs</Button>
+            <Card.Title
+              title={this.renderName()}
+              subtitle={this.state.teacherInfo.Contact}
+            />
+            <Card.Content>
+              <Text style={styles.Info}>
+                Subject: {this.state.teacherInfo.Subject}
+              </Text>
+            </Card.Content>
+
+            <View style={{marginTop: 60, alignSelf: 'center'}}>
+              <Button icon="information" onPress={this.viewCourseInfo}>
+                {' '}
+                My Courses
+              </Button>
+
+              <Button icon="pen-plus" onPress={this.writeBlog}>
+                {' '}
+                Write Blogs
+              </Button>
             </View>
 
-           {/*  <View style={styles.button}>
+            {/*  <View style={{flexDirection:'row', marginTop:30,alignSelf:'center'}}>
+            <Button  icon='pen-plus' style={{marginRight:20}} onPress={this.writeBlog}> Write Blogs</Button>
+            <Button  icon='book-open'  onPress={this.viewCourseInfo}>Read Blogs</Button>
+            </View>*/}
+
+            {/*  <View style={styles.button}>
               <Button mode="contained" onPress={this.viewNotification}>
                 View Notices
               </Button>
@@ -167,5 +166,3 @@ renderName=()=>{
     );
   }
 }
-
-

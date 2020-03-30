@@ -42,7 +42,7 @@ export default class Studentlogin extends React.Component {
     //console.log('MyItems'+myitems)
     myitems.on('value', datasnap => {
       if (datasnap.val()) {
-        console.log('Entered datasnap.val 1');
+        //console.log('Entered datasnap.val 1');
         this.setState({Students: Object.values(datasnap.val())}, () => {});
       }
     });
@@ -50,7 +50,7 @@ export default class Studentlogin extends React.Component {
     //console.log('MyItems'+myitems)
     myitem.on('value', datasnap => {
       if (datasnap.val()) {
-        console.log('Entered datasnap.val 2');
+        // console.log('Entered datasnap.val 2');
         this.setState({Teachers: Object.values(datasnap.val())}, () => {});
       }
     });
@@ -64,8 +64,8 @@ export default class Studentlogin extends React.Component {
         const ex = this.state.Students;
         const exx = this.state.Teachers;
         const username = this.state.username;
-        console.log(ex);
-        console.log(exx);
+        // console.log(ex);
+        // console.log(exx);
 
         Object.keys(ex).map(function(key) {
           if (ex[key].match(username)) {
@@ -86,7 +86,7 @@ export default class Studentlogin extends React.Component {
           alert('please check your internet connection');
         }
         if (activeState == 1) {
-          console.log('student navigate');
+          // console.log('student navigate');
           activeState = 0;
 
           this.props.navigation.navigate('StudentProfile', {
@@ -95,7 +95,7 @@ export default class Studentlogin extends React.Component {
         }
 
         if (activeState == 2) {
-          console.log('teacher navigate');
+          // console.log('teacher navigate');
           activeState = 0;
 
           this.props.navigation.navigate('TeacherProfile', {

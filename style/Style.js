@@ -57,6 +57,17 @@ export default styles = StyleSheet.create({
     fontSize: 15,
     marginTop: '2%',
   },
+  Mark: {
+    textAlign: 'center',
+    fontSize: 20,
+    margin: '2%',
+    fontWeight: 'bold',
+  },
+  MarkTitle: {
+    fontFamily: 'Oswald-BoldItalic',
+    margin: '2%',
+    fontSize: 25,
+  },
   cardContainer: {
     elevation: 1,
     // borderRadius: 60,
@@ -85,4 +96,22 @@ export default styles = StyleSheet.create({
     marginLeft: '90%',
     marginTop: '1%',
   },
+  Marksview: {
+    borderWidth: 1,
+    height: '100%',
+    width: '25%',
+    padding: '3%',
+    borderRadius: 10,
+    marginLeft: '7%',
+    borderColor: 'blue',
+    alignItems: 'center',
+  },
+  Markstext: {
+    
+    marginRight: '23%',
+    marginLeft: '22%',
+  },
+  Marksnumber: {
+    color: 'blue',
+  }
 });

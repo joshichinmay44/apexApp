@@ -17,8 +17,8 @@ export default class ViewNotification extends Component {
     const data = this.state.Notifications;
     const renderer = [];
     let i = 0;
+
     Object.keys(data).map((obj, i) => {
-      console.log('hiiiiiiiiii' + data[obj].Subject);
       renderer[i] = (
         <Card style={styles.cardContainer}>
           <Card.Title title={data[obj].Subject} />
