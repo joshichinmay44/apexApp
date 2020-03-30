@@ -34,15 +34,11 @@
     "react-native-safe-area-context": "^0.7.3",
     "react-native-screens": "^2.3.0",
     "react-native-show-more-button": "^1.0.2",
+    "react-native-styled-components": "^2.1.0",
     "react-native-vector-icons": "^6.6.0",
-<<<<<<< HEAD
-    "react-navigation": "^4.1.1",
-    "react-navigation-stack": "^2.1.1",
-    "styled-components": "^5.0.1"
-=======
     "react-navigation": "^4.3.1",
-    "react-navigation-stack": "^2.3.1"
->>>>>>> 3250b63b964bfd5c67fb32e2a4c7ab0796223145
+    "react-navigation-stack": "^2.3.1",
+    "styled-components": "^5.0.1"
   },
   "devDependencies": {
     "@babel/core": "7.8.7",
