@@ -46,7 +46,7 @@ export default class EligibilityHomeScreen extends Component {
                 title="Indian Army"
                 left={() => <Avatar.Icon size={30} icon="bullet" />}
               />
-              <Card.Cover source={require('../images/Indian-Army.jpg')} />
+              <Card.Cover source={require('../images/IndianArmy.jpg')} />
               {/* <Card.Content>
            <Title>Indian Army</Title>
          </Card.Content> */}
@@ -78,7 +78,7 @@ export default class EligibilityHomeScreen extends Component {
               />
               <Card.Cover
                 theme="...image.props"
-                source={require('../images/Indian-Navy.png')}
+                source={require('../images/IndianNavy.png')}
               />
               {/* <Card.Content>
            <Title>Indian Navy</Title>

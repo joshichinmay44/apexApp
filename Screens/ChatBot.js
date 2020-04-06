@@ -222,6 +222,7 @@ export default class Chatbot extends Component {
                 id:'10',
                 options:[
                     {value:'Army', label:'Army', trigger:()=>{this.props.navigation.navigate('EligibilityFormArmy')
+                   console.log('Pressed')
                     return '11'}},
                     {value:'Navy', label:'Navy', trigger:()=>{this.props.navigation.navigate('EligibilityFormNavy')
                 return '11'}},
@@ -229,7 +230,7 @@ export default class Chatbot extends Component {
                 return '11'}},
                     {value:'other',label:'Anything else?', trigger:'11'}
                 ],
-                end:true
+                
             },
             {
                 id:'11',

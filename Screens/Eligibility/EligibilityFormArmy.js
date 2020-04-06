@@ -57,7 +57,7 @@ export default class EligibilityFormArmy extends Component {
     return (
       <View style={styles.Container}>
         <ImageBackground
-          source={require('../../images/Indian-Army.jpg')}
+          source={require('../../images/IndianArmy.jpg')}
           style={{width: '100%', height: '100%'}}>
           <ScrollView>
             <Appbar.Header style={styles.Header}>

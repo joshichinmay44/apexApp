@@ -53,7 +53,7 @@ export default class EligibilityFormNavy extends Component {
    return (
       <View style={styles.Container}>
         <ImageBackground
-          source={require('../../images/Indian-Navy.png')}
+          source={require('../../images/IndianNavy.png')}
           style={{width: '100%', height: '100%'}}
           imageStyle={{opacity: 0.7}}>
           <ScrollView>
