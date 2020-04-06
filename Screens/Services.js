@@ -50,7 +50,7 @@ export default class Services extends Component {
               <View style={{marginTop:50}}></View>
          <Card style={styles.cardContainer}>
 
-          <Card.Cover source={require('../images/IndianArmy.jpg')} />
+          <Card.Cover source={require('../images/IndianArmyLogo.jpg')} />
 
          </Card>
          
@@ -61,7 +61,7 @@ export default class Services extends Component {
               <View style={{marginTop:50}}></View>
          <Card style={styles.cardContainer}>
 
-          <Card.Cover source={require('../images/IndianNavy.png')} />
+          <Card.Cover source={require('../images/IndianNavyLogo.png')} />
 
          </Card>
          

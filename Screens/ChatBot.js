@@ -29,7 +29,18 @@ export default class Chatbot extends Component {
        age:0
     }
 
-   
+   interpret=(input)=>{
+     const str=input.split(' ')
+     for(var i=0;i<str.length;i++)
+     {
+       if(str[i]=='Army' || str[i]=='army')
+       {
+         return 'Press to know more about the Indian Army'
+       }
+     }
+
+
+   }
 
     render() {
         const steps=[
@@ -49,6 +60,7 @@ export default class Chatbot extends Component {
                 inputAttributes: {
                     keyboardType: 'numeric'
                   },
+              
                 trigger:'4'
             },
             {
@@ -58,14 +70,22 @@ export default class Chatbot extends Component {
                         this.setState({
                             age:previousValue
                         })
-                     if(previousValue>=27)
+                     if(!isNaN(previousValue)) {
+
+                     if( previousValue>=27)
                      return 'Oh gosh! You fall outside the stipulated age limit.\n'+'But do not lose heart. There are many other ways of serving and contributing buddy!!!\n Jay Hind'                   
                     else
                     return `That's great!!! How can we help you?`
-                    },
+                    }
+
+                    else
+                    return 'First rule of the armed forces: Be honest, sincere and respectful (even with s robot)!\n Please enter a valid age!'
+                  },
             trigger:({steps, value})=>{
                 if(this.state.age>=27)
                 return '5'
+                else if(isNaN(this.state.age))
+                return '3'
                 else
                 return '6'
             }
@@ -79,7 +99,19 @@ export default class Chatbot extends Component {
 
                     </View>
                 ),
-                end:true
+                trigger:'Next Chance'
+            },
+            {
+                id:'Next Chance',
+                message:'Do you want to re-enter your age?',
+                trigger:'Next Chance Options'
+            },
+            {
+              id:'Next Chance Options',
+              options:[
+                {value:'yes',label:'yes',trigger:'2'},
+                {value:'no',label:'no',end:true}
+              ]
             },
             {
                 id:'6',
@@ -202,7 +234,23 @@ export default class Chatbot extends Component {
             {
                 id:'11',
                 user:true,
-                end:true
+                trigger:'User Input'
+            },
+            {
+              id:'User Input',
+              message:({previousValue})=>{
+                
+                return(this.interpret(previousValue))
+                
+
+              },
+
+              trigger:'12'
+            },
+            {
+              id:'12',
+              message:' ',
+              end:true              
             }
 
 
