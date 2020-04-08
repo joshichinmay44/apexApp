@@ -18,7 +18,7 @@ export default class Contacts extends Component {
   render() {
     return (
       <View style={styles.Container}>
-        <ScrollView>
+       
           <Appbar.Header>
             <Appbar.Action
               icon="menu"
@@ -30,10 +30,12 @@ export default class Contacts extends Component {
               // subtitle="view"
             />
           </Appbar.Header>
+          <ScrollView>
           <View style={styles.Body}>
             <Card style={styles.cardContainer}>
-              <Card.Title title="Contact Information" />
-              <Card.Title subtitle="detailed info here" />
+            <TouchableOpacity>
+              <Card.Cover source={require('../images/map.jpg')}/>
+            </TouchableOpacity>
             </Card>
           </View>
         </ScrollView>

@@ -1,4 +1,3 @@
-
 import React, {Component} from 'react';
 import {
   StyleSheet,
@@ -22,33 +21,35 @@ import {
   Menu,
   Divider,
   Provider,
-  Checkbox
+  Checkbox,
 } from 'react-native-paper';
 import styles from '../../style/Style';
 
-  
 export default class EligibilityFormAirForce extends Component {
-
-    static navigationOptions = {
-        headerShown: false
-    } 
-    state = {
-        age: '0',
-        month: '-1',
-        qualification:'-1',
-        ncc:false,
-        service:''
-      };
-    back = () => {this.props.navigation.navigate('Home')}
-    checkEligibility=() =>{this.props.navigation.navigate('EligibilityResultArmy',{
-         age: this.state.age,
-        month: this.state.month,
-        qualification:this.state.qualification,
-        ncc:this.state.ncc,
-        service:'air force'
-    })}
-    render() {
-        const {ncc}=this.state
+  static navigationOptions = {
+    headerShown: false,
+  };
+  state = {
+    age: '0',
+    month: '-1',
+    qualification: '-1',
+    ncc: false,
+    service: '',
+  };
+  back = () => {
+    this.props.navigation.navigate('Home');
+  };
+  checkEligibility = () => {
+    this.props.navigation.navigate('EligibilityResultArmy', {
+      age: this.state.age,
+      month: this.state.month,
+      qualification: this.state.qualification,
+      ncc: this.state.ncc,
+      service: 'air force',
+    });
+  };
+  render() {
+    const {ncc} = this.state;
 
     return (
       <View style={styles.Container}>
@@ -56,12 +57,12 @@ export default class EligibilityFormAirForce extends Component {
           source={require('../../images/IndianAirForce.jpg')}
           style={{width: '100%', height: '100%'}}
           imageStyle={{opacity: 0.7}}>
-          <ScrollView>
+         
             <Appbar.Header style={styles.Header}>
               <Appbar.BackAction onPress={this.back} />
               <Appbar.Content title="Check Eligibility for AirForce" />
             </Appbar.Header>
-
+            <ScrollView>
             <View>
               <View style={styles.Picker}>
                 <TextInput
@@ -97,51 +98,53 @@ export default class EligibilityFormAirForce extends Component {
                 </Picker>
               </View>
               <View style={styles.Picker}>
-                <Picker selectedValue={this.state.qualification}
-                    onValueChange={(itemValue, itemIndex) =>this.setState({qualification: itemValue}) }>
-                    <Picker.Item label="Enter your qualification" value="-1" />
-                    <Picker.Item label="12 th Pass" value="1" />
-                    <Picker.Item label="Graduation (BE)" value="4" />
-                    <Picker.Item label="Graduation (Other)" value="2" />
-                    <Picker.Item label="Graduation (Plain Sciences)" value="3" />
+                <Picker
+                  selectedValue={this.state.qualification}
+                  onValueChange={(itemValue, itemIndex) =>
+                    this.setState({qualification: itemValue})
+                  }>
+                  <Picker.Item label="Enter your qualification" value="-1" />
+                  <Picker.Item label="12 th Pass" value="1" />
+                  <Picker.Item label="Graduation (BE)" value="4" />
+                  <Picker.Item label="Graduation (Other)" value="2" />
+                  <Picker.Item label="Graduation (Plain Sciences)" value="3" />
                 </Picker>
-                </View>
-                <View style={styles.Picker}>
-                <Text>Do you have NCC 'C' Certificate (Air Wing)?</Text> 
-                <Checkbox 
-        status={ncc ? 'checked' : 'unchecked'}
-        onPress={() => { this.setState({ ncc: !ncc }); }}
-      />
-                 </View>   
+              </View>
+              <View style={styles.Checkbox}>
+                <Checkbox
+                  status={ncc ? 'checked' : 'unchecked'}
+                  onPress={() => {
+                    this.setState({ncc: !ncc});
+                  }}
+                />
+                <Text style={{marginTop: '2%'}}>
+                  Do you have NCC 'C' Certificate?
+                </Text>
+              </View>
 
-               
-                
-                 <View style={styles.button} >
-                 
-                        <Button  mode="contained" onPress={()=>{
-                            if((isNaN(this.state.age))||(this.state.age<1)||(this.state.age>100))
-                            {
-                                alert("Please enter a valid age")
-                            }
-                            else if(this.state.month==-1)
-                            {
-                                alert("Please enter your month of birth")
-                            }
-                            else if(this.state.qualification==-1)
-                            {
-                                alert("Please enter your qualification")
-                            }
-                            else
-                            {
-                                    this.checkEligibility()
-                            }
-                        }}>Submit</Button>
-                    
-                </View >
-             
-                    </View>
-        </ScrollView>
-
+              <View style={styles.buttonForm}>
+                <Button
+                  mode="contained"
+                  onPress={() => {
+                    if (
+                      isNaN(this.state.age) ||
+                      this.state.age < 1 ||
+                      this.state.age > 100
+                    ) {
+                      alert('Please enter a valid age');
+                    } else if (this.state.month == -1) {
+                      alert('Please enter your month of birth');
+                    } else if (this.state.qualification == -1) {
+                      alert('Please enter your qualification');
+                    } else {
+                      this.checkEligibility();
+                    }
+                  }}>
+                  Submit
+                </Button>
+              </View>
+            </View>
+          </ScrollView>
         </ImageBackground>
       </View>
     );

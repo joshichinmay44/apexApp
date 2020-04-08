@@ -29,13 +29,13 @@ export default class Nda extends Component {
   render() {
     return (
       <View style={styles.Container}>
-        <ScrollView style={styles.Scroll}>
+      
           <Appbar.Header style={styles.Header}>
             <Appbar.BackAction onPress={this.back} />
             <Appbar.Content title="NDA" />
             <Appbar.Action icon="home" onPress={this.backToHome} />
           </Appbar.Header>
-          
+          <ScrollView style={styles.Scroll}>
             <Card.Cover source={require('../../images/NDA.jpg')} />
           <Card.Title style={styles.Title} title='NDA and NA two year Course'/>
           <Card.Content>
