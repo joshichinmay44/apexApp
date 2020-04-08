@@ -25,7 +25,6 @@ import {
 } from 'react-native-paper';
 import styles from '../../style/Style';
 export default class EligibilityFormNavy extends Component {
-
   static navigationOptions = {
     headerShown: false,
   };
@@ -50,7 +49,7 @@ export default class EligibilityFormNavy extends Component {
   };
   render() {
     const {ncc} = this.state;
-   return (
+    return (
       <View style={styles.Container}>
         <ImageBackground
           source={require('../../images/IndianNavy.png')}
@@ -120,7 +119,7 @@ export default class EligibilityFormNavy extends Component {
                   Do you have NCC 'C' Certificate?
                 </Text>
               </View>
-              <View style={styles.button}>
+              <View style={styles.buttonForm}>
                 <Button
                   mode="contained"
                   onPress={() => {
@@ -143,10 +142,6 @@ export default class EligibilityFormNavy extends Component {
               </View>
             </View>
           </ScrollView>
-
-                
-             
-
         </ImageBackground>
       </View>
     );

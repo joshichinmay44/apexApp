@@ -5,7 +5,6 @@ import {
   ScrollView,
   Image,
   TouchableOpacity,
-  
 } from 'react-native';
 
 import Icon from 'react-native-vector-icons/FontAwesome';
@@ -17,7 +16,7 @@ import {
   Card,
   Avatar,
   Paragraph,
-  IconButton
+  IconButton,
 } from 'react-native-paper';
 import {
   createDrawerNavigator,
@@ -41,7 +40,7 @@ import Navigator from './Stack';
 import DirectorsDesk from './DirectorsDesk';
 import SuccessStories from './SuccessStories';
 import styles from '../style/Style';
-import Chatbot from './Chatbot';
+import Chatbot from './ChatBot';
 
 class Home extends Component {
   static navigationOptions = {
@@ -77,30 +76,35 @@ class Home extends Component {
               </Text>
             </Paragraph>
           </Card.Content>
-<Card.Content>
-          <Paragraph>
-            <Text style={styles.Info}>
-              The approach of the organization has been totally professional.
-              The Academy has five to six officers on the panel who impart
-              Services Selection Board i.e. SSB Interviews training and around
-              25 academic staff as visiting faculty to train for various
-              competitive exams. The Institute has six full time staff to cater
-              to various activities of the organization.
-            </Text>
-          </Paragraph>
-   </Card.Content>
-         
+          <Card.Content>
+            <Paragraph>
+              <Text style={styles.Info}>
+                The approach of the organization has been totally professional.
+                The Academy has five to six officers on the panel who impart
+                Services Selection Board i.e. SSB Interviews training and around
+                25 academic staff as visiting faculty to train for various
+                competitive exams. The Institute has six full time staff to
+                cater to various activities of the organization.
+              </Text>
+            </Paragraph>
+          </Card.Content>
+
           <View style={styles.button}>
             <Button mode="contained" onPress={this.CoursesOffered}>
               Courses Offered
             </Button>
           </View>
 
-          <TouchableOpacity onPress={()=>this.props.navigation.navigate('Chatbot')} style={{alignItems:'flex-end',marginTop:50, marginRight:20, marginBottom:0}}> 
-          <Icon name='comment' size={60} color='#084d7b'/>
-          </TouchableOpacity> 
-       
-
+          <TouchableOpacity
+            onPress={() => this.props.navigation.navigate('Chatbot')}
+            style={{
+              alignItems: 'flex-end',
+              marginTop: 50,
+              marginRight: 20,
+              marginBottom: 0,
+            }}>
+            <Icon name="comment" size={60} color="#084d7b" />
+          </TouchableOpacity>
         </ScrollView>
       </View>
     );
@@ -111,7 +115,7 @@ const Drawer = createDrawerNavigator();
 
 export default function mydrawer() {
   return (
-    <Drawer.Navigator 
+    <Drawer.Navigator
       initialRouteName={LoadingScreen}
       drawerStyle={{
         backgroundColor: '#084d7b',
@@ -135,7 +139,7 @@ export default function mydrawer() {
         name="Check Eligibility"
         component={EligibilityHomeScreen}
       />
-      <Drawer.Screen name="Chatbot" component={Chatbot}/>
+      <Drawer.Screen name="Chatbot" component={Chatbot} />
       <Drawer.Screen name="Login" component={Studentlogin} />
       <Drawer.Screen name="Contact" component={Contact} />
     </Drawer.Navigator>
