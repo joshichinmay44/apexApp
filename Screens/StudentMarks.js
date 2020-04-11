@@ -8,7 +8,7 @@ import {
   TouchableOpacity,
   ImageBackground,
 } from 'react-native';
-import {Appbar, Button, Card} from 'react-native-paper';
+import {Appbar, Button, Card, Avatar} from 'react-native-paper';
 import styles from '../style/Style';
 
 import * as firebase from 'firebase';
@@ -31,6 +31,7 @@ export default class StudentMarks extends Component {
         /*  <Card>
           <Card.Title title={this.state.marks[i]} />
         </Card> */
+
         <Text style={styles.MarkTitle}>{this.state.marks[i]}</Text>
       );
       i++;
@@ -57,12 +58,9 @@ export default class StudentMarks extends Component {
           </Appbar.Header>
 
           <View style={styles.Body}>
-            <ImageBackground
-              source={require('../images/India.jpeg')}
-              style={{width: '100%', height: '100%'}}
-              imageStyle={{opacity: 0.3}}>
+            <View style={{margin: 20, backgroundColor: '#E9E9E9'}}>
               {this.showMarks()}
-            </ImageBackground>
+            </View>
           </View>
         </ScrollView>
       </View>

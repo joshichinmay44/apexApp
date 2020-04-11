@@ -37,8 +37,11 @@ export default class ViewBlogs extends Component {
     let i = 0;
     Object.keys(data).map((obj, i) => {
       renderer[i] = (
-        <Card style={styles.cardContainer}>
+        <Card style={{margin: 20, backgroundColor: '#E9E9E9'}}>
           <ShowMore>
+            <TouchableOpacity>
+              <Avatar.Icon size={30} icon="book-open" />
+            </TouchableOpacity>
             <Card.Title
               style={{marginHorizontal: '20%'}}
               title={data[obj].Title}
