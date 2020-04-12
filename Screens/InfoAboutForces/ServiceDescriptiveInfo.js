@@ -10,7 +10,7 @@ export default class ServiceDescriptiveInfo extends Component {
             return(
                 <Card style={styles.cardContainer}>
                   
-                   <Card.Cover source={{uri:'https://s01.sgp1.digitaloceanspaces.com/inline/836391-yzxfopfsep-1493921131.jpeg'}} />
+                   <Card.Cover source={require('../../images/ArmyHistory.jpeg')} />
                        <Card.Content>
                       <Paragraph>
                         <Text style={styles.Info}>
@@ -38,7 +38,7 @@ export default class ServiceDescriptiveInfo extends Component {
                 <React.Fragment>
                 <Card style={styles.cardContainer}>
                   
-                   <Card.Cover source={{uri:'https://i0.wp.com/images.mapsofindia.com/my-india/2017/07/major-wars-between-india-and-pak.jpg?resize=665%2C348&ssl=1'}} />
+                   <Card.Cover source={require('../../images/ArmyWarsDescription.jpg')} />
                 <Card.Content>
                  <Text style={styles.Info}>
                      <Text style={{fontWeight:'bold'}}>
@@ -84,62 +84,62 @@ export default class ServiceDescriptiveInfo extends Component {
 
                 <React.Fragment>
                     <View style={{marginLeft:30,marginTop:10,flexDirection:'row'}}>
-                        <Card.Cover source={{uri:'https://onepostdaily.files.wordpress.com/2009/11/lieu1.jpg'}} />
+                        <Card.Cover source={require('../../images/Ranks/lt.jpg')} />
                       <View style={{marginLeft:20,alignSelf:'center'}}>  
                       <Text style={styles.Title}>Lieutenant</Text>
                       </View>
                     </View>
                     <View style={{marginLeft:30,marginTop:10,flexDirection:'row'}}>
-                        <Card.Cover source={{uri:'https://onepostdaily.files.wordpress.com/2009/11/cap.jpg'}} />
+                        <Card.Cover source={require('../../images/Ranks/captain.jpg')} />
                       <View style={{marginLeft:20,alignSelf:'center'}}>  
                       <Text style={styles.Title}>Captain</Text>
                       </View>
                     </View>
 
                     <View style={{marginLeft:30,marginTop:10,flexDirection:'row'}}>
-                        <Card.Cover source={{uri:'https://onepostdaily.files.wordpress.com/2009/11/major.jpg'}} />
+                        <Card.Cover source={require('../../images/Ranks/major.jpg')} />
                       <View style={{marginLeft:20,alignSelf:'center'}}>  
                       <Text style={styles.Title}>Major</Text>
                       </View>
                     </View>
 
                     <View style={{marginLeft:30,marginTop:10,flexDirection:'row'}}>
-                        <Card.Cover source={{uri:'https://onepostdaily.files.wordpress.com/2009/11/lieucol.jpg'}} />
+                        <Card.Cover source={require('../../images/Ranks/ltcol.jpg')} />
                       <View style={{marginLeft:20,alignSelf:'center'}}>  
                       <Text style={styles.Title}>Lieutenant Colonel</Text>
                       </View>
                     </View>
 
                     <View style={{marginLeft:30,marginTop:10,flexDirection:'row'}}>
-                        <Card.Cover source={{uri:'https://onepostdaily.files.wordpress.com/2009/11/col1.jpg'}} />
+                        <Card.Cover source={require('../../images/Ranks/col.jpg')} />
                       <View style={{marginLeft:20,alignSelf:'center'}}>  
                       <Text style={styles.Title}>Colonel</Text>
                       </View>
                     </View>
 
                     <View style={{marginLeft:30,marginTop:10,flexDirection:'row'}}>
-                        <Card.Cover source={{uri:'https://onepostdaily.files.wordpress.com/2009/11/brig.jpg'}} />
+                        <Card.Cover source={require('../../images/Ranks/brig.jpg')} />
                       <View style={{marginLeft:20,alignSelf:'center'}}>  
                       <Text style={styles.Title}>Brigadier</Text>
                       </View>
                     </View>
 
                     <View style={{marginLeft:30,marginTop:10,flexDirection:'row'}}>
-                        <Card.Cover source={{uri:'https://onepostdaily.files.wordpress.com/2009/11/majgen1.jpg'}} />
+                        <Card.Cover source={require('../../images/Ranks/majgen.jpg')} />
                       <View style={{marginLeft:20,alignSelf:'center'}}>  
                       <Text style={styles.Title}>Major General</Text>
                       </View>
                     </View>
 
                     <View style={{marginLeft:30,marginTop:10,flexDirection:'row'}}>
-                        <Card.Cover source={{uri:'https://onepostdaily.files.wordpress.com/2009/11/lieugen.jpg'}} />
+                        <Card.Cover source={require('../../images/Ranks/ltgen.jpg')} />
                       <View style={{marginLeft:20,alignSelf:'center'}}>  
                       <Text style={styles.Title}>Lieutenant General</Text>
                       </View>
                     </View>
 
                     <View style={{marginLeft:30,marginTop:10,flexDirection:'row'}}>
-                        <Card.Cover source={{uri:'https://onepostdaily.files.wordpress.com/2009/11/general1.jpg'}} />
+                        <Card.Cover source={require('../../images/Ranks/general.jpg')} />
                       <View style={{marginLeft:20,alignSelf:'center'}}>  
                       <Text style={styles.Title}>General</Text>
                       </View>
@@ -168,7 +168,7 @@ return(
         <React.Fragment>
              <Card style={styles.cardContainer}>
                   
-                  <Card.Cover source={{uri:'https://cdn.dnaindia.com/sites/default/files/styles/full/public/2018/08/19/719706-iaf-13-1.jpg'}} />
+                  <Card.Cover source={require('../../images/airhist.jpg')} />
                       <Card.Content>
                      <Paragraph>
                        <Text style={styles.Info}>
@@ -197,7 +197,7 @@ return(
                <React.Fragment>
             <Card style={styles.cardContainer}>
                   
-            <Card.Cover source={{uri:'https://cdn5.newsnation.in/images/2019/09/07/iaf-1000_6.jpg'}} />
+            <Card.Cover source={require('../../images/afmissions.jpg')} />
             </Card>
 
             <Card style={styles.cardContainer}>
@@ -231,20 +231,20 @@ return(
 
             <React.Fragment>
                 <View style={{marginLeft:30,marginTop:10,flexDirection:'row'}}>
-                    <Card.Cover source={{uri:'https://upload.wikimedia.org/wikipedia/commons/thumb/1/16/British_RAF_OF-1b.svg/320px-British_RAF_OF-1b.svg.png'}} />
+                    <Card.Cover source={require('../../images/Ranks/fo.png')} />
                   <View style={{marginLeft:20,alignSelf:'center'}}>  
                   <Text style={styles.Title}>Flying Officer</Text>
                   </View>
                 </View>
                 <View style={{marginLeft:30,marginTop:10,flexDirection:'row'}}>
-                    <Card.Cover source={{uri:'https://upload.wikimedia.org/wikipedia/commons/thumb/7/7f/British_RAF_OF-2.svg/320px-British_RAF_OF-2.svg.png'}} />
+                    <Card.Cover source={require('../../images/Ranks/flt.png')} />
                   <View style={{marginLeft:20,alignSelf:'center'}}>  
                   <Text style={styles.Title}>Flight Lieutenant</Text>
                   </View>
                 </View>
 
                 <View style={{marginLeft:30,marginTop:10,flexDirection:'row'}}>
-                    <Card.Cover source={{uri:'https://upload.wikimedia.org/wikipedia/commons/thumb/d/d7/British_RAF_OF-3.svg/320px-British_RAF_OF-3.svg.png'}} />
+                    <Card.Cover source={require('../../images/Ranks/sqnldr.png')} />
                   <View style={{marginLeft:20,alignSelf:'center'}}>  
                   <Text style={styles.Title}>Squadron Leader</Text>
                   </View>
@@ -258,7 +258,7 @@ return(
                 </View>
 
                 <View style={{marginLeft:30,marginTop:10,flexDirection:'row'}}>
-                    <Card.Cover source={{uri:'https://upload.wikimedia.org/wikipedia/commons/thumb/6/63/British_RAF_OF-5.svg/320px-British_RAF_OF-5.svg.png'}} />
+                    <Card.Cover source={require('../../images/Ranks/grcpt.png')} />
                   <View style={{marginLeft:20,alignSelf:'center'}}>  
                   <Text style={styles.Title}>Group Captain</Text>
                   </View>
@@ -305,7 +305,7 @@ return(
         <Card.Cover source={require('../../images/NirmalSekho.png')} />
         </Card>
         <Text style={styles.Title}>Wing Commander Abhinandan Vardhaman (AC)</Text>
-<Card.Cover source={{uri:'https://d2c7ipcroan06u.cloudfront.net/wp-content/uploads/2019/03/Abhinandan-1-696x392.jpg'}}/>
+<Card.Cover source={require('../../images/abhinandan.jpg')}/>
         </React.Fragment>
    ) }
 
@@ -313,7 +313,7 @@ return(
        return(
             <React.Fragment>
                 <Card style={styles.cardContainer}>
-                    <Card.Cover source={{uri:'https://upload.wikimedia.org/wikipedia/commons/thumb/b/b5/Calicut_1572.jpg/800px-Calicut_1572.jpg'}}/>
+                    <Card.Cover source={require('../../images/navyhist.jpg')}/>
                     <Text style={styles.Info}>
                     Dominant powers in present-day India have possessed navies for many centuries. Pre-colonial dynasties such as the Cholas used naval power to extend Indian trade and influence overseas, particularly to Southeast Asia. The Marakkar Navy under Zamorins during 15th century and the Maratha Navy of the 17th and 18th centuries fought against British and Portuguese colonisers. The British East India Company organised its own navy, later known as the Bombay Marine. With the establishment of the British Raj during the 19th century the naval force became "His Majesty's Indian Navy", then "Her Majesty's Indian Marine", and finally the "Royal Indian Marine". This navy transported large numbers of Indian troops overseas during World War I, and – as the Royal Indian Navy – took part in combat and protected communications during World War II. When India became independent in 1947 part of the Royal Indian Navy was allotted to the new state of Pakistan; the remaining Indian force took the title of Indian Navy in 1950. The Indian Navy took part in the annexation of Goa in 1961, in wars with Pakistan in 1965 and 1971, and in more recent smaller-scale operations.
                     </Text>
@@ -327,7 +327,7 @@ return(
      return(
       <React.Fragment><Card style={styles.cardContainer}>
       <Text style={styles.Title}>Captain Narendranath MUlla (AC)</Text>      
-  <Card.Cover source={{uri:'https://www.thebetterindia.com/wp-content/uploads/2018/05/A-54.jpg'}} />
+  <Card.Cover source={require('../../images/nm.jpg')} />
   </Card>
  
   </React.Fragment>
@@ -340,41 +340,41 @@ return(
 
         <React.Fragment>
             <View style={{marginLeft:30,marginTop:10,flexDirection:'row'}}>
-                <Card.Cover source={{uri:'https://upload.wikimedia.org/wikipedia/commons/thumb/7/7b/06-Indian_Navy-SLT.svg/320px-06-Indian_Navy-SLT.svg.png'}} />
+                <Card.Cover source={require('../../images/Ranks/sublt.png')} />
               <View style={{marginLeft:20,alignSelf:'center'}}>  
               <Text style={styles.Title}>Sub Lieutenant</Text>
               </View>
             </View>
             <View style={{marginLeft:30,marginTop:10,flexDirection:'row'}}>
-                <Card.Cover source={{uri:'https://upload.wikimedia.org/wikipedia/commons/thumb/5/5d/07-Indian_Navy-LT.svg/320px-07-Indian_Navy-LT.svg.png'}} />
+                <Card.Cover source={require('../../images/Ranks/navlt.png')} />
               <View style={{marginLeft:20,alignSelf:'center'}}>  
               <Text style={styles.Title}>Lieutenant</Text>
               </View>
             </View>
 
             <View style={{marginLeft:30,marginTop:10,flexDirection:'row'}}>
-                <Card.Cover source={{uri:'https://upload.wikimedia.org/wikipedia/commons/thumb/a/ab/08-Indian_Navy-LCDR.svg/320px-08-Indian_Navy-LCDR.svg.png'}} />
+                <Card.Cover source={require('../../images/Ranks/ltcdr.png')} />
               <View style={{marginLeft:20,alignSelf:'center'}}>  
               <Text style={styles.Title}>Lieutenant Commander</Text>
               </View>
             </View>
 
             <View style={{marginLeft:30,marginTop:10,flexDirection:'row'}}>
-                <Card.Cover source={{uri:'https://upload.wikimedia.org/wikipedia/commons/thumb/7/7c/09-Indian_Navy-CDR.svg/320px-09-Indian_Navy-CDR.svg.png'}} />
+                <Card.Cover source={require('../../images/Ranks/cdr.png')} />
               <View style={{marginLeft:20,alignSelf:'center'}}>  
               <Text style={styles.Title}>Commander</Text>
               </View>
             </View>
 
             <View style={{marginLeft:30,marginTop:10,flexDirection:'row'}}>
-                <Card.Cover source={{uri:'https://upload.wikimedia.org/wikipedia/commons/thumb/0/0f/10-Indian_Navy-CAPT.svg/320px-10-Indian_Navy-CAPT.svg.png'}} />
+                <Card.Cover source={require('../../images/Ranks/cpt.png')} />
               <View style={{marginLeft:20,alignSelf:'center'}}>  
               <Text style={styles.Title}>Captain</Text>
               </View>
             </View>
 
             <View style={{marginLeft:30,marginTop:10,flexDirection:'row'}}>
-                <Card.Cover source={{uri:'https://upload.wikimedia.org/wikipedia/commons/thumb/a/a9/11-Indian_Navy-CDRE.svg/320px-11-Indian_Navy-CDRE.svg.png'}} />
+                <Card.Cover source={require('../../images/Ranks/comm.png')} />
               <View style={{marginLeft:20,alignSelf:'center'}}>  
               <Text style={styles.Title}>Commodore</Text>
               </View>
@@ -383,21 +383,21 @@ return(
             
 
             <View style={{marginLeft:30,marginTop:10,flexDirection:'row'}}>
-                <Card.Cover source={{uri:'https://upload.wikimedia.org/wikipedia/commons/thumb/9/98/12-Indian_Navy-RADM.svg/320px-12-Indian_Navy-RADM.svg.png'}} />
+                <Card.Cover source={require('../../images/Ranks/rearadm.png')} />
               <View style={{marginLeft:30,alignSelf:'center'}}>  
               <Text style={styles.Title}>Rear Admiral</Text>
               </View>
             </View>
 
             <View style={{marginLeft:30,marginTop:10,flexDirection:'row'}}>
-                <Card.Cover source={{uri:'https://upload.wikimedia.org/wikipedia/commons/thumb/1/1a/13-Indian_Navy-VADM.svg/320px-13-Indian_Navy-VADM.svg.png'}} />
+                <Card.Cover source={require('../../images/Ranks/viceadm.png')} />
               <View style={{marginLeft:30,alignSelf:'center'}}>  
               <Text style={styles.Title}>Vice Admiral</Text>
               </View>
             </View>
 
             <View style={{marginLeft:30,marginTop:10,flexDirection:'row'}}>
-                <Card.Cover source={{uri:'https://upload.wikimedia.org/wikipedia/commons/thumb/3/34/14-Indian_Navy-ADM.svg/320px-14-Indian_Navy-ADM.svg.png'}} />
+                <Card.Cover source={require('../../images/Ranks/adm.png')} />
               <View style={{marginLeft:30,alignSelf:'center'}}>  
               <Text style={styles.Title}>Admiral</Text>
               </View>
@@ -415,7 +415,7 @@ return(
     <React.Fragment>
     <Card style={styles.cardContainer}>
           
-    <Card.Cover source={{uri:'https://www.livefistdefence.com/wp-content/uploads/2019/11/D6lYFLuUYAAhavP.jpg'}} />
+    <Card.Cover source={require('../../images/navalmission.jpg')} />
     </Card>
 
     <Card style={styles.cardContainer}>

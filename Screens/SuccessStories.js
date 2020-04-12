@@ -25,7 +25,10 @@ export default class SuccessStories extends React.Component {
       <View style={styles.Container}>
         <ScrollView>
           <Appbar.Header>
-            <Appbar.BackAction onPress={this.back} />
+          <Appbar.Action
+              icon="menu"
+              onPress={() => this.props.navigation.openDrawer()}
+            />
             <Appbar.Content title="Success Stories" />
           </Appbar.Header>
         </ScrollView>

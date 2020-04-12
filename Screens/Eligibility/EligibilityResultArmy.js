@@ -843,6 +843,13 @@ export default class EligibilityResultArmy extends Component {
         );
       }
     }
+    else {
+      return (
+        <View>
+          <Card.Title title="Sorry you have no attempts left!" />
+        </View>
+      );
+    }
   };
 
   checkEligibilityArmy = (age, month, qualification, ncc) => {

@@ -22,8 +22,8 @@ export default class EntriesScreen extends Component {
     headerShown: false,
   };
 
-infoNDA=()=>{
-  this.props.navigation.navigate('NDA')
+/* infoNDA=()=>{
+  this.props.navigation.navigate('')
 }
 infoSSC=()=>{
   this.props.navigation.navigate('SSC')
@@ -47,10 +47,11 @@ infoAFCAT=()=>{
   this.props.navigation.navigate('AFCAT')
 }
 
-
+ */
   
   render() {
     return (
+
       <View style={styles.Container}>
        
           <Appbar.Header>
@@ -61,58 +62,78 @@ infoAFCAT=()=>{
             <Appbar.Content title="Entries" />
           </Appbar.Header>
           <ScrollView style={styles.Scroll}>
-            <TouchableOpacity>
+            <TouchableOpacity onPress={()=>this.props.navigation.navigate('InfoEntries',{
+              entry:'National Defence Academy'
+            })}>
           <Card style={styles.cardContainer}>
             <Card.Cover source={require('../images/NDA.jpg')} />
           </Card>
           </TouchableOpacity>
-          <TouchableOpacity>
+          <TouchableOpacity onPress={()=>this.props.navigation.navigate('InfoEntries',{
+              entry:'10+2 TES (Army)'
+            })}>
           <Card style={styles.cardContainer}>
             <Card.Cover source={require('../images/TES.jpg')} />
           </Card>
           </TouchableOpacity>
-          <TouchableOpacity>
+          <TouchableOpacity onPress={()=>this.props.navigation.navigate('InfoEntries',{
+              entry:'10+2 TES (Navy)'
+            })}>
           <Card style={styles.cardContainer}>
             <Card.Cover source={require('../images/TESNAVY.jpg')} />
           </Card>
           </TouchableOpacity>
           
-          <TouchableOpacity>
+          <TouchableOpacity onPress={()=>this.props.navigation.navigate('InfoEntries',{
+              entry:'Combined Defence Services'
+            })} >
           <Card style={styles.cardContainer}>
             <Card.Cover source={require('../images/cds.jpg')} />
           </Card>
           </TouchableOpacity>
-          <TouchableOpacity>
+          <TouchableOpacity onPress={()=>this.props.navigation.navigate('InfoEntries',{
+              entry:'AFCAT'
+            })}>
           <Card style={styles.cardContainer}>
             <Card.Cover source={require('../images/AFCAT.jpg')} />
           </Card>
           </TouchableOpacity>
-          <TouchableOpacity>
+          <TouchableOpacity onPress={()=>this.props.navigation.navigate('InfoEntries',{
+              entry:'INET'
+            })}>
           <Card style={styles.cardContainer}>
             <Card.Cover source={require('../images/INET.jpg')} />
           </Card>
           </TouchableOpacity>
-          <TouchableOpacity>
+          <TouchableOpacity onPress={()=>this.props.navigation.navigate('InfoEntries',{
+              entry:'JAG'
+            })}>
           <Card style={styles.cardContainer}>
-            <Card.Cover source={{uri:'https://www.indiandefenceeducation.com/wp-content/uploads/2020/02/JAG-Entry-Indian-Army.png'}} />
+            <Card.Cover source={require('../images/JAG.png')} />
           </Card>
           </TouchableOpacity>
 
-          <TouchableOpacity>
+          <TouchableOpacity onPress={()=>this.props.navigation.navigate('InfoEntries',{
+              entry:'TGC'
+            })}>
           <Card style={styles.cardContainer}>
-            <Card.Cover source={{uri:'https://www.prepamigo.com/wp-content/uploads/2017/10/About-TGC-Indian-Army-Recruitment-1024x538.jpg'}} />
+            <Card.Cover source={require('../images/TGC.jpg')} />
           </Card>
           </TouchableOpacity>
 
-          <TouchableOpacity>
+          <TouchableOpacity onPress={()=>this.props.navigation.navigate('InfoEntries',{
+              entry:'SSC (Tech)'
+            })}>
           <Card style={styles.cardContainer}>
-            <Card.Cover source={{uri:'https://www.ssbcrack.com/wp-content/uploads/2018/07/SSC-Tech-Eligible-Branch-Vacancies-Cut-Off.jpg'}} />
+            <Card.Cover source={require('../images/SSC.jpg')} />
           </Card>
           </TouchableOpacity>
 
-          <TouchableOpacity>
+          <TouchableOpacity onPress={()=>this.props.navigation.navigate('InfoEntries',{
+              entry:'NCC Special Entry'
+            })}>
           <Card style={styles.cardContainer}>
-            <Card.Cover source={{uri:'https://lh3.googleusercontent.com/proxy/anVD0JIltJkgiLNlv6vEcFlwcwCeQRGFKEpW_ztAc6E1C1qXJOcfPm1SwlaDRn3qGgavq_HxscMyOFDivVC9mLunoLQf4IXg9KFAlUFQJsnydD7e8-098u3_O7K9n8sBWVDTTQ'}} />
+            <Card.Cover source={require('../images/NCC.jpg')} />
           </Card>
           </TouchableOpacity>
          
