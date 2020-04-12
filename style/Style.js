@@ -65,10 +65,16 @@ export default styles = StyleSheet.create({
     marginTop: '2%',
   },
   Mark: {
+    borderWidth: 1,
     textAlign: 'center',
     fontSize: 20,
     margin: '2%',
     fontWeight: 'bold',
+    borderRadius: 10,
+    marginRight: '10%',
+    marginLeft: '10%',
+    borderColor: 'blue',
+    alignItems: 'center',
   },
   MarkTitle: {
     fontFamily: 'Oswald-BoldItalic',

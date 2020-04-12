@@ -39,8 +39,9 @@ import CoursesOffered from './CoursesOffered';
 import Navigator from './Stack';
 import DirectorsDesk from './DirectorsDesk';
 import SuccessStories from './SuccessStories';
+
 import styles from '../style/Style';
-import Chatbot from '../Screens/Chatbot'
+import Chatbot from '../Screens/ChatBot'
 import Faculty from '../Screens/Faculty'
 class Home extends Component {
   static navigationOptions = {
@@ -53,15 +54,14 @@ class Home extends Component {
   render() {
     return (
       <View style={styles.Container}>
-       
-          <Appbar.Header>
-            <Appbar.Action
-              icon="menu"
-              onPress={() => this.props.navigation.openDrawer()}
-            />
-            <Appbar.Content title="Home" />
-          </Appbar.Header>
-          <ScrollView style={styles.Scroll}>
+        <Appbar.Header>
+          <Appbar.Action
+            icon="menu"
+            onPress={() => this.props.navigation.openDrawer()}
+          />
+          <Appbar.Content title="Home" />
+        </Appbar.Header>
+        <ScrollView style={styles.Scroll}>
           <Card.Cover source={require('../images/AboutApex.jpg')} />
 
           <Text style={styles.Title}>About the Institute</Text>
@@ -136,8 +136,7 @@ export default function mydrawer() {
       <Drawer.Screen name="Director's Desk" component={DirectorsDesk} />
       <Drawer.Screen name="Services" component={Services} />
       <Drawer.Screen name="Entries" component={EntriesScreen} />
-     
-     
+
       <Drawer.Screen
         name="Check Eligibility"
         component={EligibilityHomeScreen}
