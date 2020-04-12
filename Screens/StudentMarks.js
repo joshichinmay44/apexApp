@@ -38,9 +38,11 @@ export default class StudentMarks extends Component {
       while (this.state.marks[i] != '  ') {
         renderer[i] = (
           // <Card>
+
           <Text style={styles.Mark}>
             {this.state.marks[i++]} = {this.state.marks[i]}
           </Text>
+          // </View>
           // </Card>
         );
         i++;
