@@ -128,7 +128,7 @@ export default function mydrawer() {
         activeTintColor: '#ffff00',
         inactiveTintColor: '#ffffff',
 
-        height: '100%',
+        height: '150%',
         itemStyle: {marginVertical: '2%'},
       }}
       drawerContent={props => <CustomDrawerContent {...props} />}>
@@ -155,7 +155,7 @@ export default function mydrawer() {
 function CustomDrawerContent(props) {
   return (
     <DrawerContentScrollView {...props}>
-      <View style={{height: '10%', marginBottom: '5%', marginLeft: '5%'}}>
+      <View style={{height: '10%', marginBottom: '6%', marginLeft: '5%'}}>
         <Text
           style={{
             fontSize: 22,

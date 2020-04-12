@@ -346,7 +346,7 @@ return(
               </View>
             </View>
             <View style={{marginLeft:30,marginTop:10,flexDirection:'row'}}>
-                <Card.Cover source={require('../../images/Ranks/lt.png')} />
+                <Card.Cover source={require('../../images/Ranks/navlt.png')} />
               <View style={{marginLeft:20,alignSelf:'center'}}>  
               <Text style={styles.Title}>Lieutenant</Text>
               </View>
