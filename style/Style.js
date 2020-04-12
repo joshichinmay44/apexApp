@@ -46,6 +46,13 @@ export default styles = StyleSheet.create({
     marginLeft: '20%',
     marginRight: '20%',
   },
+  buttonForm: {
+    margin: '2%',
+    // width:'60%',
+    marginLeft: '20%',
+    marginRight: '20%',
+    marginTop: '10%',
+  },
   Title: {
     textAlign: 'center',
     fontFamily: 'Oswald-BoldItalic',
@@ -58,10 +65,16 @@ export default styles = StyleSheet.create({
     marginTop: '2%',
   },
   Mark: {
+    borderWidth: 1,
     textAlign: 'center',
     fontSize: 20,
     margin: '2%',
     fontWeight: 'bold',
+    borderRadius: 10,
+    marginRight: '10%',
+    marginLeft: '10%',
+    borderColor: 'blue',
+    alignItems: 'center',
   },
   MarkTitle: {
     fontFamily: 'Oswald-BoldItalic',
@@ -107,7 +120,6 @@ export default styles = StyleSheet.create({
     alignItems: 'center',
   },
   Markstext: {
-    
     marginRight: '23%',
     marginLeft: '22%',
   },
@@ -130,5 +142,20 @@ export default styles = StyleSheet.create({
     //marginRight: 10,
     margin: '2%',
     flexDirection: 'row',
-  }
+  },
+  detail: {
+    fontFamily: 'georgia',
+    fontSize: 17,
+    marginTop: '2%',
+    marginBottom: '2%',
+    marginLeft: '2%',
+    marginTop: '4%',
+    fontWeight: 'bold',
+  },
+  MoreDetail: {
+    marginLeft: '2%',
+  },
+  Chat: {
+    marginBottom: '8%',
+  },
 });

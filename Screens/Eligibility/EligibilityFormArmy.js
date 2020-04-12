@@ -39,7 +39,6 @@ export default class EligibilityFormArmy extends Component {
     this.props.navigation.navigate('Home');
   };
 
-
   checkEligibility = () => {
     this.props.navigation.navigate('EligibilityResultArmy', {
       age: this.state.age,
@@ -49,8 +48,6 @@ export default class EligibilityFormArmy extends Component {
       service: 'army',
     });
   };
-    
-   
 
   render() {
     const {ncc} = this.state;
@@ -59,11 +56,13 @@ export default class EligibilityFormArmy extends Component {
         <ImageBackground
           source={require('../../images/IndianArmy.jpg')}
           style={{width: '100%', height: '100%'}}>
-          <ScrollView>
+         
             <Appbar.Header style={styles.Header}>
               <Appbar.BackAction onPress={this.back} />
               <Appbar.Content title="Check Eligibility for Army" />
             </Appbar.Header>
+<ScrollView>
+
 
             <View>
               <View style={styles.Picker}>
@@ -125,7 +124,7 @@ export default class EligibilityFormArmy extends Component {
                 </Text>
               </View>
 
-              <View style={styles.button}>
+              <View style={styles.buttonForm}>
                 <Button
                   mode="contained"
                   onPress={() => {

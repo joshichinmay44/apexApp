@@ -1,6 +1,7 @@
 import React, {Component} from 'react';
-import {StyleSheet, View, ScrollView, Image} from 'react-native';
+import {StyleSheet, View, ScrollView, Image, Text} from 'react-native';
 import {Appbar, Card} from 'react-native-paper';
+import ShowMore from 'react-native-show-more-button';
 import styles from '../style/Style';
 export default class ViewNotification extends Component {
   static navigationOptions = {
@@ -20,11 +21,13 @@ export default class ViewNotification extends Component {
 
     Object.keys(data).map((obj, i) => {
       renderer[i] = (
-        <Card style={styles.cardContainer}>
+        <Card style={{margin: 20, backgroundColor: '#E9E9E9'}}>
           <Card.Title title={data[obj].Subject} />
-          <Card.Title subtitle={data[obj].Date} />
-          <Card.Title subtitle={data[obj].Description} />
-          <Card.Title subtitle={data[obj].username} />
+
+          {/*        <Text>{data[obj].Date}</Text> */}
+          <Text>{data[obj].Description}</Text>
+          <Text></Text>
+          <Text>By : {data[obj].Username}</Text>
         </Card>
       );
       i++;

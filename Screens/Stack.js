@@ -40,7 +40,7 @@ import AboutTheForces from './InfoAboutForces/AboutTheForces';
 import TeacherCourseDetails from './TeacherCourseDetails';
 import ServiceDescriptiveInfo from './InfoAboutForces/ServiceDescriptiveInfo';
 import ProgressReport from './ProgressReport';
-//import ChatBot from './Chatbot';
+//import Chatbot from './ChatBot';
 //import TeacherCourseInfo from './TeacherCourseInfo';
 /* import EligibilityResultNavy from './Eligibility/EligibilityResultNavy'; */
 import WriteBlog from './WriteBlog';
@@ -111,7 +111,7 @@ export default function Root() {
           name="ELigibilityHomeScreen"
           component={EligibilityHomeScreen}
         />
-{/* <Stack.Screen name="ChatBot" component={ChatBot}/> */}
+        {/* <Stack.Screen name="ChatBot" component={ChatBot}/> */}
         <Stack.Screen name="Teacherlogin" component={Teacherlogin} />
         <Stack.Screen
           name="Teacherstudentprogress"
