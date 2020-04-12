@@ -5,12 +5,9 @@ import styles from '../../style/Style'
 import {Appbar,Card} from 'react-native-paper'
 
 export default class AboutTheForces extends Component {
-    backToHome=()=>{
-        this.props.navigation.navigate('Home')
-    }
-
+   
     back=()=>{
-        this.props.navigation.navigate('Services')
+        this.props.navigation.navigate('Home')
     }
 
     /* pressHandler=(variable)=>
@@ -33,7 +30,7 @@ export default class AboutTheForces extends Component {
            variable:'History of the Indian Army'
        })}>
       <Text style={styles.Title}>History of the Indian Army</Text>
-       <Card.Cover source={{uri:'https://www.rnz.co.nz/assets/pictures/22029/eight_col_Indian_Sikh_soldiers__Gallipoli__Turkey.jpg'}}/>
+       <Card.Cover source={require('../../images/HistoryOfArmy.jpg')}/>
        </TouchableOpacity>
    </Card>
    <Card style={styles.cardContainer}>
@@ -41,7 +38,7 @@ export default class AboutTheForces extends Component {
            variable:'Post Independence Wars'
        })}>
       <Text style={styles.Title}>Post Independence Wars</Text>
-       <Card.Cover source={{uri:'https://www.orfonline.org/wp-content/uploads/2017/12/vijay-diwas.jpg'}}/>
+       <Card.Cover source={require('../../images/WarsArmy.jpg')}/>
        </TouchableOpacity>
    </Card>
 
@@ -50,7 +47,7 @@ export default class AboutTheForces extends Component {
            variable:'Indian Army Ranks'
        })}>
       <Text style={styles.Title}>Ranks of the Indian Army</Text>
-       <Card.Cover source={{uri:'https://www.businessinsider.in/photo/68420317/indian-army-ranks.jpg?imgsize=2368917'}}/>
+       <Card.Cover source={require('../../images/RanksArmy.jpg')}/>
        </TouchableOpacity>
    </Card>
 
@@ -59,7 +56,7 @@ export default class AboutTheForces extends Component {
            variable:'Our Heroes'
        })}>
       <Text style={styles.Title}>Our Heroes</Text>
-       <Card.Cover source={{uri:'https://www.inditales.com/wp-content/uploads/2017/07/drass-war-memorial-veer-bhumi.jpg'}}/>
+       <Card.Cover source={require('../../images/HeroesArmy.jpg')}/>
        </TouchableOpacity>
    </Card>
 
@@ -75,7 +72,7 @@ export default class AboutTheForces extends Component {
                  variable:'History of the Indian Air Force'
              })}>
             <Text style={styles.Title}>History of the Indian Air Force</Text>
-             <Card.Cover source={{uri:'https://indianairforce.nic.in/sites/default/files/21pair_0.jpg'}}/>
+             <Card.Cover source={require('../../images/HistoryIAF.jpg')}/>
              </TouchableOpacity>
          </Card>
          <Card style={styles.cardContainer}>
@@ -83,7 +80,7 @@ export default class AboutTheForces extends Component {
                  variable:'Daredevil Missions'
              })}>
             <Text style={styles.Title}>Daredevil Missions of the IAF</Text>
-             <Card.Cover source={{uri:'https://www.asylumfilms.com/images/blog/indian_air_force.jpg'}}/>
+             <Card.Cover source={require('../../images/IAFMissions.jpg')}/>
              </TouchableOpacity>
          </Card>
       
@@ -92,7 +89,7 @@ export default class AboutTheForces extends Component {
                  variable:'Air Force Ranks'
              })}>
             <Text style={styles.Title}>Ranks of the Indian Air Force</Text>
-             <Card.Cover source={{uri:'https://encrypted-tbn0.gstatic.com/images?q=tbn%3AANd9GcTYNZAWTpjtEo5gZWOGXk31C8DjBjz2zrcDqGqAHPLrHF6kCWaX'}}/>
+             <Card.Cover source={require('../../images/IAFRanks.jpg')}/>
              </TouchableOpacity>
          </Card>
       
@@ -101,7 +98,7 @@ export default class AboutTheForces extends Component {
                  variable:'Air Warriors'
              })}>
             <Text style={styles.Title}>Our Heroes</Text>
-             <Card.Cover source={{uri:'https://images.newindianexpress.com/uploads/user/imagelibrary/2019/9/2/w900X450/IMG-20190902-WA0003.jpg'}}/>
+             <Card.Cover source={require('../../images/AirWarriors.jpg')}/>
              </TouchableOpacity>
          </Card>
       
@@ -118,7 +115,7 @@ export default class AboutTheForces extends Component {
                  variable:'History of the Indian Navy'
              })}>
             <Text style={styles.Title}>History of the Indian Navy</Text>
-             <Card.Cover source={{uri:'https://upload.wikimedia.org/wikipedia/commons/1/17/Royal_Indian_Navy_officers_on_the_deck_of_HMIS_HINDUSTAN_in_Sydney_%289289631362%29.jpg'}}/>
+             <Card.Cover source={require('../../images/NavyHistory.jpg')}/>
              </TouchableOpacity>
          </Card>
          <Card style={styles.cardContainer}>
@@ -126,7 +123,7 @@ export default class AboutTheForces extends Component {
                  variable:'Naval Missions'
              })}>
             <Text style={styles.Title}>Naval Missions</Text>
-             <Card.Cover source={{uri:'https://s3.scoopwhoop.com/anj/navy23/259369339.jpg'}}/>
+             <Card.Cover source={require('../../images/NavalMissions.jpg')}/>
              </TouchableOpacity>
          </Card>
       
@@ -135,7 +132,7 @@ export default class AboutTheForces extends Component {
                  variable:'Indian Navy Ranks'
              })}>
             <Text style={styles.Title}>Ranks of the Indian Navy</Text>
-             <Card.Cover source={{uri:'https://timesnext.com/wp-content/uploads/2019/12/how-to-join-indian-navy-eligibility-ranks-positions-benefits-life-696x696.jpg'}}/>
+             <Card.Cover source={require('../../images/NavyRanks.jpg')}/>
              </TouchableOpacity>
          </Card>
       
@@ -144,7 +141,7 @@ export default class AboutTheForces extends Component {
                  variable:'Sea Warriors'
              })}>
             <Text style={styles.Title}>Our Heroes</Text>
-             <Card.Cover source={{uri:'https://cdn.dnaindia.com/sites/default/files/styles/full/public/2019/05/14/823489-819968-picture-for-representationindian-navy-twitter-indiannv.jpg'}}/>
+             <Card.Cover source={require('../../images/NavalHeroes.jpg')}/>
              </TouchableOpacity>
          </Card>
       
@@ -161,7 +158,7 @@ export default class AboutTheForces extends Component {
             
             <Appbar.BackAction onPress={this.back} />
             <Appbar.Content title={service} />
-            <Appbar.Action icon="home" onPress={this.backToHome} />
+           
           </Appbar.Header>
           <ScrollView style={styles.Scroll}>
               {this.renderInfo(service)}

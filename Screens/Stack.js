@@ -45,6 +45,8 @@ import ProgressReport from './ProgressReport';
 /* import EligibilityResultNavy from './Eligibility/EligibilityResultNavy'; */
 import WriteBlog from './WriteBlog';
 import TeacherStudentMarks from './TeacherStudentsMarks';
+import InfoEntries from './InfoEntries';
+
 
 const Stack = createStackNavigator();
 export default function Root() {
@@ -102,6 +104,10 @@ export default function Root() {
         <Stack.Screen
           name="EligibilityFormNavy"
           component={EligibilityFormNavy}
+        />
+        <Stack.Screen
+        name='InfoEntries'
+        component={InfoEntries}
         />
         <Stack.Screen
           name="EligibilityResultArmy"

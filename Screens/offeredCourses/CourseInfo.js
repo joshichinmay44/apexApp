@@ -21,7 +21,7 @@ export default class Afcat extends Component {
     headerShown: false,
   };
   back = () => {
-    this.props.navigation.navigate('CoursesOffered');
+    this.props.navigation.navigate('Home');
   };
   backToHome = () => {
     this.props.navigation.navigate('Home');
@@ -539,7 +539,7 @@ let course= this.props.route.params.course
      <Appbar.Header style={styles.Header}>
       <Appbar.BackAction onPress={this.back} />
       <Appbar.Content title={course} />
-      <Appbar.Action icon="home" onPress={this.backToHome} />
+      
     </Appbar.Header>
         <ScrollView style={styles.Scroll}>
 

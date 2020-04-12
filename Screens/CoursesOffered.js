@@ -60,7 +60,10 @@ Ssb=()=>{
       <View style={styles.Container}>
         
           <Appbar.Header style={styles.Header}>
-            <Appbar.BackAction onPress={this.back} />
+          <Appbar.Action
+              icon="menu"
+              onPress={() => this.props.navigation.openDrawer()}
+            />
             <Appbar.Content title="Courses Offered" />
           </Appbar.Header>
 
@@ -121,7 +124,7 @@ Ssb=()=>{
             <Card style={styles.cardContainer}>
               <TouchableOpacity onPress={this.Cds}>
                 <Card.Cover
-                  source={require('../images/IndianNavy.png')}
+                  source={require('../images/INET.jpg')}
                   /*  style={
                     ({width: '100%'},
                     {borderTopRightRadius: 30, borderTopLeftRadius: 30})
