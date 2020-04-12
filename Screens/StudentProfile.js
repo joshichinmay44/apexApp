@@ -6,9 +6,11 @@ import {
   ScrollView,
   Image,
   TouchableOpacity,
+  RefreshControlBase,
 } from 'react-native';
 import {Appbar, Button, Card} from 'react-native-paper';
 import styles from '../style/Style';
+import {Badge, Icon } from 'react-native-elements'
 
 import * as firebase from 'firebase';
 export default class StudentProfile extends Component {
@@ -25,6 +27,10 @@ export default class StudentProfile extends Component {
     courses: [],
     marks: [],
     Notification: [],
+    courseNamesList: [],
+    activeCourse: '',
+    countOfNotification: '',
+    countOfOldNotification: ''
   };
   componentDidMount() {
     const myitems = firebase.database().ref('Courses/');
@@ -34,12 +40,18 @@ export default class StudentProfile extends Component {
           console.log();
         });
 
+        this.setState({courseNamesList: Object.keys(datasnap.val())}, () => {
+          console.log("coursenames: "+this.state.courseNamesList);
+        });
+
         this.setState({courses: datasnap}, () => {
           console.log();
           this.getinfo();
+         
         });
       }
     });
+    
   }
 
   getinfo() {
@@ -61,11 +73,14 @@ export default class StudentProfile extends Component {
     this.setState({courses: this.state.courses.val()});
     Object.keys(ex).map(key => {
       courses.push(key);
+      //console.log("courses: "+ this.state.courses[0])
     });
     const demo = this.state.mycourses;
     count = 0;
     Object.keys(demo).map(key => {
       const item = demo[key];
+      //const courseName = demo[key];
+      //console.log("course1: "+courseName);
       Object.keys(item).map(key => {
         if (key == 'ActiveStatus') {
           status = item[key];
@@ -121,7 +136,14 @@ export default class StudentProfile extends Component {
           myinfoval.push(courseindetail);
           detailsFlag = 0;
           if (status == 'Active') {
-            this.setState({Notification: Notification}, () => {});
+            this.setState({Notification: Notification}, () => {
+              //console.log(this.state.Notification)
+            });
+            this.setState({activeCourse: this.state.courseNamesList[count]}, () => {
+              //console.log("1 "+count)
+              let activeCourse = this.state.activeCourse
+              //console.log("active course: "+activeCourse)
+            })
           }
         }
       });
@@ -135,6 +157,7 @@ export default class StudentProfile extends Component {
     this.setState({marks: marks}, () => {});
   }
   viewNotification = () => {
+    
     this.props.navigation.navigate('ViewNotification', {
       Notification: this.state.Notification,
     });
@@ -171,8 +194,21 @@ export default class StudentProfile extends Component {
         this.props.navigation.navigate('Login');
       });
   };
+  countNotification = (flag) => {
+    let not = this.state.Notification; 
+    let count = 0
+    for (var i in not) {
+      count++;
+   }
+  
+    return count
+   
+  }
+
   render() {
+
     return (
+      
       <View style={styles.Container}>
         <ScrollView style={styles.Scroll}>
           <Appbar.Header>
@@ -196,18 +232,30 @@ export default class StudentProfile extends Component {
               </Card.Content>
             </Card>
 
-            <View style={styles.button}>
+            <View style={styles.notificationContainer}>
+                  <View style={styles.row}>
+                  <Icon type="ionicon" name="ios-notifications" size={25} color='blue' />
+                  <Badge
+                  value={this.countNotification()}
+                status="error"
+                containerStyle={styles.badgeStyle}
+              />
+              </View>
+
               <Button
                 //mode="contained"
-                icon="bell-outline"
+                //icon="bell-outline"
+                
                 onPress={this.viewNotification}>
                 View Notification
               </Button>
             </View>
+
             <View style={styles.button}>
               <Button
                 // mode="contained"
                 icon="information"
+                
                 onPress={this.viewCourseInfo}>
                 View Course Information
               </Button>

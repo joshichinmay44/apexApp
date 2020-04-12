@@ -40,6 +40,8 @@ export default class Writenotification extends Component {
          
         });
 
+        
+
         this.setState({notificationKeys: Object.keys(datasnap.val())}, function() {
           
           console.log("Keys: "+this.state.notificationKeys);

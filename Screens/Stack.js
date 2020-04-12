@@ -40,7 +40,7 @@ import AboutTheForces from './InfoAboutForces/AboutTheForces';
 import TeacherCourseDetails from './TeacherCourseDetails';
 import ServiceDescriptiveInfo from './InfoAboutForces/ServiceDescriptiveInfo';
 import ProgressReport from './ProgressReport';
-import ChatBot from './Chatbot';
+//import ChatBot from './Chatbot';
 //import TeacherCourseInfo from './TeacherCourseInfo';
 /* import EligibilityResultNavy from './Eligibility/EligibilityResultNavy'; */
 import WriteBlog from './WriteBlog';

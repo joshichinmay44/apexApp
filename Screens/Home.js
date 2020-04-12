@@ -41,7 +41,7 @@ import Navigator from './Stack';
 import DirectorsDesk from './DirectorsDesk';
 import SuccessStories from './SuccessStories';
 import styles from '../style/Style';
-import Chatbot from './Chatbot';
+import Chatbot from './ChatBot';
 
 class Home extends Component {
   static navigationOptions = {
