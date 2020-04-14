@@ -32,21 +32,29 @@ export default class Writenotification extends Component {
     }
     componentDidMount() {
       let course= this.state.course
-      this.state.data = firebase.database().ref("Courses/"+course+"/Notifications/")
+      this.state.data = firebase.database().ref("Courses/"+course+"/Notifications")
       this.state.data.on('value', datasnap => {
-        this.setState({notificationList: Object.values(datasnap.val())}, function() {
+        if(datasnap.val())
+          {
+          this.setState({notificationList: Object.values(datasnap.val())}, function() {
+            
+            console.log("notifications: "+this.state.notificationList);
           
-          console.log("notifications: "+this.state.notificationList);
-         
-        });
+          });
 
-        
-
-        this.setState({notificationKeys: Object.keys(datasnap.val())}, function() {
           
-          console.log("Keys: "+this.state.notificationKeys);
-         
-        });
+
+          this.setState({notificationKeys: Object.keys(datasnap.val())}, function() {
+            
+            console.log("Keys: "+this.state.notificationKeys);
+          
+          });
+        }
+        else{
+          this.setState({notificationList: ''}, function(){
+            console.log("notifications: "+this.state.notificationList)
+          })
+        }
       })
       } 
     
@@ -85,6 +93,8 @@ export default class Writenotification extends Component {
       let length=this.state.notificationList.length
      
       let renderer=[]
+      if(length > 0)
+      {
       for(let i=0;i<length;i++){
      
        //console.log(i)
@@ -103,7 +113,14 @@ export default class Writenotification extends Component {
         </Card>
            )
          }
-         
+        }
+        else{
+          renderer = (
+            <Card>
+              <Text style={{fontSize:25, margin: '20%'}}>No notifications...</Text>
+            </Card>  
+          )
+        }   
        return(renderer)
     }
 
