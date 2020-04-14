@@ -33,7 +33,9 @@ export default class Writenotification extends Component {
     componentDidMount() {
       let course= this.state.course
       this.state.data = firebase.database().ref("Courses/"+course+"/Notifications")
-      this.state.data.on('value', datasnap => {
+      this.state.data
+      .orderByChild('Date')
+      .on('value', datasnap => {
         if(datasnap.val())
           {
           this.setState({notificationList: Object.values(datasnap.val())}, function() {
@@ -95,10 +97,10 @@ export default class Writenotification extends Component {
       let renderer=[]
       if(length > 0)
       {
-      for(let i=0;i<length;i++){
+      for(let i = length-1,j=0;i >= 0;i--,j++){
      
        //console.log(i)
-       renderer[i]=(
+       renderer[j]=(
          
          
         <Card id={i} style={{margin:20,  backgroundColor: '#E9E9E9'}}>
@@ -117,7 +119,7 @@ export default class Writenotification extends Component {
         else{
           renderer = (
             <Card>
-              <Text style={{fontSize:25, margin: '20%'}}>No notifications...</Text>
+              <Text style={{fontSize:15, margin: '3%'}}>No notifications to show...</Text>
             </Card>  
           )
         }   

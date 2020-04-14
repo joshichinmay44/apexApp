@@ -87,9 +87,9 @@ export default class WriteBlog extends Component {
     let renderer = [];
     if(length > 0)
     {
-      for (let i = 0; i < length; i++) {
+      for(let i = length-1,j=0;i >= 0;i--,j++) {
         
-        renderer[i] = (
+        renderer[j] = (
           <Card id={i} style={{margin: 20, backgroundColor: '#E9E9E9'}}>
             <ShowMore>
               <Card.Title
@@ -113,7 +113,7 @@ export default class WriteBlog extends Component {
     else{
       renderer = (
         <Card>
-          <Text style={{fontSize:25, margin: '10%'}}>No available blogs...Start Writing...</Text>
+          <Text style={{fontSize:15, margin: '3%'}}>No available blogs...Start Writing...</Text>
         </Card>  
       )
     }
