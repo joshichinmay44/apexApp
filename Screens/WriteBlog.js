@@ -92,6 +92,9 @@ export default class WriteBlog extends Component {
                 </TouchableOpacity>
               )}
             />
+            <Text style={{fontSize: 17, margin: '5%'}}>
+              {this.state.blogList[i].Content}
+            </Text>
           </ShowMore>
         </Card>
       );
