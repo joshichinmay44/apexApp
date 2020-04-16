@@ -45,7 +45,9 @@ export default class EligibilityResultArmy extends Component {
             title={this.renderTitle(attemptCdsPC, 'CDS(IMA)')} 
             subtitle="Press for more details"></Card.Title> */}
           <TouchableOpacity
-            onPress={() => this.props.navigation.navigate('CDS')}>
+            onPress={() => this.props.navigation.navigate('InfoEntries',{
+              entry:'Combined Defence Services'
+            })}>
             <View>
               <Text style={styles.detail}>
                 {this.renderTitle(attemptCdsPC, 'CDS(IMA)')}
@@ -82,7 +84,9 @@ export default class EligibilityResultArmy extends Component {
             <Text style={styles.MoreDetail}>Press for more details</Text>
           </View>
           <TouchableOpacity
-            onPress={() => this.props.navigation.navigate('NDA')}>
+            onPress={() => this.props.navigation.navigate('InfoEntries',{
+              entry:'National Defence Academy'
+            })}>
             <Card.Cover source={require('../../images/NDAEligibility.jpg')} />
           </TouchableOpacity>
         </Card>
@@ -114,7 +118,9 @@ export default class EligibilityResultArmy extends Component {
             <Text style={styles.MoreDetail}>Press for more details</Text>
           </View>
           <TouchableOpacity
-            onPress={() => this.props.navigation.navigate('TES')}>
+            onPress={() => this.props.navigation.navigate('InfoEntries',{
+              entry:'10+2 TES (Army)'
+            })}>
             <Card.Cover source={require('../../images/TESEligibility.jpg')} />
           </TouchableOpacity>
         </Card>
@@ -146,7 +152,9 @@ export default class EligibilityResultArmy extends Component {
             <Text style={styles.MoreDetail}>Press for more details</Text>
           </View>
           <TouchableOpacity
-            onPress={() => this.props.navigation.navigate('CDS')}>
+            onPress={() => this.props.navigation.navigate('InfoEntries',{
+              entry:'Combined Defence Services'
+            })}>
             <Card.Cover
               source={require('../../images/CDSOTAEligibility.jpg')}
             />
@@ -180,7 +188,9 @@ export default class EligibilityResultArmy extends Component {
             <Text style={styles.MoreDetail}>Press for more details</Text>
           </View>
           <TouchableOpacity
-            onPress={() => this.props.navigation.navigate('NCC')}>
+            onPress={() => this.props.navigation.navigate('InfoEntries',{
+              entry:'NCC Special Entry'
+            })}>
             <Card.Cover source={require('../../images/NCCEligibility.jpeg')} />
           </TouchableOpacity>
         </Card>
@@ -212,7 +222,9 @@ export default class EligibilityResultArmy extends Component {
             <Text style={styles.MoreDetail}>Press for more details</Text>
           </View>
           <TouchableOpacity
-            onPress={() => this.props.navigation.navigate('TGC')}>
+            onPress={() => this.props.navigation.navigate('InfoEntries',{
+              entry:'TGC'
+            })}>
             <Card.Cover source={require('../../images/TGCEligibility.jpg')} />
           </TouchableOpacity>
         </Card>
@@ -244,7 +256,9 @@ export default class EligibilityResultArmy extends Component {
             <Text style={styles.MoreDetail}>Press for more details</Text>
           </View>
           <TouchableOpacity
-            onPress={() => this.props.navigation.navigate('SSC')}>
+            onPress={() => this.props.navigation.navigate('InfoEntries',{
+              entry:'SSC (Tech)'
+            })}>
             <Card.Cover source={require('../../images/SSCEligibility.jpg')} />
           </TouchableOpacity>
         </Card>
@@ -276,7 +290,9 @@ export default class EligibilityResultArmy extends Component {
             <Text style={styles.MoreDetail}>Press for more details</Text>
           </View>
           <TouchableOpacity
-            onPress={() => this.props.navigation.navigate('JAG')}>
+            onPress={() => this.props.navigation.navigate('InfoEntries',{
+              entry:'JAG'
+            })}>
             <Card.Cover source={require('../../images/JAGEligibility.jpg')} />
           </TouchableOpacity>
         </Card>
@@ -307,7 +323,9 @@ export default class EligibilityResultArmy extends Component {
             <Text style={styles.MoreDetail}>Press for more details</Text>
           </View>
           <TouchableOpacity
-            onPress={() => this.props.navigation.navigate('NDA')}>
+            onPress={() => this.props.navigation.navigate('InfoEntries',{
+              entry:'National Defence Academy'
+            })}>
             <Card.Cover source={require('../../images/NAEligibility.jpg')} />
           </TouchableOpacity>
         </Card>
@@ -339,7 +357,9 @@ export default class EligibilityResultArmy extends Component {
             <Text style={styles.MoreDetail}>Press for more details</Text>
           </View>
           <TouchableOpacity
-            onPress={() => this.props.navigation.navigate('TES')}>
+            onPress={() => this.props.navigation.navigate('InfoEntries',{
+              entry:'10+2 TES (Navy)'
+            })}>
             <Card.Cover
               source={require('../../images/TESNavyEligibility.jpg')}
             />
@@ -372,7 +392,9 @@ export default class EligibilityResultArmy extends Component {
             <Text style={styles.MoreDetail}>Press for more details</Text>
           </View>
           <TouchableOpacity
-            onPress={() => this.props.navigation.navigate('CDS')}>
+            onPress={() => this.props.navigation.navigate('InfoEntries',{
+              entry:'Combined Defence Services'
+            })}>
             <Card.Cover
               source={require('../../images/CDSINAEligibility.jpg')}
             />
@@ -405,7 +427,9 @@ export default class EligibilityResultArmy extends Component {
             <Text style={styles.MoreDetail}>Press for more details</Text>
           </View>
           <TouchableOpacity
-            onPress={() => this.props.navigation.navigate('INET')}>
+            onPress={() => this.props.navigation.navigate('InfoEntries',{
+              entry:'INET'
+            })}>
             <Card.Cover source={require('../../images/INETEligibility.jpg')} />
           </TouchableOpacity>
         </Card>
@@ -436,7 +460,9 @@ export default class EligibilityResultArmy extends Component {
             <Text style={styles.MoreDetail}>Press for more details</Text>
           </View>
           <TouchableOpacity
-            onPress={() => this.props.navigation.navigate('INET')}>
+            onPress={() => this.props.navigation.navigate('InfoEntries',{
+              entry:'TGC'
+            })}>
             <Card.Cover source={require('../../images/UESEligibility.jpg')} />
           </TouchableOpacity>
         </Card>
@@ -467,7 +493,9 @@ export default class EligibilityResultArmy extends Component {
             <Text style={styles.MoreDetail}>Press for more details</Text>
           </View>
           <TouchableOpacity
-            onPress={() => this.props.navigation.navigate('JAG')}>
+            onPress={() => this.props.navigation.navigate('InfoEntries',{
+              entry:'JAG'
+            })}>
             <Card.Cover
               source={require('../../images/JAGNavyEligibility.jpg')}
             />
@@ -500,7 +528,9 @@ export default class EligibilityResultArmy extends Component {
             <Text style={styles.MoreDetail}>Press for more details</Text>
           </View>
           <TouchableOpacity
-            onPress={() => this.props.navigation.navigate('AFCAT')}>
+            onPress={() => this.props.navigation.navigate('InfoEntries',{
+              entry:'AFCAT'
+            })}>
             <Card.Cover source={require('../../images/AFCATEligibility.jpg')} />
           </TouchableOpacity>
         </Card>
@@ -531,7 +561,9 @@ export default class EligibilityResultArmy extends Component {
             <Text style={styles.MoreDetail}>Press for more details</Text>
           </View>
           <TouchableOpacity
-            onPress={() => this.props.navigation.navigate('CDS')}>
+            onPress={() => this.props.navigation.navigate('InfoEntries',{
+              entry:'Combined Defence Services'
+            })}>
             <Card.Cover
               source={require('../../images/CDSAFAEligibility.jpg')}
             />
@@ -564,7 +596,9 @@ export default class EligibilityResultArmy extends Component {
             <Text style={styles.MoreDetail}>Press for more details</Text>
           </View>
           <TouchableOpacity
-            onPress={() => this.props.navigation.navigate('CDS')}>
+            onPress={() => this.props.navigation.navigate('InfoEntries',{
+              entry:'NCC Special Entry'
+            })}>
             <Card.Cover
               source={require('../../images/NCCAirEligibility.jpg')}
             />
@@ -596,7 +630,9 @@ export default class EligibilityResultArmy extends Component {
           <Text style={styles.MoreDetail}>Press for more details</Text>
         </View>
         <TouchableOpacity
-          onPress={() => this.props.navigation.navigate('AFCAT')}>
+          onPress={() => this.props.navigation.navigate('InfoEntries',{
+            entry:'AFCAT'
+          })}>
           <Card.Cover source={require('../../images/METEligibility.jpg')} />
         </TouchableOpacity>
       </Card>;
