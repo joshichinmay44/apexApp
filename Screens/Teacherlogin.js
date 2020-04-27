@@ -21,6 +21,7 @@ import { useFocusEffect } from '@react-navigation/native';
 export default class Teacherlogin extends React.Component {
   static navigationOptions = {
     headerShown: false,
+    headerLeft: null,
   };
   state = {
     username: '',

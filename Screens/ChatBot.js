@@ -264,7 +264,7 @@ export default class Chatbot extends Component {
             {
               id:'12',
               options:[
-                {value:'About', label:'History of Apex Careers', trigger:()=>{this.props.navigation.navigate('Home')
+                {value:'About', label:'History of Apex Careers', trigger:()=>{this.props.navigation.navigate('AboutApex')
               return ('11')}},
                 {value:'Director', label:'About the Director', trigger:()=>{this.props.navigation.navigate(`Director's Desk`)
                 return ('11')}},

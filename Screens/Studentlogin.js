@@ -8,6 +8,7 @@ import {
   TouchableOpacity,
   Image,
   SafeAreaView,
+  ActivityIndicator,
 } from 'react-native';
 import styles from '../style/StyleLogin';
 import * as firebase from 'firebase';
@@ -32,95 +33,81 @@ export default class Studentlogin extends React.Component {
     status: '',
     Students: [],
     Teachers: [],
+    active: 0,
+    indicator: false,
   };
+
   onLoginSuccess = () => {
     this.setState({username: '', password: ''});
+    this.load();
   };
   studentProfile = () => {
-    let activeState = 0;
-    const myitems = firebase.database().ref('Students/');
-    //console.log('MyItems'+myitems)
-    myitems.on('value', datasnap => {
-      if (datasnap.val()) {
-        //console.log('Entered datasnap.val 1');
-        this.setState({Students: Object.values(datasnap.val())}, () => {});
-      }
-    });
-    const myitem = firebase.database().ref('Teachers/');
-    //console.log('MyItems'+myitems)
-    myitem.on('value', datasnap => {
-      if (datasnap.val()) {
-        // console.log('Entered datasnap.val 2');
-        this.setState({Teachers: Object.values(datasnap.val())}, () => {});
-      }
-    });
+    this.setState({indicator: true});
+
+    const username = this.state.username;
+    console.log('in function');
     firebase
       .auth()
       .signInWithEmailAndPassword(this.state.username, this.state.password)
-
       .then(() => {
         console.log('successfully logged in');
-
-        const ex = this.state.Students;
-        const exx = this.state.Teachers;
-        const username = this.state.username;
-        // console.log(ex);
-        // console.log(exx);
-
-        Object.keys(ex).map(function(key) {
-          if (ex[key].match(username)) {
-            activeState = 1;
-
-            console.log('student found');
+        let activeState = 0;
+        const myitems = firebase.database().ref('Students/');
+        myitems.on('value', datasnap => {
+          if (datasnap.val()) {
+            this.setState({Students: Object.values(datasnap.val())}, () => {
+              console.log('fetching stud');
+              const ex = this.state.Students;
+              console.log(ex);
+              Object.keys(ex).map(function(key) {
+                if (ex[key].match(username)) {
+                  activeState = 1;
+                }
+              });
+              if (activeState == 1) {
+                activeState = 0;
+                this.props.navigation.navigate('StudentProfile', {
+                  username: username,
+                });
+              }
+            });
           }
         });
-
-        Object.keys(exx).map(function(key) {
-          if (exx[key].match(username)) {
-            activeState = 2;
-
-            console.log('Teacher found');
+        const myitem = firebase.database().ref('Teachers/');
+        myitem.on('value', datasnap => {
+          if (datasnap.val()) {
+            this.setState({Teachers: Object.values(datasnap.val())}, () => {
+              console.log('fetching teacher');
+              const exx = this.state.Teachers;
+              console.log(exx);
+              Object.keys(exx).map(function(key) {
+                if (exx[key].match(username)) {
+                  activeState = 2;
+                }
+              });
+              if (activeState == 2) {
+                activeState = 0;
+                this.props.navigation.navigate('TeacherProfile', {
+                  username: username,
+                });
+              }
+            });
           }
         });
-        if (activeState == 0) {
-          alert('please check your internet connection');
-        }
-        if (activeState == 1) {
-          // console.log('student navigate');
-          activeState = 0;
-
-          this.props.navigation.navigate('StudentProfile', {
-            username: this.state.username,
-          });
-        }
-
-        if (activeState == 2) {
-          // console.log('teacher navigate');
-          activeState = 0;
-
-          this.props.navigation.navigate('TeacherProfile', {
-            username: this.state.username,
-          });
-        }
-
-        /*  else if (activeState == 0) {
-          console.log('teacher found');
-          this.props.navigation.navigate('TeacherProfile', {
-            username: this.state.username,
-          });
-        } */
+        console.log('wait');
       })
       .then(this.onLoginSuccess)
+
       .catch(function(error) {
         var errorCode = error.code;
         var errorMessage = error.message;
         alert(errorMessage);
-      });
+      })
+      .then(this.onLoginSuccess);
   };
-  handleSubmit() {
-    this.setState({username: ''});
+  load() {
+    this.setState({indicator: false});
   }
-
   render() {
     return (
       <View style={styles.Container}>
@@ -162,10 +149,19 @@ export default class Studentlogin extends React.Component {
                 value={this.state.password}
               />
               <View style={styles.button}>
-                <Button mode="contained" onPress={this.studentProfile}>
-                  {' '}
-                  Login{' '}
-                </Button>
+                {this.state.indicator ? (
+                  <ActivityIndicator
+                    size="large"
+                    color="#084d7b"
+                    style={styles.indicator}
+                  />
+                ) : null}
+                {!this.state.indicator ? (
+                  <Button mode="contained" onPress={this.studentProfile}>
+                    {' '}
+                    Login{' '}
+                  </Button>
+                ) : null}
               </View>
             </View>
           </View>

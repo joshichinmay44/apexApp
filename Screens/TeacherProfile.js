@@ -4,8 +4,11 @@ import {
   Text,
   View,
   ScrollView,
+  BackHandler,
+  Alert,
   Image,
   TouchableOpacity,
+  
 } from 'react-native';
 import {Appbar, Button, Card} from 'react-native-paper';
 import styles from '../style/Style';
@@ -26,7 +29,10 @@ export default class TeacherProfile extends Component {
     teacherInfo: [],
   };
 
+
   componentDidMount() {
+    
+
     const myitems = firebase.database().ref('Courses/');
     myitems.on('value', datasnap => {
       this.setState({mylist: Object.values(datasnap.val())}, function() {
@@ -34,7 +40,35 @@ export default class TeacherProfile extends Component {
         this.getTeacherInfo();
       });
     });
+
+    this.backHandler = BackHandler.addEventListener(
+      "hardwareBackPress",
+      this.backAction
+    )
   }
+
+  componentWillUnmount() {
+    BackHandler.removeEventListener("hardwareBackPress", this.backAction);
+  }
+
+  backAction = () => {
+    
+    Alert.alert(
+      'Confirm exit',
+      'Do you want to exit App?',
+      [
+        {text: 'CANCEL', style: 'cancel'},
+        {text: 'OK', onPress: () => {
+          BackHandler.exitApp()
+         }
+       }
+      ]
+   );
+
+   return true
+    
+  };
+
 
   getTeacherInfo = () => {
     var temp = [];
@@ -74,14 +108,22 @@ export default class TeacherProfile extends Component {
   };
 
   logout = () => {
-    firebase
+    Alert.alert("Hold on!", "Are you sure you want to logout?", [
+      {
+        text: "Cancel",
+        onPress: () => null,
+        style: "cancel"
+      },
+      { text: "YES", onPress: () =>{firebase
 
-      .auth()
-      .signOut()
-      .then(() => {
-        this.props.navigation.navigate('Login');
-        console.log('Logged Out');
-      });
+        .auth()
+        .signOut()
+        .then(() => {
+          this.props.navigation.navigate('Login');
+          console.log('Logged Out');
+        });
+  } }
+    ])
   };
 
   renderName = () => {

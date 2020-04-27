@@ -32,19 +32,31 @@ export default class Writenotification extends Component {
     }
     componentDidMount() {
       let course= this.state.course
-      this.state.data = firebase.database().ref("Courses/"+course+"/Notifications/")
-      this.state.data.on('value', datasnap => {
-        this.setState({notificationList: Object.values(datasnap.val())}, function() {
+      this.state.data = firebase.database().ref("Courses/"+course+"/Notifications")
+      this.state.data
+      .orderByChild('Date')
+      .on('value', datasnap => {
+        if(datasnap.val())
+          {
+          this.setState({notificationList: Object.values(datasnap.val())}, function() {
+            
+            console.log("notifications: "+this.state.notificationList);
           
-          console.log("notifications: "+this.state.notificationList);
-         
-        });
+          });
 
-        this.setState({notificationKeys: Object.keys(datasnap.val())}, function() {
           
-          console.log("Keys: "+this.state.notificationKeys);
-         
-        });
+
+          this.setState({notificationKeys: Object.keys(datasnap.val())}, function() {
+            
+            console.log("Keys: "+this.state.notificationKeys);
+          
+          });
+        }
+        else{
+          this.setState({notificationList: ''}, function(){
+            console.log("notifications: "+this.state.notificationList)
+          })
+        }
       })
       } 
     
@@ -83,10 +95,12 @@ export default class Writenotification extends Component {
       let length=this.state.notificationList.length
      
       let renderer=[]
-      for(let i=0;i<length;i++){
+      if(length > 0)
+      {
+      for(let i = length-1,j=0;i >= 0;i--,j++){
      
        //console.log(i)
-       renderer[i]=(
+       renderer[j]=(
          
          
         <Card id={i} style={{margin:20,  backgroundColor: '#E9E9E9'}}>
@@ -101,7 +115,14 @@ export default class Writenotification extends Component {
         </Card>
            )
          }
-         
+        }
+        else{
+          renderer = (
+            <Card>
+              <Text style={{fontSize:15, margin: '3%'}}>No notifications to show...</Text>
+            </Card>  
+          )
+        }   
        return(renderer)
     }
 

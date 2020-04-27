@@ -19,7 +19,7 @@ import {
 } from 'react-native-paper';
 import * as firebase from 'firebase';
 import ShowMore from 'react-native-show-more-button';
-
+import styles from '../style/Style'
 export default class WriteBlog extends Component {
   state = {
     blogTitle: '',
@@ -31,16 +31,26 @@ export default class WriteBlog extends Component {
     data: '',
   };
   componentDidMount() {
-    this.state.data = firebase.database().ref('Blogs/');
 
+    this.state.data = firebase.database().ref('Blogs');
+    //console.log("data: "+ this.state.data)
     this.state.data.on('value', datasnap => {
-      this.setState({blogList: Object.values(datasnap.val())}, function() {
-        console.log('blogs: ' + this.state.blogList);
-      });
+      if(datasnap.val())
+      {
+        
+        this.setState({blogList: Object.values(datasnap.val())}, function() {
+          console.log('blogs: ' + this.state.blogList);
+        });
 
-      this.setState({blogKeys: Object.keys(datasnap.val())}, function() {
-        console.log('Keys: ' + this.state.blogKeys);
-      });
+        this.setState({blogKeys: Object.keys(datasnap.val())}, function() {
+          console.log('Keys: ' + this.state.blogKeys);
+        });
+      }
+      else{
+        this.setState({blogList: ''}, function(){
+          console.log('bloglist: '+this.state.blogList)
+        })
+      }
     });
   }
 
@@ -73,35 +83,55 @@ export default class WriteBlog extends Component {
 
   renderBlogList = () => {
     let length = this.state.blogList.length;
-
+    //console.log('length: '+length)
     let renderer = [];
-    for (let i = 0; i < length; i++) {
-      //console.log(i)
-      renderer[i] = (
-        <Card id={i} style={{margin: 20, backgroundColor: '#E9E9E9'}}>
-          <ShowMore>
-            <Card.Title
-              title={this.state.blogList[i].Title}
-              right={props => (
-                <TouchableOpacity onPress={() => this.deleteBlog(i)}>
-                  <Avatar.Icon
-                    {...props}
-                    style={{marginRight: '5%'}}
-                    icon="delete"
-                  />
-                </TouchableOpacity>
-              )}
-            />
-            <Text style={{fontSize:17, margin:'5%'}}>{this.state.blogList[i].Content}</Text>
-          </ShowMore>
-        </Card>
-      );
-    }
+    if(length > 0)
+    {
+      for(let i = length-1,j=0;i >= 0;i--,j++) {
+        
+        renderer[j] = (
+          <TouchableOpacity onPress={()=>this.props.navigation.navigate('BlogContent',{
+            blogContent:this.state.blogList[i].Content,
+            blogTitle:this.state.blogList[i].Title,
+            author:this.state.blogList[i].Username,
+            date:this.state.blogList[i].Date
+          })}>
+          <Card id={i} style={{margin: 20, backgroundColor: '#E9E9E9'}}>
+            <ShowMore>
+              <Card.Title
+                title={this.state.blogList[i].Title}
+                right={props => (
+                  <TouchableOpacity onPress={() => this.deleteBlog(i)}>
+                    <Avatar.Icon
+                      {...props}
+                      style={{marginRight: '5%'}}
+                      icon="delete"
+                    />
+                  </TouchableOpacity>
+                )}
+              />
+                            <Text style={styles.Info}>{this.state.blogList[i].Username}</Text>
 
+              <Text style={styles.Info}>{this.state.blogList[i].Date}</Text>
+              <Text style={{fontSize:17, margin:'5%', }}>Touch to read more!</Text>
+            </ShowMore>
+          </Card>
+          </TouchableOpacity>
+        );
+      }
+    }
+    else{
+      renderer = (
+        <Card>
+          <Text style={{fontSize:15, margin: '3%'}}>No available blogs...Start Writing...</Text>
+        </Card>  
+      )
+    }
     return renderer;
   };
 
   deleteBlog = i => {
+
     this.state.data.child(this.state.blogKeys[i]).remove();
   };
 

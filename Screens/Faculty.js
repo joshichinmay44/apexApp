@@ -14,7 +14,7 @@ export default class Faculty extends Component {
             <Appbar.Content title="Permanent Faculty" />
           </Appbar.Header>
 <ScrollView style={styles.Scroll}>
-<Card style={styles.cardContainer}>
+{/* <Card style={styles.cardContainer}>
     <View>
     <Text style={styles.detail}>
         Air Marshal (retd.) Bhushan Gokhale
@@ -27,7 +27,7 @@ export default class Faculty extends Component {
     </Text>
 </Card.Content>
 </Card>
-
+ */}
 <Card style={styles.cardContainer}>
     <View>
     <Text style={styles.detail}>
