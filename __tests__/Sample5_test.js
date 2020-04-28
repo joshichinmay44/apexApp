@@ -3,7 +3,7 @@ import React from 'react';
 
 // Note: test renderer must be required after react-native.
 import renderer from 'react-test-renderer';
-import SuccessStories from '../Screens/SuccessStories';
+import Studentlogin from '../Screens/Studentlogin';
 import {TestScheduler} from 'jest';
 
 /* global.fetch = jest.fn(() => new Promise(resolve => resolve()));
@@ -13,6 +13,9 @@ jest.mock('@react-navigation/drawer', () => {});
 jest.mock('@react-navigation/stack', () => {});
  */
 test('renders correctly', () => {
-  const snap = renderer.create(<SuccessStories />).toJSON();
+  const snap = renderer.create(<Studentlogin />).toJSON();
   expect(snap).toMatchSnapshot();
+  let loginComponent = renderer.create(<Studentlogin />).getInstance();
+  loginComponent.load();
+  loginComponent.onLoginSuccess();
 });

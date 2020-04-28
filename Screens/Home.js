@@ -41,8 +41,8 @@ import DirectorsDesk from './DirectorsDesk';
 import SuccessStories from './SuccessStories';
 
 import styles from '../style/Style';
-import Chatbot from '../Screens/ChatBot'
-import Faculty from '../Screens/Faculty'
+import Chatbot from '../Screens/ChatBot';
+import Faculty from '../Screens/Faculty';
 class Home extends Component {
   static navigationOptions = {
     headerShown: false,
@@ -69,7 +69,24 @@ class Home extends Component {
           <Card.Content>
             <Paragraph>
               <Text style={styles.Info}>
-              APEX CAREERS, a Pune based organization is in the field of training. The Academy trains youth for competitive exams like NDA & NA Exam, CDS Exam conducted by the UPSC. The institute also caters to preparing young boys and girls for the AFCAT. The Institute’s forte has been SSB Interview Preparation Coaching. Apex Careers, Pune has a unique identity of being the best institute in the country in terms of success of its students. The Academy also prepares students for the entrance exam for admission to Services Preparatory Institute (SPI) Aurangabad. Apex Careers has also designed a two years coaching program for National Defence Academy aspirants. The youth after completion of their X Board Exams can undergo a Personality Development Capsule Course and then undergo coaching for XI Science, XII Science Board Exams (PCM Group), NDA & NA written Exam and SSB Interview preparation. The Academy also conducts crash courses for NDA & NA Exam, CDS Exam and AFCAT. The Academy also caters to Group Discussions and Personal Interview i.e. GD – PI classes.
+                APEX CAREERS, a Pune based organization is in the field of
+                training. The Academy trains youth for competitive exams like
+                NDA & NA Exam, CDS Exam conducted by the UPSC. The institute
+                also caters to preparing young boys and girls for the AFCAT. The
+                Institute’s forte has been SSB Interview Preparation Coaching.
+                Apex Careers, Pune has a unique identity of being the best
+                institute in the country in terms of success of its students.
+                The Academy also prepares students for the entrance exam for
+                admission to Services Preparatory Institute (SPI) Aurangabad.
+                Apex Careers has also designed a two years coaching program for
+                National Defence Academy aspirants. The youth after completion
+                of their X Board Exams can undergo a Personality Development
+                Capsule Course and then undergo coaching for XI Science, XII
+                Science Board Exams (PCM Group), NDA & NA written Exam and SSB
+                Interview preparation. The Academy also conducts crash courses
+                for NDA & NA Exam, CDS Exam and AFCAT. The Academy also caters
+                to Group Discussions and Personal Interview i.e. GD – PI
+                classes.
               </Text>
             </Paragraph>
           </Card.Content>
@@ -88,14 +105,21 @@ class Home extends Component {
           <Card.Content>
             <Paragraph>
               <Text style={styles.Info}>
-              Raised on 03 January 2006 by Lt Col (Retd) Pradeep Brahmankar, Apex Careers formally got registered and commenced the training activities on 05 May 2005. The training activities are presently carried out at Mahatma Phule Museum Campus on Ghole Road, Shivajinagar in Pune.
-
-Apex Careers has trained five batches of SPI Aurangabad for the SSB Interviews. The organization also had privilege of training one batch of Sainik School – Satara. The institute has also trained two batches of PCTC – Nashik for SSB Interviews. In a span of nine years, the institute has to its credit over 300 students cracking the SSB Interviews. Today, throughout the country, if one has to crack SSB Interview, the first name that comes to the mind of a youth is ‘APEX CAREERS’.
+                Raised on 03 January 2006 by Lt Col (Retd) Pradeep Brahmankar,
+                Apex Careers formally got registered and commenced the training
+                activities on 05 May 2005. The training activities are presently
+                carried out at Mahatma Phule Museum Campus on Ghole Road,
+                Shivajinagar in Pune. Apex Careers has trained five batches of
+                SPI Aurangabad for the SSB Interviews. The organization also had
+                privilege of training one batch of Sainik School – Satara. The
+                institute has also trained two batches of PCTC – Nashik for SSB
+                Interviews. In a span of nine years, the institute has to its
+                credit over 300 students cracking the SSB Interviews. Today,
+                throughout the country, if one has to crack SSB Interview, the
+                first name that comes to the mind of a youth is ‘APEX CAREERS’.
               </Text>
             </Paragraph>
           </Card.Content>
-
-         
 
           <TouchableOpacity
             onPress={() => this.props.navigation.navigate('Chat with us!')}
@@ -141,11 +165,11 @@ export default function mydrawer() {
         name="Check Eligibility"
         component={EligibilityHomeScreen}
       />
-      <Drawer.Screen name='Courses Offered' component={CoursesOffered}/>
+      <Drawer.Screen name="Courses Offered" component={CoursesOffered} />
       <Drawer.Screen name="Our Faculty" component={Faculty} />
       <Drawer.Screen name="Success Stories" component={SuccessStories} />
       <Drawer.Screen name="Login" component={Studentlogin} />
-      
+
       <Drawer.Screen name="Chat with us!" component={Chatbot} />
       <Drawer.Screen name="Contact Information" component={Contact} />
     </Drawer.Navigator>

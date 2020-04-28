@@ -126,6 +126,23 @@ export default styles = StyleSheet.create({
   Marksnumber: {
     color: 'blue',
   },
+  row: {
+    flexDirection: 'row'
+  },
+  badgeStyle: { 
+    position: 'absolute',
+    top: -4,
+    right: -4 
+  },
+  notificationContainer: {
+    //flex: 1,
+    justifyContent: 'center',
+    alignItems: 'center',
+    //marginLeft: 10,
+    //marginRight: 10,
+    margin: '2%',
+    flexDirection: 'row',
+  },
   detail: {
     fontFamily: 'georgia',
     fontSize: 17,
