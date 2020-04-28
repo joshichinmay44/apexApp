@@ -49,6 +49,7 @@ import InfoEntries from './InfoEntries';
 import BlogContent from './BlogContent';
 import AboutApex from './AboutApex';
 import UpcomingCourses from './UpcomingCourses';
+import SuccesStoriesDescription from './SuccesStoriesDescription';
 
 
 const Stack = createStackNavigator();
@@ -129,6 +130,7 @@ export default function Root() {
         <Stack.Screen name='Upcoming' component={UpcomingCourses}/>
         <Stack.Screen name='BlogContent' component={BlogContent}/>
         <Stack.Screen name='AboutApex' component={AboutApex}/>
+        <Stack.Screen name='Success' component={SuccesStoriesDescription}/>
       </Stack.Navigator>
     </NavigationContainer>
   );
