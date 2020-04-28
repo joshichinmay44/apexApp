@@ -1,5 +1,6 @@
 import React, {Component} from 'react';
 import Carousel from 'react-native-carousel-view';
+import {Badge, Icon } from 'react-native-elements'
 
 import {
   StyleSheet,
@@ -10,10 +11,11 @@ import {
   TouchableOpacity,
   ImageStore,
   AppRegistry,
-  Linking
+  Linking,
+  BackHandler
 } from 'react-native';
 
-import Icon from 'react-native-vector-icons/FontAwesome';
+//import Icon from 'react-native-vector-icons/FontAwesome';
 import {
   Appbar,
   Button,
@@ -56,6 +58,33 @@ class Home extends Component {
   static navigationOptions = {
     headerShown: false,
   };
+
+componentDidMount(){
+  this.backHandler = BackHandler.addEventListener(
+    "hardwareBackPress",
+    this.backAction
+  )
+}
+
+componentWillUnmount() {
+  BackHandler.removeEventListener("hardwareBackPress", this.backAction);
+}
+
+backAction = () => {
+    
+  Alert.alert(
+    'Confirm exit',
+    'Do you want to exit App?',
+    [
+      {text: 'CANCEL', style: 'cancel'},
+      {text: 'OK', onPress: () => {
+        BackHandler.exitApp()
+       }
+     }
+    ]
+ );
+  }
+
   CoursesOffered = () => {
     this.props.navigation.navigate('CoursesOffered');
   };
@@ -173,18 +202,21 @@ Apex Careers has trained five batches of SPI Aurangabad for the SSB Interviews. 
           <Button mode='text' icon='information' onPress={()=>{this.props.navigation.navigate('AboutApex') 
         console.log('Pressed')}}>About us</Button>
         </View>
+        <View style={{marginTop:50}} >
+          <Button mode='text' icon='arrow-right' onPress={()=>{this.props.navigation.navigate('Upcoming') 
+        console.log('Pressed')}}>Upcoming Courses</Button>
+        </View>
+
         <View style={{marginTop:50,}} >
+       
           <Button mode='text' icon='message' onPress={()=>{this.props.navigation.navigate('Chat with us!') 
         console.log('Pressed')}} > Chat with us</Button>
         </View>
+        
+
 
         <View style={{marginTop:50,}} >
-          <Button mode='text' icon='account-check' onPress={()=>{this.props.navigation.navigate('Check Eligibility') 
-        console.log('Pressed')}} > Check Eligibility</Button>
-        </View>
-
-        <View style={{marginTop:50,}} >
-          <Button mode='outlined' icon='google-maps' onPress={()=>Linking.openURL('https://www.google.com/maps/place/Apex+Careers/@18.5236807,73.8425244,17z/data=!3m1!4b1!4m5!3m4!1s0x3bc2c07ed91fbc25:0xd027d943c2525a1d!8m2!3d18.5236756!4d73.8447131')}> Locate Us</Button>
+          <Button mode='text' icon='google-maps' onPress={()=>Linking.openURL('https://www.google.com/maps/place/Apex+Careers/@18.5236807,73.8425244,17z/data=!3m1!4b1!4m5!3m4!1s0x3bc2c07ed91fbc25:0xd027d943c2525a1d!8m2!3d18.5236756!4d73.8447131')}> Locate Us</Button>
         </View>
 
 

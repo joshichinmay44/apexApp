@@ -273,7 +273,13 @@ export default class Chatbot extends Component {
                 return ('11')}},
                 {value:'Success Stories', label:'Success Stories', trigger:()=>{this.props.navigation.navigate(`Success Stories`)
                 return ('11')}},
+
+                {value:'Upcoming Courses', label:'Upcoming Courses', trigger:()=>{this.props.navigation.navigate(`Upcoming`)
+                return ('11')}},
+
                 {value:'Contact', label:'Contact Apex',trigger:'12B'},
+
+
                 {value:'other',label:'Anything else?', trigger:'EnteredYes'}
               ],
             },

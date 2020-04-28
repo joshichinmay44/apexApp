@@ -54,13 +54,21 @@ export default class TeacherProfile extends Component {
   backAction = () => {
     
     Alert.alert(
-      'Confirm exit',
-      'Do you want to exit App?',
+      'Logging off',
+      'Do you want to log off?',
       [
         {text: 'CANCEL', style: 'cancel'},
         {text: 'OK', onPress: () => {
-          BackHandler.exitApp()
-         }
+          firebase
+
+        .auth()
+        .signOut()
+        .then(() => {
+          this.props.navigation.navigate('Login');
+          console.log('Logged Out');
+        });
+  } 
+        
        }
       ]
    );
