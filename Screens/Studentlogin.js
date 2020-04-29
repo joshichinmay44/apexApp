@@ -43,7 +43,7 @@ export default class Studentlogin extends React.Component {
   };
   studentProfile = () => {
     this.setState({indicator: true});
-
+    let userFound=0;
     const username = this.state.username;
     console.log('in function');
     firebase
@@ -62,6 +62,7 @@ export default class Studentlogin extends React.Component {
               Object.keys(ex).map(function(key) {
                 if (ex[key].match(username)) {
                   activeState = 1;
+                  userFound=1;
                 }
               });
               if (activeState == 1) {
@@ -70,6 +71,8 @@ export default class Studentlogin extends React.Component {
                   username: username,
                 });
               }
+             
+              
             });
           }
         });
@@ -83,6 +86,7 @@ export default class Studentlogin extends React.Component {
               Object.keys(exx).map(function(key) {
                 if (exx[key].match(username)) {
                   activeState = 2;
+                  userFound=1;
                 }
               });
               if (activeState == 2) {
@@ -91,9 +95,15 @@ export default class Studentlogin extends React.Component {
                   username: username,
                 });
               }
+
+              
             });
           }
         });
+        if(userFound==0)
+        {
+          alert('User not found!')
+        }
         console.log('wait');
       })
       .then(this.onLoginSuccess)
