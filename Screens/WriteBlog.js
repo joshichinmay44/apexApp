@@ -19,7 +19,7 @@ import {
 } from 'react-native-paper';
 import * as firebase from 'firebase';
 import ShowMore from 'react-native-show-more-button';
-
+import styles from '../style/Style';
 export default class WriteBlog extends Component {
   state = {
     blogTitle: '',
@@ -84,25 +84,40 @@ export default class WriteBlog extends Component {
     if (length > 0) {
       for (let i = length - 1, j = 0; i >= 0; i--, j++) {
         renderer[j] = (
-          <Card id={i} style={{margin: 20, backgroundColor: '#E9E9E9'}}>
-            <ShowMore>
-              <Card.Title
-                title={this.state.blogList[i].Title}
-                right={props => (
-                  <TouchableOpacity onPress={() => this.deleteBlog(i)}>
-                    <Avatar.Icon
-                      {...props}
-                      style={{marginRight: '5%'}}
-                      icon="delete"
-                    />
-                  </TouchableOpacity>
-                )}
-              />
-              <Text style={{fontSize: 17, margin: '5%'}}>
-                {this.state.blogList[i].Content}
-              </Text>
-            </ShowMore>
-          </Card>
+          <TouchableOpacity
+            onPress={() =>
+              this.props.navigation.navigate('BlogContent', {
+                blogContent: this.state.blogList[i].Content,
+                blogTitle: this.state.blogList[i].Title,
+                author: this.state.blogList[i].Username,
+                date: this.state.blogList[i].Date,
+              })
+            }>
+            <Card id={i} style={{margin: 20, backgroundColor: '#E9E9E9'}}>
+              <ShowMore>
+                <Card.Title
+                  title={this.state.blogList[i].Title}
+                  right={props => (
+                    <TouchableOpacity onPress={() => this.deleteBlog(i)}>
+                      <Avatar.Icon
+                        {...props}
+                        style={{marginRight: '5%'}}
+                        icon="delete"
+                      />
+                    </TouchableOpacity>
+                  )}
+                />
+                <Text style={styles.Info}>
+                  {this.state.blogList[i].Username}
+                </Text>
+
+                <Text style={styles.Info}>{this.state.blogList[i].Date}</Text>
+                <Text style={{fontSize: 17, margin: '5%'}}>
+                  Touch to read more!
+                </Text>
+              </ShowMore>
+            </Card>
+          </TouchableOpacity>
         );
       }
     } else {

@@ -46,6 +46,9 @@ import ProgressReport from './ProgressReport';
 import WriteBlog from './WriteBlog';
 import TeacherStudentMarks from './TeacherStudentsMarks';
 import InfoEntries from './InfoEntries';
+import BlogContent from './BlogContent';
+import AboutApex from './AboutApex';
+import UpcomingCourses from './UpcomingCourses';
 
 
 const Stack = createStackNavigator();
@@ -123,6 +126,9 @@ export default function Root() {
           name="Teacherstudentprogress"
           component={Teacherstudentprogress}
         />
+        <Stack.Screen name='Upcoming' component={UpcomingCourses}/>
+        <Stack.Screen name='BlogContent' component={BlogContent}/>
+        <Stack.Screen name='AboutApex' component={AboutApex}/>
       </Stack.Navigator>
     </NavigationContainer>
   );

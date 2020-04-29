@@ -140,13 +140,24 @@ export default class Teacherstudentprogress extends React.Component {
 }   
   
 logout = () => {
-  firebase
-    .auth()
-    .signOut()
-    .then(() => {
-      this.props.navigation.navigate('Login');
-    });
+  Alert.alert("Hold on!", "Are you sure you want to logout?", [
+    {
+      text: "Cancel",
+      onPress: () => null,
+      style: "cancel"
+    },
+    { text: "YES", onPress: () =>{firebase
+
+      .auth()
+      .signOut()
+      .then(() => {
+        this.props.navigation.navigate('Login');
+        console.log('Logged Out');
+      });
+} }
+  ])
 };
+
   render() {
     return (
       <View style={styles.Container}>
