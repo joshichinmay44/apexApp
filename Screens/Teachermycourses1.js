@@ -46,6 +46,7 @@ export default class Teachermycourses1 extends React.Component {
     let studentList = this.state.studentsInfo[i];
     let course = this.state.coursesTeaching[i];
     let username = this.state.username;
+    console.log('***************');
     console.log(studentList);
 
     if (studentList == undefined) {
