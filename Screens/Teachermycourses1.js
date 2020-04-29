@@ -46,12 +46,18 @@ export default class Teachermycourses1 extends React.Component {
     let studentList = this.state.studentsInfo[i];
     let course = this.state.coursesTeaching[i];
     let username = this.state.username;
-    //console.log(studentList)
-    this.props.navigation.navigate('TeacherCourseDetails', {
-      studentList: studentList,
-      course: course,
-      username: username,
-    });
+    console.log('***************');
+    console.log(studentList);
+
+    if (studentList == undefined) {
+      alert('No student is enroll for this course yet');
+    } else {
+      this.props.navigation.navigate('TeacherCourseDetails', {
+        studentList: studentList,
+        course: course,
+        username: username,
+      });
+    }
   };
 
   renderCourseButton = () => {

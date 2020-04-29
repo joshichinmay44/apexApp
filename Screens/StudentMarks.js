@@ -25,27 +25,29 @@ export default class StudentMarks extends Component {
   };
   showMarks() {
     const length = this.state.marks.length;
+    console.log('*******length');
+    console.log(length);
     let renderer = [];
-    for (let i = 0; i < length; i++) {
-      renderer[i] = (
-        /*  <Card>
-          <Card.Title title={this.state.marks[i]} />
-        </Card> */
-
-        <Text style={styles.MarkTitle}>{this.state.marks[i]}</Text>
-      );
-      i++;
-      while (this.state.marks[i] != '  ') {
+    if (length == 0) {
+      alert('No exam conducted  yet');
+    } else {
+      for (let i = 0; i < length; i++) {
         renderer[i] = (
-          // <Card>
-
-          <Text style={styles.Mark}>
-            {this.state.marks[i++]} = {this.state.marks[i]}
-          </Text>
-          // </View>
-          // </Card>
+          <Text style={styles.MarkTitle}>{this.state.marks[i]}</Text>
         );
         i++;
+        while (this.state.marks[i] != '  ') {
+          renderer[i] = (
+            // <Card>
+
+            <Text style={styles.Mark}>
+              {this.state.marks[i++]} = {this.state.marks[i]}
+            </Text>
+            // </View>
+            // </Card>
+          );
+          i++;
+        }
       }
     }
     return renderer;

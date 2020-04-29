@@ -47,12 +47,26 @@ export default class TeacherstudentsMarks extends Component {
     let renderer = [];
 
     for (let i = 0; i < length; i++) {
-      renderer[i] = (
-        <Card
-          id={i}
-          style={{margin: 20, backgroundColor: '#E9E9E9', padding: '2%'}}>
-          <Card.Title title={this.state.mylist[i].Name} />
-          {/*  <View style={{flexDirection:'row', padding: '2%'}}>
+      if (this.state.mylist[i].Marks == undefined) {
+        renderer[i] = (
+          <Card
+            id={i}
+            style={{margin: 20, backgroundColor: '#E9E9E9', padding: '2%'}}>
+            <Card.Title title={this.state.mylist[i].Name} />
+            <View>
+              <Text style={styles.Mark}>English = 0</Text>
+              <Text style={styles.Mark}>GK = 0</Text>
+              <Text style={styles.Mark}>Mathematics = 0</Text>
+            </View>
+          </Card>
+        );
+      } else {
+        renderer[i] = (
+          <Card
+            id={i}
+            style={{margin: 20, backgroundColor: '#E9E9E9', padding: '2%'}}>
+            <Card.Title title={this.state.mylist[i].Name} />
+            {/*  <View style={{flexDirection:'row', padding: '2%'}}>
                     <Text style={{marginLeft: '10%'}} >English</Text>
                     <Text style={styles.Markstext}>GK</Text>
                     <Text >Mathematics</Text>
@@ -63,19 +77,20 @@ export default class TeacherstudentsMarks extends Component {
                     <View style={styles.Marksview}><Text style={styles.Marksnumber}>{this.state.mylist[i].Marks.GK}</Text></View>
                     <View style={styles.Marksview}><Text style={styles.Marksnumber}>{this.state.mylist[i].Marks.Mathematics}</Text></View>
                 </View>   */}
-          <View>
-            <Text style={styles.Mark}>
-              English = {this.state.mylist[i].Marks.English}
-            </Text>
-            <Text style={styles.Mark}>
-              GK = {this.state.mylist[i].Marks.GK}
-            </Text>
-            <Text style={styles.Mark}>
-              Mathematics = {this.state.mylist[i].Marks.Mathematics}
-            </Text>
-          </View>
-        </Card>
-      );
+            <View>
+              <Text style={styles.Mark}>
+                English = {this.state.mylist[i].Marks.English}
+              </Text>
+              <Text style={styles.Mark}>
+                GK = {this.state.mylist[i].Marks.GK}
+              </Text>
+              <Text style={styles.Mark}>
+                Mathematics = {this.state.mylist[i].Marks.Mathematics}
+              </Text>
+            </View>
+          </Card>
+        );
+      }
     }
 
     return renderer;
