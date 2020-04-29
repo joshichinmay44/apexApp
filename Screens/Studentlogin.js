@@ -72,6 +72,11 @@ export default class Studentlogin extends React.Component {
                 });
               }
              
+              console.log('wait');
+              if(userFound==0)
+              {
+                alert('User Not Found!')
+              }
               
             });
           }
@@ -100,15 +105,20 @@ export default class Studentlogin extends React.Component {
             });
           }
         });
-        if(userFound==0)
-        {
-          alert('User not found!')
-        }
-        console.log('wait');
+           console.log('wait')
+           if(userFound==0)
+           {
+             alert('User Not Found!')
+           }    
+        
+
       })
-      .then(this.onLoginSuccess)
+      .then(
+        
+        this.onLoginSuccess)
 
       .catch(function(error) {
+       
         var errorCode = error.code;
         var errorMessage = error.message;
         alert(errorMessage);

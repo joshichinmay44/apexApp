@@ -137,7 +137,169 @@ export default class TeacherCourseDetails extends Component {
             </Card>
           </View>
         );
+        else if (c[i] == 'AFCAT')
+        return (
+          <View style={styles.Body}>
+            <Card style={styles.cardContainer}>
+              <Card.Cover source={require('../images/AFCAT.jpg')} />
+              <Card.Content>
+                <Button
+                  style={styles.button}
+                  onPress={() =>
+                    Linking.openURL(
+                      'https://afcat.cdac.in/AFCAT/assets/images/news/afcatGuidlines/GuidelinesForOnlineApplication.pdf',
+                    )
+                  }>
+                  Check Syllabus
+                </Button>
+
+                <Button
+                  style={styles.button}
+                  onPress={() =>
+                    Linking.openURL(
+                      'https://gradeup.co/afcat-exam-previous-year-cutoff-i-bf9913c0-692b-11e7-b4bf-7b8afc3efb42',
+                    )
+                  }>
+                  Previous cut offs
+                </Button>
+                <Button
+                  style={styles.button}
+                  onPress={() =>
+                    Linking.openURL(
+'https://afcat.cdac.in/AFCAT/downloadpaper.html'                    )
+                  }>
+                  Model Question Papers
+                </Button>
+                <Button style={styles.button} onPress={this.writeNotices}>
+                  Write Notification
+                </Button>
+                <Button style={styles.button} onPress={this.viewStudentMarks}>
+                  Student Marks
+                </Button>
+              </Card.Content>
+            </Card>
+          </View>
+        );
+
+        else if (c[i] == 'INET')
+        return (
+          <View style={styles.Body}>
+            <Card style={styles.cardContainer}>
+              <Card.Cover source={require('../images/INET.jpg')} />
+              <Card.Content>
+                <Button
+                  style={styles.button}
+                  onPress={() =>
+                    Linking.openURL(
+                      'https://www.joinindiannavy.gov.in/files/files/SYLLABUS%20FOR%20INET%20FOR%20OFFICERS.pdf',
+                    )
+                  }>
+                  Check Syllabus
+                </Button>
+
+                <Button
+                  style={styles.button}
+                  onPress={() =>
+                    Linking.openURL(
+                      'https://gradeup.co/inet-result-cut-off-marks-2020-i',
+                    )
+                  }>
+                  Previous cut offs
+                </Button>
+                <Button
+                  style={styles.button}
+                  onPress={() =>
+                    Linking.openURL(
+'https://www.joinindiannavy.gov.in/files/files/SAMPLE%20QP%20FOR%20INET%20PUBLISHING.pdf'                    )
+                  }>
+                  Model Question Papers
+                </Button>
+                <Button style={styles.button} onPress={this.writeNotices}>
+                  Write Notification
+                </Button>
+                <Button style={styles.button} onPress={this.viewStudentMarks}>
+                  Student Marks
+                </Button>
+              </Card.Content>
+            </Card>
+          </View>
+        );
+
+        else if (c[i] == 'SPI')
+        return (
+          <View style={styles.Body}>
+            <Card style={styles.cardContainer}>
+              <Card.Cover source={require('../images/spi.jpg')} />
+              <Card.Content>
+                <Button
+                  style={styles.button}
+                  onPress={() =>
+                    Linking.openURL(
+                      'https://spiaurangabad.com/procedure/',
+                    )
+                  }>
+                  Check Syllabus
+                </Button>
+
+               
+                <Button
+                  style={styles.button}
+                  onPress={() =>
+                    Linking.openURL(
+'http://www.ceptam.in/spi-aurangabad-sample-question-paper-mathematics-2/'                    )
+                  }>
+                  Model Question Papers
+                </Button>
+                <Button style={styles.button} onPress={this.writeNotices}>
+                  Write Notification
+                </Button>
+                <Button style={styles.button} onPress={this.viewStudentMarks}>
+                  Student Marks
+                </Button>
+              </Card.Content>
+            </Card>
+          </View>
+        );
+
+        else if (c[i] == 'SSB')
+        return (
+          <View style={styles.Body}>
+            <Card style={styles.cardContainer}>
+              <Card.Cover source={require('../images/SSB.jpg')} />
+              <Card.Content>
+                <Button
+                  style={styles.button}
+                  onPress={() =>
+                    Linking.openURL(
+                      'https://www.ssbcrack.com/2013/02/thematic-apperception-test-tat-of-ssb.html',
+                    )
+                  }>
+Psychology Test Material                </Button>
+
+               
+                <Button
+                  style={styles.button}
+                  onPress={() =>
+                    Linking.openURL(
+'https://ssbcrackexams.com/military-planning-exercise-ssb-interview/'                    )
+                  }> 
+                  Group Planning Exercise
+                </Button>
+                <Button style={styles.button} onPress={this.writeNotices}>
+                  Write Notification
+                </Button>
+                
+              </Card.Content>
+            </Card>
+          </View>
+        );
+
+        
+
+
     }
+
+    
   };
 
   render() {
