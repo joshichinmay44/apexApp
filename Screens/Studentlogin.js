@@ -52,6 +52,7 @@ export default class Studentlogin extends React.Component {
       .then(() => {
         console.log('successfully logged in');
         let activeState = 0;
+        let userState = 0;
         const myitems = firebase.database().ref('Students/');
         myitems.on('value', datasnap => {
           if (datasnap.val()) {
@@ -62,6 +63,7 @@ export default class Studentlogin extends React.Component {
               Object.keys(ex).map(function(key) {
                 if (ex[key].match(username)) {
                   activeState = 1;
+                  userState = 1;
                 }
               });
               if (activeState == 1) {
@@ -83,6 +85,7 @@ export default class Studentlogin extends React.Component {
               Object.keys(exx).map(function(key) {
                 if (exx[key].match(username)) {
                   activeState = 2;
+                  userState = 1;
                 }
               });
               if (activeState == 2) {
@@ -94,6 +97,11 @@ export default class Studentlogin extends React.Component {
             });
           }
         });
+        if (userState == 0) {
+          alert('user not found');
+        } else {
+          userState = 0;
+        }
         console.log('wait');
       })
       .then(this.onLoginSuccess)
