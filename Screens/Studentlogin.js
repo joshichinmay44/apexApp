@@ -60,6 +60,7 @@ export default class Studentlogin extends React.Component {
               console.log('fetching stud');
               const ex = this.state.Students;
               console.log(ex);
+              userState = 2;
               Object.keys(ex).map(function(key) {
                 if (ex[key].match(username)) {
                   activeState = 1;
@@ -82,6 +83,7 @@ export default class Studentlogin extends React.Component {
               console.log('fetching teacher');
               const exx = this.state.Teachers;
               console.log(exx);
+              userState = 2;
               Object.keys(exx).map(function(key) {
                 if (exx[key].match(username)) {
                   activeState = 2;
@@ -97,8 +99,9 @@ export default class Studentlogin extends React.Component {
             });
           }
         });
-        if (userState == 0) {
+        if (userState == 2) {
           alert('user not found');
+          userState = 0;
         } else {
           userState = 0;
         }
