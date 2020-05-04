@@ -44,7 +44,7 @@ export default class Studentlogin extends React.Component {
 
     let ex
   //  console.log(username)
-  /*   const myitems=firebase.database().ref('Students/')
+   const myitems=firebase.database().ref('Students/')
     myitems.on('value', datasnap => {
       if (datasnap.val()) {
         this.setState({Students: Object.values(datasnap.val())}, () => {
@@ -65,7 +65,7 @@ export default class Studentlogin extends React.Component {
             }
             }
           )
- */
+ 
           const myitemsTeach=firebase.database().ref('Teachers/')
           myitemsTeach.on('value', datasnap => {
             if (datasnap.val()) {
@@ -170,6 +170,9 @@ export default class Studentlogin extends React.Component {
             });
           }
         });
+          
+      
+
            console.log('wait')
              
         

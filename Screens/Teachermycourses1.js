@@ -50,7 +50,7 @@ export default class Teachermycourses1 extends React.Component {
     console.log(studentList);
 
     if (studentList == undefined) {
-      alert('No student is enroll for this course yet');
+      alert('No student has been enrolled for this course yet');
     } else {
       this.props.navigation.navigate('TeacherCourseDetails', {
         studentList: studentList,
