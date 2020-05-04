@@ -43,7 +43,7 @@ export default class Studentlogin extends React.Component {
   };
   studentProfile = () => {
     this.setState({indicator: true});
-
+    console.log(' hii 1');
     const username = this.state.username;
     console.log('in function');
     firebase
@@ -53,6 +53,9 @@ export default class Studentlogin extends React.Component {
         console.log('successfully logged in');
         let activeState = 0;
         let userState = 0;
+        let userFind = 0;
+        userState = 0;
+        console.log(' hii 2');
         const myitems = firebase.database().ref('Students/');
         myitems.on('value', datasnap => {
           if (datasnap.val()) {
@@ -61,6 +64,7 @@ export default class Studentlogin extends React.Component {
               const ex = this.state.Students;
               console.log(ex);
               userState = 2;
+              console.log(' hii 3');
               Object.keys(ex).map(function(key) {
                 if (ex[key].match(username)) {
                   activeState = 1;
@@ -69,6 +73,9 @@ export default class Studentlogin extends React.Component {
               });
               if (activeState == 1) {
                 activeState = 0;
+                userState = 0;
+                userFind = 1;
+                console.log(' hii 4');
                 this.props.navigation.navigate('StudentProfile', {
                   username: username,
                 });
@@ -83,7 +90,11 @@ export default class Studentlogin extends React.Component {
               console.log('fetching teacher');
               const exx = this.state.Teachers;
               console.log(exx);
-              userState = 2;
+              if (userFind == 0) {
+                userState = 2;
+              }
+
+              console.log(' hii 5');
               Object.keys(exx).map(function(key) {
                 if (exx[key].match(username)) {
                   activeState = 2;
@@ -92,6 +103,8 @@ export default class Studentlogin extends React.Component {
               });
               if (activeState == 2) {
                 activeState = 0;
+                userState = 0;
+                console.log(' hii 6');
                 this.props.navigation.navigate('TeacherProfile', {
                   username: username,
                 });
@@ -99,12 +112,16 @@ export default class Studentlogin extends React.Component {
             });
           }
         });
+        console.log(' hii 7');
         if (userState == 2) {
-          alert('user not found');
           userState = 0;
+          console.log(' hii 8');
+          alert('user not found');
         } else {
+          console.log(' hii 9');
           userState = 0;
         }
+        console.log(' hii 10');
         console.log('wait');
       })
       .then(this.onLoginSuccess)
