@@ -139,7 +139,6 @@ export default class Teachermycourses1 extends React.Component {
         <Appbar.Header>
           <Appbar.BackAction onPress={this.back} />
           <Appbar.Content title="Teacher Courses" />
-          <Appbar.Action icon="logout" onPress={this.logout} />
         </Appbar.Header>
         <ScrollView style={styles.Scroll}>
           <View>{this.renderCourseButton()}</View>

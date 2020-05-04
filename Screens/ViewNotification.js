@@ -22,9 +22,9 @@ export default class ViewNotification extends Component {
     Object.keys(data).map((obj, i) => {
       renderer[i] = (
         <Card style={{margin: 20, backgroundColor: '#E9E9E9'}}>
-          <Card.Title title={data[obj].Subject} />
+          <Card.Title title={data[obj].Subject} subtitle={data[obj].Date} />
 
-          {/*        <Text>{data[obj].Date}</Text> */}
+
           <Text>{data[obj].Description}</Text>
           <Text></Text>
           <Text>By : {data[obj].Username}</Text>

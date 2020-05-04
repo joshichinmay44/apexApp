@@ -35,66 +35,7 @@ export default class Studentlogin extends React.Component {
     Teachers: [],
     active: 0,
     indicator: false,
-    
   };
-
-  validate=()=>{
-    let user=0
-    const username = this.state.username;
-
-    let ex
-  //  console.log(username)
-   const myitems=firebase.database().ref('Students/')
-    myitems.on('value', datasnap => {
-      if (datasnap.val()) {
-        this.setState({Students: Object.values(datasnap.val())}, () => {
-          console.log('validating stud');
-          const ex = this.state.Students;
-          console.log(ex);
-          Object.keys(ex).map(function(key) {
-            if (ex[key].match(username)) {
-              console.log('Entered Student')
-              user=1;
-              
-           
-            }
-          }
-          )
-            }
-          )
-            }
-            }
-          )
- 
-          const myitemsTeach=firebase.database().ref('Teachers/')
-          myitemsTeach.on('value', datasnap => {
-            if (datasnap.val()) {
-              this.setState({Teachers: Object.values(datasnap.val())}, () => {
-                console.log('validating teach ');
-                 ex = this.state.Teachers;
-                console.log(ex);
-                Object.keys(ex).map(function(key) {
-                  if (ex[key].match(username)) {
-                    console.log('Entered Teacher')
-                    return true
-                      
-                  }
-                }
-                )
-
-                  }
-                )
-                  }
-                  }
-                )
-
-
-                  
-
-            }
-  
-
-
 
   onLoginSuccess = () => {
     this.setState({username: '', password: ''});
@@ -102,22 +43,16 @@ export default class Studentlogin extends React.Component {
   };
   studentProfile = () => {
     this.setState({indicator: true});
-    
+
     const username = this.state.username;
     console.log('in function');
-    //console.log(this.validate)
-
-   // console.log(decision)
-    if(true)
-
-{     
-
     firebase
       .auth()
       .signInWithEmailAndPassword(this.state.username, this.state.password)
       .then(() => {
         console.log('successfully logged in');
         let activeState = 0;
+        let userState = 0;
         const myitems = firebase.database().ref('Students/');
         myitems.on('value', datasnap => {
           if (datasnap.val()) {
@@ -128,10 +63,8 @@ export default class Studentlogin extends React.Component {
               Object.keys(ex).map(function(key) {
                 if (ex[key].match(username)) {
                   activeState = 1;
-                  userFound=1;
+                  userState = 1;
                 }
-                
-
               });
               if (activeState == 1) {
                 activeState = 0;
@@ -139,10 +72,6 @@ export default class Studentlogin extends React.Component {
                   username: username,
                 });
               }
-             
-              console.log('wait');
-             
-              
             });
           }
         });
@@ -156,7 +85,7 @@ export default class Studentlogin extends React.Component {
               Object.keys(exx).map(function(key) {
                 if (exx[key].match(username)) {
                   activeState = 2;
-                  
+                  userState = 1;
                 }
               });
               if (activeState == 2) {
@@ -165,32 +94,24 @@ export default class Studentlogin extends React.Component {
                   username: username,
                 });
               }
-
-              
             });
           }
         });
-          
-      
-
-           console.log('wait')
-             
-        
-
+        if (userState == 0) {
+          alert('user not found');
+        } else {
+          userState = 0;
+        }
+        console.log('wait');
       })
-      .then(
-        
-        this.onLoginSuccess)
-        
+      .then(this.onLoginSuccess)
+
       .catch(function(error) {
-       
         var errorCode = error.code;
         var errorMessage = error.message;
         alert(errorMessage);
       })
-     
       .then(this.onLoginSuccess);
-    }
   };
   load() {
     this.setState({indicator: false});
