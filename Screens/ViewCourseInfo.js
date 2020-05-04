@@ -1,7 +1,7 @@
 import React, {Component} from 'react';
 import {StyleSheet, View, ScrollView, Image, Linking} from 'react-native';
-import {Block, Button, Icon, Input, NavBar} from 'galio-framework';
-import {Appbar, Text, Card} from 'react-native-paper';
+import {Block, Icon, Input, NavBar} from 'galio-framework';
+import {Appbar, Text, Card, Button} from 'react-native-paper';
 import styles from '../style/Style';
 export default class ViewNotification extends Component {
   static navigationOptions = {

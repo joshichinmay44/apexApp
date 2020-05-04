@@ -74,6 +74,8 @@ export default class WriteBlog extends Component {
         Title: title,
         Content: content,
       });
+
+      alert('Blog posted successfully!')
     }
   };
 
@@ -134,6 +136,7 @@ export default class WriteBlog extends Component {
 
   deleteBlog = i => {
     this.state.data.child(this.state.blogKeys[i]).remove();
+    alert('Blog post deleted successfully!')
   };
 
   render() {

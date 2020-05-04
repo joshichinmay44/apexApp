@@ -88,6 +88,8 @@ export default class Writenotification extends Component {
             Subject : sub,
             Description : des,
           } )
+
+          alert('Notification posted successfully!')
        }
     }
   
