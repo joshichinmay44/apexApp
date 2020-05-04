@@ -316,7 +316,7 @@ Psychology Test Material                </Button>
         <Appbar.Header>
           <Appbar.BackAction onPress={this.back} />
           <Appbar.Content title={course} />
-          <Appbar.Action icon="logout" onPress={this.logout} />
+        
         </Appbar.Header>
 
         {this.renderDetails()}

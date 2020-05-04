@@ -50,7 +50,7 @@ export default class Teachermycourses1 extends React.Component {
     console.log(studentList);
 
     if (studentList == undefined) {
-      alert('No student is enroll for this course yet');
+      alert('No student has been enrolled for this course yet');
     } else {
       this.props.navigation.navigate('TeacherCourseDetails', {
         studentList: studentList,
@@ -139,7 +139,6 @@ export default class Teachermycourses1 extends React.Component {
         <Appbar.Header>
           <Appbar.BackAction onPress={this.back} />
           <Appbar.Content title="Teacher Courses" />
-          <Appbar.Action icon="logout" onPress={this.logout} />
         </Appbar.Header>
         <ScrollView style={styles.Scroll}>
           <View>{this.renderCourseButton()}</View>
